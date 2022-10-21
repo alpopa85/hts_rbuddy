@@ -14,7 +14,7 @@ class MainController extends AppController
 
         $this->set('tooltips', Utils::getTooltips());
         
-        $this->set('title', 'SNOSWAB');
+        $this->set('title', 'RECHARGE BUDDY');
         $this->set('activeNavbarId', 'main');       
     }
 

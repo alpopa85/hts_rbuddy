@@ -21,7 +21,7 @@ class AdminController extends AppController
       
         $this->viewBuilder()->setLayout('project');
 
-        $this->set('title', 'SNOSWAB');
+        $this->set('title', 'RECHARGE BUDDY');
         $this->set('activeNavbarId', 'admin');  
                 
         $now = Time::now();     

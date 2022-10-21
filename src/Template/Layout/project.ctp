@@ -3,7 +3,7 @@
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SNOSWAB">
+    <meta name="description" content="RECHARGE BUDDY">
     <title>        
         <?= $title ? $title : $this->fetch('title') ?>
     </title>
@@ -164,7 +164,7 @@
         </div>
 
         <?= $this->Html->link(
-            $this->Html->image('hts_logo_2.png', array('height' => '45', 'width' => 'auto', 'alt' => 'SNOSWAB')),
+            $this->Html->image('hts_logo_2.png', array('height' => '45', 'width' => 'auto', 'alt' => 'RECHARGE BUDDY')),
             ['controller' => 'main', 
             'action' => 'index'], [
             'class' => 'navbar-brand',

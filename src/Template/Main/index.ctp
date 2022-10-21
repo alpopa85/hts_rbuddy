@@ -19,7 +19,7 @@
             <tbody>  
                 <tr class="table-info no-wrap-table-row">                        
                     <td width="10%"><a href="#chapter_1">&rarr;  1.</a></td>
-                    <td class="text-left" colspan="2"><a href="#chapter_1">About SNOSWAB</a></td>                        
+                    <td class="text-left" colspan="2"><a href="#chapter_1">About RECHARGE BUDDY</a></td>                        
                 </tr> 
 
                 <tr class="table-info no-wrap-table-row">                        
@@ -104,15 +104,15 @@
 
         <ul class="main-ul">
             <li class="py-5 no-marker">
-                <h3 class="top-section" id="chapter_1">1. About SNOSWAB</h3> 
+                <h3 class="top-section" id="chapter_1">1. About RECHARGE BUDDY</h3> 
 
-                <h5>SNOSWAB (Snow, Soil Water and Water Balance Model) is an online tool for obtaining daily estimates of snow related processes (e.g., snowfall, snowmelt, snow layer thickness), soil water content and a series of soil water budget components (e.g., infiltration, drainage, surface runoff) based on user provided daily meteorological (i.e., mean air temperature, total precipitation, rainfall), evapotranspiration and calibration data. SNOSWAB has been developed through a collaborative research effort between Canadian Rivers Institute (CRI), University of New Brunswick (UNB), Agriculture and Agri-Food Canada (AAFC) and Environment and Climate Change Canada (ECCC). SNOSWAB is a result of a larger research effort aimed at evaluating the effects of agricultural production systems on groundwater and surface water quantity and quality. SNOSWAB is part of Hydrology Tool Set (HTS; <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>). In addition to SNOSWAB, HTS includes SepHydro (daily baseflow / hydrograph separation; 11 methods), ETCalc (daily potential, reference and actual evapotranspiration estimation; 8 methods) and SWIB (daily estimation of soil water stress, crop water deficit, irrigation requirement and its impact on aquifer storage, water balance components).</h5>
+                <h5>RECHARGE BUDDY (Snow, Soil Water and Water Balance Model) is an online tool for obtaining daily estimates of snow related processes (e.g., snowfall, snowmelt, snow layer thickness), soil water content and a series of soil water budget components (e.g., infiltration, drainage, surface runoff) based on user provided daily meteorological (i.e., mean air temperature, total precipitation, rainfall), evapotranspiration and calibration data. RECHARGE BUDDY has been developed through a collaborative research effort between Canadian Rivers Institute (CRI), University of New Brunswick (UNB), Agriculture and Agri-Food Canada (AAFC) and Environment and Climate Change Canada (ECCC). RECHARGE BUDDY is a result of a larger research effort aimed at evaluating the effects of agricultural production systems on groundwater and surface water quantity and quality. RECHARGE BUDDY is part of Hydrology Tool Set (HTS; <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>). In addition to RECHARGE BUDDY, HTS includes SepHydro (daily baseflow / hydrograph separation; 11 methods), ETCalc (daily potential, reference and actual evapotranspiration estimation; 8 methods) and SWIB (daily estimation of soil water stress, crop water deficit, irrigation requirement and its impact on aquifer storage, water balance components).</h5>
 
                 <br/>
                 <h5>Citation:<br/>
 
-                <h5><span style="font-style:italic">Danielescu S (2022) SNOSWAB (Snow, Soil Water and Water Balance Model) - A web-based model. Reference Manual.</span>
-                <br/>Available at <a href="https://SNOSWAB.hydrotools.tech">https://snoswab.hydrotools.tech</a>.</h5>
+                <h5><span style="font-style:italic">Danielescu S (2022) RECHARGE BUDDY (Snow, Soil Water and Water Balance Model) - A web-based model. Reference Manual.</span>
+                <br/>Available at <a href="https://RECHARGE BUDDY.hydrotools.tech">https://RECHARGE BUDDY.hydrotools.tech</a>.</h5>
 
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>
             </li>            
@@ -122,9 +122,9 @@
 
                 <h5>The water balance is an important hydrological tool that allows for quantification of the flow of water in and out of a system as well as of the amount of water available in the system. Understanding of the water balance provides the basis for advancing our understanding relative to hydrological cycle, ecosystem health or agroecosystem productivity and can be an important tool for water-resource management and environmental planning. Examples of application of water balance include evaluation of the impacts of climate variability and severe weather (e.g., droughts) on water availability; impact of human activities on water resources; the impact of water stress (water deficit and excess) on natural vegetation and agricultural crops; movement of water and solutes (e.g., contaminants) through soil; irrigation requirements for agricultural production, etc.</h5>
 
-                <h5>SNOSWAB (Snow, Soil Water and Water Balance tool) integrates several components that allow for estimation of daily dynamics and magnitude of various water balance components. SNOSWAB provides powerful routines for estimation of snow related processes and soil water content. SNOSWAB can be applied to any location for which input data is available and can be used for evaluating various scenarios relevant for the above processes. The model includes extensive calibration routines when user-provided calibration data is available. The web-based model provides various data visualization, analysis and output options through a streamlined process and a user-friendly interface.</h5>
+                <h5>RECHARGE BUDDY (Snow, Soil Water and Water Balance tool) integrates several components that allow for estimation of daily dynamics and magnitude of various water balance components. RECHARGE BUDDY provides powerful routines for estimation of snow related processes and soil water content. RECHARGE BUDDY can be applied to any location for which input data is available and can be used for evaluating various scenarios relevant for the above processes. The model includes extensive calibration routines when user-provided calibration data is available. The web-based model provides various data visualization, analysis and output options through a streamlined process and a user-friendly interface.</h5>
 
-                <h5>SNOSWAB integrates four modules: 1) HOME; 2) INPUT DATA; 3) SNOW; and 4) WATER BALANCE.</h5>
+                <h5>RECHARGE BUDDY integrates four modules: 1) HOME; 2) INPUT DATA; 3) SNOW; and 4) WATER BALANCE.</h5>
 
                 <h5>The HOME module contains information regarding the context of model development, a presentation of the various concepts used and the user guide.</h5>
 
@@ -135,14 +135,14 @@
                 <h5>The WATER BALANCE module allows for daily estimation of soil water content and of a series of water budget components (e.g., infiltration, drainage, surface runoff).</h5>
 
                 <div class="text-center mt-5 pb-2">
-                    <?= $this->Html->image('SNOSWAB_scheme_v2.png', [
+                    <?= $this->Html->image('RECHARGE BUDDY_scheme_v2.png', [
                         'class' => ['img','max-h-600'], 
-                        'alt' => 'Simplified workflow diagram for SNOSWAB model'
+                        'alt' => 'Simplified workflow diagram for RECHARGE BUDDY model'
                     ]); ?>
                 </div>  
                 <div class="row mt-2">
                     <div class="col-8 offset-2 text-center">
-                        <h5 class="fig-title">Fig 1. Simplified workflow diagram for SNOSWAB model</h5>
+                        <h5 class="fig-title">Fig 1. Simplified workflow diagram for RECHARGE BUDDY model</h5>
                         <h6>TEMP - daily mean daily air temperature; TOTPP - daily total precipitation; RAIN - daily rain; ETA - daily actual (or crop) evapotranspiration; UCD - user calibration data</h6>
                     </div>
                 </div>  
@@ -153,13 +153,13 @@
             <li class="py-5 no-marker">
                 <h3 class="top-section" id="chapter_3">3. Methodology</h3> 
 
-                <h5>Details regarding data management as well as the methodology used for each SNOSWAB module are included below.</h5>
+                <h5>Details regarding data management as well as the methodology used for each RECHARGE BUDDY module are included below.</h5>
 
                 <br/><h4 class="l2-section" id="chapter_3.1">3.1. Input Data File</h4><br/>
 
-                <h5>The Input Data file consists of a collection of daily time series including both required and optional data. SNOSWAB allows uploading of files with maximum 7500 rows (~20 years of daily data). It is recommended to split the input data set in blocks of 20 years daily timeseries when the intent is to analyze longer time periods. This data is used in conjunction with the adjustable coefficients available to the user in the Analysis page of each SNOSWAB module.</h5>
+                <h5>The Input Data file consists of a collection of daily time series including both required and optional data. RECHARGE BUDDY allows uploading of files with maximum 7500 rows (~20 years of daily data). It is recommended to split the input data set in blocks of 20 years daily timeseries when the intent is to analyze longer time periods. This data is used in conjunction with the adjustable coefficients available to the user in the Analysis page of each RECHARGE BUDDY module.</h5>
 
-                <h5>The <span class="underlined">REQUIRED INPUT TIME SERIES</span> is a daily dataset required for conducting analyses using SNOSWAB. The required input time series data includes:</h5>
+                <h5>The <span class="underlined">REQUIRED INPUT TIME SERIES</span> is a daily dataset required for conducting analyses using RECHARGE BUDDY. The required input time series data includes:</h5>
 
                 <ul>
                     <li>
@@ -180,7 +180,7 @@
                 </ul>
 
                 <br/>
-                <h5>The <span class="underlined">OPTIONAL INPUT TIME SERIES</span> (i.e., UCD - User Calibration Data) is a daily dataset used for calibrating SNOSWAB output. While this is not a required data set, the user calibration data (UCD) is critical for adjusting the various coefficients of the model. In the absence of the UCD data, the SNOSWAB model cannot be calibrated. The users can upload (up to) 5 columns of daily input datasets for model calibration. The format of the optional input time series is restricted to numerical values and the user is provided the option of pairing these time series with parameters calculated by SNOSWAB during the calibration process. Examples of calibration time series datasets include thickness of snow layer, soil water content, groundwater recharge, surface runoff, etc.</h5>
+                <h5>The <span class="underlined">OPTIONAL INPUT TIME SERIES</span> (i.e., UCD - User Calibration Data) is a daily dataset used for calibrating RECHARGE BUDDY output. While this is not a required data set, the user calibration data (UCD) is critical for adjusting the various coefficients of the model. In the absence of the UCD data, the RECHARGE BUDDY model cannot be calibrated. The users can upload (up to) 5 columns of daily input datasets for model calibration. The format of the optional input time series is restricted to numerical values and the user is provided the option of pairing these time series with parameters calculated by RECHARGE BUDDY during the calibration process. Examples of calibration time series datasets include thickness of snow layer, soil water content, groundwater recharge, surface runoff, etc.</h5>
                 
                 <div class="table-responsive text-left pt-2">
                     <h5>The number of columns, data format and the units of the various weather parameters required for the input file are shown in the table below.</h5>
@@ -258,7 +258,7 @@
                     </li>
 
                     <li>
-                        <h5>SNOSWAB includes limited input data quality check routines and hence, the user must ensure that the input data set is suitable for analysis (e.g., check dataset for missing or erroneous values, etc.)</h5>
+                        <h5>RECHARGE BUDDY includes limited input data quality check routines and hence, the user must ensure that the input data set is suitable for analysis (e.g., check dataset for missing or erroneous values, etc.)</h5>
                     </li>                    
                 </ul>    
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>            
@@ -266,7 +266,7 @@
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_3.2">3.2. Time steps and averaging</h4><br/>
 
-                <h5>SNOSWAB uses daily data for both input and output data. SNOSWAB includes a series of averaging options (i.e., monthly, seasonal [meteorological and growing season], yearly), which are explained in more detail below. SNOSWAB can also calculate all the output parameters using a "typical year daily" (i.e., daily multi-year averages for each day of the year available in the input and output files) for the cases when the analysis is carried out for a period longer than one year. The monthly as well as the typical daily year (see below for details) are recommended for inspecting and analyzing results when multiple years of data are available. The daily values for the typical year can also be averaged over monthly, seasonal [meteorological and growing season], and yearly periods. The following time intervals are available in tables, graphs and export files for displaying SNOSWAB results:</h5>
+                <h5>RECHARGE BUDDY uses daily data for both input and output data. RECHARGE BUDDY includes a series of averaging options (i.e., monthly, seasonal [meteorological and growing season], yearly), which are explained in more detail below. RECHARGE BUDDY can also calculate all the output parameters using a "typical year daily" (i.e., daily multi-year averages for each day of the year available in the input and output files) for the cases when the analysis is carried out for a period longer than one year. The monthly as well as the typical daily year (see below for details) are recommended for inspecting and analyzing results when multiple years of data are available. The daily values for the typical year can also be averaged over monthly, seasonal [meteorological and growing season], and yearly periods. The following time intervals are available in tables, graphs and export files for displaying RECHARGE BUDDY results:</h5>
 
                 <ul>
                     <li>
@@ -318,7 +318,7 @@
                     <li>
                         <h4>Input Data Module</h4>
 
-                        <h5><span class="underlined">Start and end date for the growing season</span>. Used for allowing SNOSWAB to calculate all the parameters for the growing season (GS) and outside of the growing season (OGS). The start and end dates use <strong>mm-dd</strong> format (the year is ignored as the same dates are applied to all years available in the input data file).</h5>
+                        <h5><span class="underlined">Start and end date for the growing season</span>. Used for allowing RECHARGE BUDDY to calculate all the parameters for the growing season (GS) and outside of the growing season (OGS). The start and end dates use <strong>mm-dd</strong> format (the year is ignored as the same dates are applied to all years available in the input data file).</h5>
                     </li>
                             
                     <br/>
@@ -625,7 +625,7 @@
                 <h5>All the calculations for this module are performed using millimeters of water (mm) units. In addition, the snow layer thickness is available both as mm (<span data-toggle="tooltip" title="<?= $tooltips['SNTFmm'] ?>">SNTFmm</span>) and cm (<span data-toggle="tooltip" title="<?= $tooltips['SNTFcm'] ?>">SNTFcm</span>).</h5>
 
                 <div class="text-center mt-5 pb-2">
-                    <?= $this->Html->image('SNOSWAB_snow_v1.png', [
+                    <?= $this->Html->image('RECHARGE BUDDY_snow_v1.png', [
                         'class' => ['img','max-h-400'], 
                         'alt' => 'Simplified workflow diagram for the SNOW module'
                     ]); ?>
@@ -754,7 +754,7 @@
                         <tr class="table-info">
                             <td><span style="font-weight:600;" data-toggle="tooltip" title="<?= $tooltips['UCD'] ?>">UCD</span></td>
                             <td>User-provided calibration data</td>
-                            <td>If provided, UCD data allows for pairing of SNOSWAB calculated parameters with data from other sources during the calibration of the model</td>                                                                         
+                            <td>If provided, UCD data allows for pairing of RECHARGE BUDDY calculated parameters with data from other sources during the calibration of the model</td>                                                                         
                         </tr> 
                     </thead>
                     <tbody>        
@@ -766,12 +766,12 @@
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_3.5">3.5. WATER BALANCE Module</h4><br/>
 
-                <h5>The WATER BALANCE module allows for daily estimation of soil water content and of a series of water budget components (e.g., infiltration, drainage, surface runoff). This module does not require additional meteorological time series and all the calculations are based on the output from the SNOW module and the additional coefficients that the user needs to provide for this module. These coefficients are used for describing soil properties and for controlling infiltration, drainage, and surface runoff routines. This module also offers the option for setting up thresholds for dry and wet soil state, which are useful in studies related to soil or crop water deficiency and/or excess. For a more in-depth evaluation of water deficit and/or excess, together with testing of irrigation scenarios and impacts on aquifer storage the users are encouraged to use SWIB (Soil Water Stress, Irrigation Requirement and Water Balance), another tool included in HTS, and available at <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>. SWIB requires daily time series of soil water content (SWC), which can be estimated using SNOSWAB or obtained from other sources (e.g., databases of soil moisture measurements, other models, etc.). Similar to the SNOW module, the WATER BALANCE module requires the user to provide one or more calibration time series (e.g., soil water content, groundwater recharge, surface runoff) obtained from other sources that can be used for calibration of the output from this module. Although based on different underlying assumptions, SepHydro hydrograph separation tool available in HTS can be used for estimating surface runoff and groundwater discharge components of streamflow, which can be used for example for calibrating the calculations integrated in The WATER BALANCE module.</h5>                            
+                <h5>The WATER BALANCE module allows for daily estimation of soil water content and of a series of water budget components (e.g., infiltration, drainage, surface runoff). This module does not require additional meteorological time series and all the calculations are based on the output from the SNOW module and the additional coefficients that the user needs to provide for this module. These coefficients are used for describing soil properties and for controlling infiltration, drainage, and surface runoff routines. This module also offers the option for setting up thresholds for dry and wet soil state, which are useful in studies related to soil or crop water deficiency and/or excess. For a more in-depth evaluation of water deficit and/or excess, together with testing of irrigation scenarios and impacts on aquifer storage the users are encouraged to use SWIB (Soil Water Stress, Irrigation Requirement and Water Balance), another tool included in HTS, and available at <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>. SWIB requires daily time series of soil water content (SWC), which can be estimated using RECHARGE BUDDY or obtained from other sources (e.g., databases of soil moisture measurements, other models, etc.). Similar to the SNOW module, the WATER BALANCE module requires the user to provide one or more calibration time series (e.g., soil water content, groundwater recharge, surface runoff) obtained from other sources that can be used for calibration of the output from this module. Although based on different underlying assumptions, SepHydro hydrograph separation tool available in HTS can be used for estimating surface runoff and groundwater discharge components of streamflow, which can be used for example for calibrating the calculations integrated in The WATER BALANCE module.</h5>                            
                 
                 <h5>All the calculations for this module are performed using millimeters of water (mm) units. When needed, soil water content units (i.e., SWC), are converted from % to millimeters and vice versa using the thickness of the soil specified by the user.</h5>
 
                 <div class="text-center mt-5 pb-2">
-                    <?= $this->Html->image('SNOSWAB_waterbal_v1.png', [
+                    <?= $this->Html->image('RECHARGE BUDDY_waterbal_v1.png', [
                         'class' => ['img','max-h-600'], 
                         'alt' => 'Simplified workflow diagram for the WATER BALANCE module'
                     ]); ?>
@@ -941,7 +941,7 @@
                         <tr class="table-info">
                             <td><span style="font-weight:600;" data-toggle="tooltip" title="<?= $tooltips['UCD'] ?>">UCD</span></td>
                             <td>User-provided calibration data</td>
-                            <td>If provided, UCD data allows for pairing of SNOSWAB calculated parameters with data from other sources during the calibration of the model</td>                                                                         
+                            <td>If provided, UCD data allows for pairing of RECHARGE BUDDY calculated parameters with data from other sources during the calibration of the model</td>                                                                         
                         </tr> 
                     </thead>
                     <tbody>        
@@ -952,7 +952,7 @@
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_3.6">3.6. Model Calibration</h4><br/>
 
-                <h5>Calibration of the model is performed via the Analysis tab of each of the calculation modules (i.e., SNOW and WATER BALANCE). Calibration is conducted by first pairing the output of the model with the user calibration data (e.g., SNTFcm [Snow layer thickness, mm] model output and measured snow thickness if available) using the "Calibration mapping" menu available under the "Analysis" tab of each calculation module.  Once the pairing is completed, the user can proceed running the respective module ("Run Snow Analysis" or "Run Water Balance Analysis" button at the bottom of the Analysis tab page) and inspect the fitness of the model in the subsequent Calibration overlay window. The fitness of the model for various timesteps and averaging intervals can be inspected in the Calibration overlay window via graphs as well as bivariate statistics.  If the calibration is considered unsatisfactory the user can return to the Analysis menu (i.e., "Return" button), adjust the various coefficients of the model and rerun the analysis. If the calibration is considered satisfactory the user can complete the calculations by proceeding to the next step (i.e., "Proceed to results"). To aid with data inspection and assessment of the fitness of the model SNOSWAB includes several univariate and bivariate statistics. Univariate statistics, including average, minimum, maximum and standard deviation are calculated separately for the input (i.e., user provided calibration data) and model output time series. The graphs and the univariate statistics can be used for example for comparing the general trends, the range of values and the amplitude of variations in both data sets. The bivariate statistics include the coefficient of determination (R2), root mean square error (RMSE) and the normalized root mean square error (NRMSE). NRMSE is calculated by using the average, the interquartile range or the differences between maximum and minimum (see definitions below). The bivariate statistics are used for evaluating the fitness of the model, by providing a measure of the differences between the values calculated by the model and the user provided calibration data (i.e., UCD). The equations used for calculating each bivariate statistic are shown below.</h5>
+                <h5>Calibration of the model is performed via the Analysis tab of each of the calculation modules (i.e., SNOW and WATER BALANCE). Calibration is conducted by first pairing the output of the model with the user calibration data (e.g., SNTFcm [Snow layer thickness, mm] model output and measured snow thickness if available) using the "Calibration mapping" menu available under the "Analysis" tab of each calculation module.  Once the pairing is completed, the user can proceed running the respective module ("Run Snow Analysis" or "Run Water Balance Analysis" button at the bottom of the Analysis tab page) and inspect the fitness of the model in the subsequent Calibration overlay window. The fitness of the model for various timesteps and averaging intervals can be inspected in the Calibration overlay window via graphs as well as bivariate statistics.  If the calibration is considered unsatisfactory the user can return to the Analysis menu (i.e., "Return" button), adjust the various coefficients of the model and rerun the analysis. If the calibration is considered satisfactory the user can complete the calculations by proceeding to the next step (i.e., "Proceed to results"). To aid with data inspection and assessment of the fitness of the model RECHARGE BUDDY includes several univariate and bivariate statistics. Univariate statistics, including average, minimum, maximum and standard deviation are calculated separately for the input (i.e., user provided calibration data) and model output time series. The graphs and the univariate statistics can be used for example for comparing the general trends, the range of values and the amplitude of variations in both data sets. The bivariate statistics include the coefficient of determination (R2), root mean square error (RMSE) and the normalized root mean square error (NRMSE). NRMSE is calculated by using the average, the interquartile range or the differences between maximum and minimum (see definitions below). The bivariate statistics are used for evaluating the fitness of the model, by providing a measure of the differences between the values calculated by the model and the user provided calibration data (i.e., UCD). The equations used for calculating each bivariate statistic are shown below.</h5>
 
                 <div class="text-center mt-5 pb-2">
                     <?= $this->Html->image('eq_r_square.png', [
@@ -1033,14 +1033,14 @@
                 </div>
 
                 <br/>
-                <h5>It is recommended that the calibration is conducted by changing one coefficient at a time over a selected range of values. When no further improvement is observed in the model output the user can advance to adjusting the values of the next coefficient. The values of the various coefficients can be considered final once no further improvement in the model fitness is observed. At this time only calibration by trial and error is available, however the integration of an autocalibration routine in SNOSWAB is in planning stages.</h5>
+                <h5>It is recommended that the calibration is conducted by changing one coefficient at a time over a selected range of values. When no further improvement is observed in the model output the user can advance to adjusting the values of the next coefficient. The values of the various coefficients can be considered final once no further improvement in the model fitness is observed. At this time only calibration by trial and error is available, however the integration of an autocalibration routine in RECHARGE BUDDY is in planning stages.</h5>
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>                
             </li>
 
             <li class="pt-5 pb-3 no-marker">
                 <h3 class="top-section" id="chapter_4">4. User Guide</h3> 
 
-                <h5>SNOSWAB (Snow, Soil Water and Water Balance Model) is an online model for obtaining daily estimates of snow related processes (e.g., snowfall, snowmelt, snow layer thickness), soil water content and a series of soil water budget components (e.g., infiltration, drainage, surface runoff) based on user provided daily meteorological (i.e., mean air temperature, total precipitation, rainfall), evapotranspiration and calibration data. The model provides tabular and graphical representations of the input data, output data, and user calibration data (UCD), as well as representative statistics for various time intervals including daily, monthly, meteorological and growing seasons, yearly and various averaging intervals for multiyear data sets (see section <a href="#chapter_3.2">3.2. Time steps and averaging</a>). The model incorporates extensive calibration routines for each calculation module included (i.e., Snow Module, Water Balance Module), which can be used if user calibration data (i.e., UCD) is provided.</h5>
+                <h5>RECHARGE BUDDY (Snow, Soil Water and Water Balance Model) is an online model for obtaining daily estimates of snow related processes (e.g., snowfall, snowmelt, snow layer thickness), soil water content and a series of soil water budget components (e.g., infiltration, drainage, surface runoff) based on user provided daily meteorological (i.e., mean air temperature, total precipitation, rainfall), evapotranspiration and calibration data. The model provides tabular and graphical representations of the input data, output data, and user calibration data (UCD), as well as representative statistics for various time intervals including daily, monthly, meteorological and growing seasons, yearly and various averaging intervals for multiyear data sets (see section <a href="#chapter_3.2">3.2. Time steps and averaging</a>). The model incorporates extensive calibration routines for each calculation module included (i.e., Snow Module, Water Balance Module), which can be used if user calibration data (i.e., UCD) is provided.</h5>
 
                 <h5>At the top, a contextual menu provides access to the various modules available. The modules can be accessed progressively, in the following order: 1) Home (Information module); 2) Input Data (Data entry module); 3) Snow (Calculation module); and 4) Water Balance (Calculation module). Once the calculations of a module are completed, the user can advance to the next module and can also return to the respective module at any time during the session. Additional menu tabs are available for both the data entry (i.e., Info, Load Data, Graphical View, Table View and Export Input Data for the Input Data module) and calculation (i.e., Info, Analysis, Graphical View, Table View and Export Data available for the SNOW and WATER BALANCE modules) modules. In the following sections the options available under the Input Data - Load menu tab and under the Analysis menu tab of each calculation module are presented in separate subsections. The options available under the other menu tabs are common to all three modules mentioned above and are presented as an additional subsection</h5>
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>
@@ -1048,7 +1048,7 @@
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_4.1">4.1. Quick start</h4><br/>
 
-                <h5>In order to run SNOSWAB the user has to go through the following steps:</h5>
+                <h5>In order to run RECHARGE BUDDY the user has to go through the following steps:</h5>
 
                 <ol class="large-list">
                     <li>
@@ -1064,7 +1064,7 @@
                     </li>
 
                     <li>
-                        <h5>Investigate Results and Export Data: Review SNOSWAB output from each module [Table View and/or Graphical View] and export results [Export Data button available under each data entry and calculation modules or the CSV button available under the Stats and Calibration Stats of the Graphical View or under the Table, Stats and Calibration Stats of the Table View].</h5>
+                        <h5>Investigate Results and Export Data: Review RECHARGE BUDDY output from each module [Table View and/or Graphical View] and export results [Export Data button available under each data entry and calculation modules or the CSV button available under the Stats and Calibration Stats of the Graphical View or under the Table, Stats and Calibration Stats of the Table View].</h5>
                     </li>
                 </ol>
 
@@ -1074,20 +1074,20 @@
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_4.2">4.2. Home Module</h4><br/>
 
-                <h5>This module contains information related to the development, methodology and use of SNOSWAB. Under each of the input and calculation modules an Info tab is available, where general information relevant to the respective module is provided.</h5>
+                <h5>This module contains information related to the development, methodology and use of RECHARGE BUDDY. Under each of the input and calculation modules an Info tab is available, where general information relevant to the respective module is provided.</h5>
 
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_4.3">4.3. Load Data (Input Data Module)</h4><br/>
 
                 <h5>The Input Data menu entry has five tabs at the top of the page: Info, Load Data, Graphical View, Table View and Export Input Data.</h5>
 
-                <h5>The first step in conducting an analysis is to upload the input data file to be used in SNOSWAB. The users can run SNOSWAB either by using the test dataset or by uploading a new dataset.</h5>
+                <h5>The first step in conducting an analysis is to upload the input data file to be used in RECHARGE BUDDY. The users can run RECHARGE BUDDY either by using the test dataset or by uploading a new dataset.</h5>
              
-                <h5>For testing SNOSWAB and better understanding how the various components of the model operate, the user can upload the test data set provided by clicking on "Try the tool using the test dataset" button. The test dataset contains three years of weather and user calibration data (UCD). UCD data consists of snow layer thickness (cm; UCD1; corresponding to SNOSWAB SNTFcm output parameter; UCD1 measured at Environment and Climate Change Canada [ECCC] Charlottetown weather station, Prince Edward Island, Canada), soil water content (%; UCD2; corresponding to SNOSWAB SWCfin output parameter; UCD2 measured at Agriculture and Agri-Food Canada [AAFC] Harrington Experimental Farm, Prince Edward Island, Canada), surface runoff (mm; UCD3; corresponding to SNOSWAB SRTact output parameter; UCD3 estimated from hydrograph separation of Bell's Creek stream discharge based on data from measured at ECCC hydrometric stations in Prince Edward Island, Canada) and groundwater recharge (mm; UCD4; corresponding to SNOSWAB DRact output parameter; UCD4 estimated from groundwater levels measured in research wells at AAFC Harrington Experimental Farm, Prince Edward Island, Canada).</h5>
+                <h5>For testing RECHARGE BUDDY and better understanding how the various components of the model operate, the user can upload the test data set provided by clicking on "Try the tool using the test dataset" button. The test dataset contains three years of weather and user calibration data (UCD). UCD data consists of snow layer thickness (cm; UCD1; corresponding to RECHARGE BUDDY SNTFcm output parameter; UCD1 measured at Environment and Climate Change Canada [ECCC] Charlottetown weather station, Prince Edward Island, Canada), soil water content (%; UCD2; corresponding to RECHARGE BUDDY SWCfin output parameter; UCD2 measured at Agriculture and Agri-Food Canada [AAFC] Harrington Experimental Farm, Prince Edward Island, Canada), surface runoff (mm; UCD3; corresponding to RECHARGE BUDDY SRTact output parameter; UCD3 estimated from hydrograph separation of Bell's Creek stream discharge based on data from measured at ECCC hydrometric stations in Prince Edward Island, Canada) and groundwater recharge (mm; UCD4; corresponding to RECHARGE BUDDY DRact output parameter; UCD4 estimated from groundwater levels measured in research wells at AAFC Harrington Experimental Farm, Prince Edward Island, Canada).</h5>
 
-                <h5>For using SNOSWAB the users need to upload daily timeseries. The model accepts source data sets in Comma Separated File (csv) format. The users can use the "Export Input Data - Daily" menu to obtain a correctly formatted input file that can be used as a model for populating the input data file with user data. The user input file can be uploaded to SNOSWAB by using the "Upload user data" button. SNOSWAB allows uploading of files with maximum 7500 rows (~20 years of daily data). It is recommended to split the input data set in blocks of 20 years daily timeseries when the intent is to analyze longer time periods. It should be noted that the model cannot accommodate missing data (i.e., blank rows in required data columns) or erroneous data entries, and hence it is recommended that the integrity of the source data is verified before uploading.</h5>
+                <h5>For using RECHARGE BUDDY the users need to upload daily timeseries. The model accepts source data sets in Comma Separated File (csv) format. The users can use the "Export Input Data - Daily" menu to obtain a correctly formatted input file that can be used as a model for populating the input data file with user data. The user input file can be uploaded to RECHARGE BUDDY by using the "Upload user data" button. RECHARGE BUDDY allows uploading of files with maximum 7500 rows (~20 years of daily data). It is recommended to split the input data set in blocks of 20 years daily timeseries when the intent is to analyze longer time periods. It should be noted that the model cannot accommodate missing data (i.e., blank rows in required data columns) or erroneous data entries, and hence it is recommended that the integrity of the source data is verified before uploading.</h5>
 
-                <h5>The input data file consists of a tabular file with 1 column dedicated to calendar date, 4 columns dedicated to required input data (TEMP - daily mean daily air temperature; TOTPP - daily total precipitation; RAIN - daily rain; ETA - daily actual (or crop) evapotranspiration) and 5 columns reserved for optional user calibration data (UCD1 to UCD5). The required input data columns have to contain values in all rows, while the optional data columns can be left blank if data is not available. UCD data sets are not restricted to certain parameters and can include time series for any parameter that the user intends to use for comparing with the output from SNOSWAB.  Examples of calibration time series datasets include thickness of snow layer, soil water content, groundwater recharge, surface runoff, etc.</h5>
+                <h5>The input data file consists of a tabular file with 1 column dedicated to calendar date, 4 columns dedicated to required input data (TEMP - daily mean daily air temperature; TOTPP - daily total precipitation; RAIN - daily rain; ETA - daily actual (or crop) evapotranspiration) and 5 columns reserved for optional user calibration data (UCD1 to UCD5). The required input data columns have to contain values in all rows, while the optional data columns can be left blank if data is not available. UCD data sets are not restricted to certain parameters and can include time series for any parameter that the user intends to use for comparing with the output from RECHARGE BUDDY.  Examples of calibration time series datasets include thickness of snow layer, soil water content, groundwater recharge, surface runoff, etc.</h5>
 
                 <div class="table-responsive text-left pt-2">
 
@@ -1166,15 +1166,15 @@
                     </li>
 
                     <li>
-                        <h5>SNOSWAB includes limited input data quality check routines and hence, the user must ensure that the input data set is suitable for analysis (e.g., check dataset for missing or erroneous values, etc.)</h5>
+                        <h5>RECHARGE BUDDY includes limited input data quality check routines and hence, the user must ensure that the input data set is suitable for analysis (e.g., check dataset for missing or erroneous values, etc.)</h5>
                     </li>                    
                 </ul>
 
                 <br/>
-                <h5>On this page the user can specify the beginning and the end of the growing season in the boxes provided. These dates are used for averaging the various parameters during the growing season (GS) and outside of the growing season (OGS). In SNOSWAB, it is assumed that these dates are not changing from year to year and hence, the start and end dates use the mm-dd format (the year is ignored as the same dates are applied to all years available in the input data file).</h5>
+                <h5>On this page the user can specify the beginning and the end of the growing season in the boxes provided. These dates are used for averaging the various parameters during the growing season (GS) and outside of the growing season (OGS). In RECHARGE BUDDY, it is assumed that these dates are not changing from year to year and hence, the start and end dates use the mm-dd format (the year is ignored as the same dates are applied to all years available in the input data file).</h5>
 
                 <br/>
-                <h5>Once the input dataset is loaded to SNOSWAB via either the "Try the tool using the test data set" or "Upload user data" button an overlay window appears (i.e., "Select the UCD averaging method") asking the user to specify the method used for calculation of monthly values for each UCD timeseries (i.e., averaging vs. summation). Once this step is completed a new button ("UCD") is added to the right of the Input Data tab at the top of the page and the view switches to Graphical View. The UCD menu available at the top of the page allows the user to change the method for the calculation of monthly values for each UCD at any time. See section <a href="#chapter_4.6">4.6</a>. for instructions regarding the inspection of datasets using tables and graphs as well as for the various options available for exporting the data.</h5>
+                <h5>Once the input dataset is loaded to RECHARGE BUDDY via either the "Try the tool using the test data set" or "Upload user data" button an overlay window appears (i.e., "Select the UCD averaging method") asking the user to specify the method used for calculation of monthly values for each UCD timeseries (i.e., averaging vs. summation). Once this step is completed a new button ("UCD") is added to the right of the Input Data tab at the top of the page and the view switches to Graphical View. The UCD menu available at the top of the page allows the user to change the method for the calculation of monthly values for each UCD at any time. See section <a href="#chapter_4.6">4.6</a>. for instructions regarding the inspection of datasets using tables and graphs as well as for the various options available for exporting the data.</h5>
 
                 <br/>
                 <h5>Once the loading and inspecting of the input data is completed the user can click on the SNOW menu entry at the top of the page to advance to the first calculation module.</h5>
@@ -1493,7 +1493,7 @@
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_4.6">4.6. Data inspection, visualisation and export (all modules)</h4><br/>
             
-                <h5>Inspection of data via graphical and tabular views can be conducted via the Graphical View, Table View and Export Data menu entries that become available in the Input Data module once the input dataset is loaded to SNOSWAB. These menu entries are also available under each of the calculation modules (SNOW and WATER BALANCE) and allow the user to evaluate the output for each of these modules.</h5>
+                <h5>Inspection of data via graphical and tabular views can be conducted via the Graphical View, Table View and Export Data menu entries that become available in the Input Data module once the input dataset is loaded to RECHARGE BUDDY. These menu entries are also available under each of the calculation modules (SNOW and WATER BALANCE) and allow the user to evaluate the output for each of these modules.</h5>
 
                 <br/>
                 <h5><strong>Graphical View</strong> allows for plotting of input or output data using various time steps and intervals (see Section <a href="#chapter_3.2">3.2. Time steps and averaging</a> for more details) available via a drop-down menu. The parameters that can be displayed are available in the selection pane located to the right of the plot. Each parameter can be displayed on the primary (left) Y axis or on the secondary (right) Y axis by clicking on the toggle placed at the right of the selection pane. Additional options for customising the plot become visible in the top right corner when the mouse pointer is placed above the plot. These options include zoom, auto scale, reset axes, show data point labels, download plot, etc. Univariate statistics (average, minimum, maximum, standard deviation) for selected timeseries and bivariate statistics (R<sup>2</sup>, RMSE, NRMSE<sub>ave</sub>, NRMSE<sub>IQR</sub>, NRMSE<sub>min/max</sub>) for inspecting the fitness of the model are available under the Stats and Calibration Stats tabs, respectively. These statistics are available either for the entire dataset ("Show Complete Dataset Stats" button) or for a selected subset ("Show stats by Interval" button). The tables shown on the statistics pages can be exported individually by using the corresponding CSV button located to the right of the page</h5>
@@ -1510,10 +1510,10 @@
             <li class="py-3 no-marker">
                 <h3 class="top-section" id="chapter_5">5. Limitations</h3>
                 
-                <h5>SNOSWAB allows uploading of files with maximum 7500 rows (~20 years of daily data). It is recommended to split the input data set in blocks of 20 years daily timeseries when the intent is to analyze longer time periods.</h5>
+                <h5>RECHARGE BUDDY allows uploading of files with maximum 7500 rows (~20 years of daily data). It is recommended to split the input data set in blocks of 20 years daily timeseries when the intent is to analyze longer time periods.</h5>
 
                 <br/>
-                <h5>SNOSWAB includes limited input data quality check routines. Hence, the user is advised to conduct a thorough data quality check before uploading input data to minimize the risk for erroneous output.</h5>
+                <h5>RECHARGE BUDDY includes limited input data quality check routines. Hence, the user is advised to conduct a thorough data quality check before uploading input data to minimize the risk for erroneous output.</h5>
 
                 <br/>
                 <h5>Some components of the Water Balance module are still in testing stage (i.e., surface runoff, drainage, infiltration) and hence, this module should be used with caution.</h5>
@@ -1523,7 +1523,7 @@
             <li class="py-3 no-marker">
                 <h3 class="top-section" id="chapter_6">6. Terms of Use</h3> 
 
-                <h5>SNOSWAB can be used freely.</h5>
+                <h5>RECHARGE BUDDY can be used freely.</h5>
 
                 <h5>The authors do not assume any responsibility for the model's operation, output, interpretation, or use of results.</h5>               
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>         
