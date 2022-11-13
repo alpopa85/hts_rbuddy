@@ -39,7 +39,7 @@ class SoilwaterAnalysisEngine
             'time_month',
             'time_year',
             'time_date',
-            'temp',
+            'elevation',
             'et'            
         ];                 
 
@@ -66,7 +66,7 @@ class SoilwaterAnalysisEngine
         $requiredFields = [ // need these fields from water deficit / stress table
             'snow_mm',
             'water_or_sr',
-            'temp',
+            'elevation',
             'precip',
             'rain',
             'ucd1',
@@ -179,7 +179,7 @@ class SoilwaterAnalysisEngine
         $outputArray = [];
 
         // get cols from snow
-        $outputArray['temp'] = $snowData['temp'];
+        $outputArray['elevation'] = $snowData['elevation'];
         $outputArray['precip'] = $snowData['precip'];
         $outputArray['rain'] = $snowData['rain'];
         $outputArray['ucd1'] = $snowData['ucd1'];
@@ -229,7 +229,7 @@ class SoilwaterAnalysisEngine
         if ($isFirstRow) {
             $outputArray['j'] = $outputArray['i'];
         } else {
-            if ($inputData['temp'] < $this->params['thr_tsd']) {
+            if ($inputData['elevation'] < $this->params['thr_tsd']) {
                 $outputArray['j'] = 0;
             } else {
                 $outputArray['j'] = $outputArray['i'];
@@ -380,7 +380,7 @@ class SoilwaterAnalysisEngine
             'time_year' => $outputDataRow['time_year']
         );
 
-        $dbReadyDataRow['temp'] = $outputDataRow['temp'];
+        $dbReadyDataRow['elevation'] = $outputDataRow['elevation'];
         $dbReadyDataRow['precip'] = $outputDataRow['precip'];
         $dbReadyDataRow['rain'] = $outputDataRow['rain'];
 

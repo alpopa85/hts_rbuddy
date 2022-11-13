@@ -221,7 +221,7 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $monthAbbrev . '/' . $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['time_month'] = $item['time_month'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -238,7 +238,7 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $monthAbbrev . '/' . $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['time_month'] = $item['time_month'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -272,7 +272,7 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $monthAbbrev . '/' . $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['time_month'] = $item['time_month'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -327,7 +327,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];                    
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -343,7 +343,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -376,7 +376,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -431,7 +431,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Spring/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -447,7 +447,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Spring/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -480,7 +480,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Spring/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -535,7 +535,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Summer/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -551,7 +551,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Summer/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -584,7 +584,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Summer/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -639,7 +639,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Fall/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -655,7 +655,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Fall/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -688,7 +688,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Fall/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -748,7 +748,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Winter/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
-                    $outputDataRow['temp'] = ($item['temp'] + $decemberAverages['temp']) / 2;
+                    $outputDataRow['elevation'] = ($item['elevation'] + $decemberAverages['elevation']) / 2;
                     $outputDataRow['precip'] = $item['precip'] + $decemberAverages['precip'];                        
                     $outputDataRow['rain'] = $item['rain'] + $decemberAverages['rain'];
                     $outputDataRow['et'] = $item['et'] + $decemberAverages['et'];                        
@@ -766,7 +766,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Winter/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                                        
-                    $outputDataRow['temp'] = ($item['temp'] + $decemberAverages['temp']) / 2;
+                    $outputDataRow['elevation'] = ($item['elevation'] + $decemberAverages['elevation']) / 2;
                     $outputDataRow['precip'] = $item['precip'] + $decemberAverages['precip'];
                     $outputDataRow['rain'] = $item['rain'] + $decemberAverages['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'] + $decemberAverages['snow_mm'];
@@ -801,7 +801,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Winter/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
-                    $outputDataRow['temp'] = ($item['temp'] + $decemberAverages['temp']) / 2;
+                    $outputDataRow['elevation'] = ($item['elevation'] + $decemberAverages['elevation']) / 2;
                     $outputDataRow['precip'] = $item['precip'] + $decemberAverages['precip'];
                     $outputDataRow['rain'] = $item['rain'] + $decemberAverages['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'] + $decemberAverages['snow_mm'];
@@ -887,7 +887,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'inGrowing/' . $calculatedDataRows['time_year'];
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
-                    $outputDataRow['temp'] = $calculatedDataRows['temp'];
+                    $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
                     $outputDataRow['precip'] = $calculatedDataRows['precip'];
                     $outputDataRow['rain'] = $calculatedDataRows['rain'];
                     $outputDataRow['et'] = $calculatedDataRows['et'];
@@ -903,7 +903,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'inGrowing/' . $calculatedDataRows['time_year'];           
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
-                    $outputDataRow['temp'] = $calculatedDataRows['temp'];
+                    $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
                     $outputDataRow['precip'] = $calculatedDataRows['precip'];
                     $outputDataRow['rain'] = $calculatedDataRows['rain'];
                     $outputDataRow['snow_mm'] = $calculatedDataRows['snow_mm'];
@@ -936,7 +936,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'inGrowing/' . $calculatedDataRows['time_year'];           
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
-                    $outputDataRow['temp'] = $calculatedDataRows['temp'];
+                    $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
                     $outputDataRow['precip'] = $calculatedDataRows['precip'];
                     $outputDataRow['rain'] = $calculatedDataRows['rain'];
                     $outputDataRow['snow_mm'] = $calculatedDataRows['snow_mm'];
@@ -1003,7 +1003,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'outGrowing/' . $timeYear;
                     $outputDataRow['time_year'] = $timeYear;
-                    $outputDataRow['temp'] = ($calculatedDataRowsBefore['temp'] + $calculatedDataRowsAfter['temp']) / 2;
+                    $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
                     $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
                     $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
                     $outputDataRow['et'] = $calculatedDataRowsBefore['et'] + $calculatedDataRowsAfter['et'];
@@ -1019,7 +1019,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'outGrowing/' . $timeYear;           
                     $outputDataRow['time_year'] = $timeYear;                    
-                    $outputDataRow['temp'] = ($calculatedDataRowsBefore['temp'] + $calculatedDataRowsAfter['temp']) / 2;
+                    $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
                     $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
                     $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
                     $outputDataRow['snow_mm'] = $calculatedDataRowsBefore['snow_mm'] + $calculatedDataRowsAfter['snow_mm'];
@@ -1052,7 +1052,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'outGrowing/' . $timeYear;           
                     $outputDataRow['time_year'] = $timeYear;                    
-                    $outputDataRow['temp'] = ($calculatedDataRowsBefore['temp'] + $calculatedDataRowsAfter['temp']) / 2;
+                    $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
                     $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
                     $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
                     $outputDataRow['snow_mm'] = $calculatedDataRowsBefore['snow_mm'] + $calculatedDataRowsAfter['snow_mm'];
@@ -1138,7 +1138,7 @@ class AveragingEngine
                     $outputDataRow['time_month'] = $item['time_month'];                    
                     $outputDataRow['time_day'] = $item['time_day'];                                        
                     $outputDataRow['time_date'] = 2000 . '-' . $item['time_month'] . '-' . $item['time_day']; 
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -1157,7 +1157,7 @@ class AveragingEngine
                     $outputDataRow['time_month'] = $item['time_month'];                    
                     $outputDataRow['time_day'] = $item['time_day'];                                        
                     $outputDataRow['time_date'] = 2000 . '-' . $item['time_month'] . '-' . $item['time_day']; 
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1193,7 +1193,7 @@ class AveragingEngine
                     $outputDataRow['time_month'] = $item['time_month'];                    
                     $outputDataRow['time_day'] = $item['time_day'];                                        
                     $outputDataRow['time_date'] = 2000 . '-' . $item['time_month'] . '-' . $item['time_day'];    
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1251,7 +1251,7 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $monthAbbrev;
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -1268,7 +1268,7 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $monthAbbrev;
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1302,7 +1302,7 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $monthAbbrev;
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['time_year'] = $item['time_year'];          
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1357,7 +1357,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Typical Year';
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -1373,7 +1373,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Typical Year';
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1406,7 +1406,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Typical Year';
                     $outputDataRow['time_year'] = $item['time_year'];                   
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1461,7 +1461,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Spring';
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -1477,7 +1477,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Spring';
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1510,7 +1510,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Spring';
                     $outputDataRow['time_year'] = $item['time_year'];         
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1565,7 +1565,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;                      
                     $outputDataRow['time_name'] = 'Summer';
                     $outputDataRow['time_year'] = $item['time_year'];               
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -1581,7 +1581,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Summer';
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1614,7 +1614,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Summer';
                     $outputDataRow['time_year'] = $item['time_year'];     
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1669,7 +1669,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;                         
                     $outputDataRow['time_name'] = 'Fall';
                     $outputDataRow['time_year'] = $item['time_year'];         
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -1685,7 +1685,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Fall';
                     $outputDataRow['time_year'] = $item['time_year'];      
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1718,7 +1718,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Fall';
                     $outputDataRow['time_year'] = $item['time_year'];   
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1773,7 +1773,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;                                
                     $outputDataRow['time_name'] = 'Winter';
                     $outputDataRow['time_year'] = $item['time_year'];               
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['et'] = $item['et'];
@@ -1789,7 +1789,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Winter';
                     $outputDataRow['time_year'] = $item['time_year'];
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1822,7 +1822,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'Winter';
                     $outputDataRow['time_year'] = $item['time_year'];           
-                    $outputDataRow['temp'] = $item['temp'];
+                    $outputDataRow['elevation'] = $item['elevation'];
                     $outputDataRow['precip'] = $item['precip'];
                     $outputDataRow['rain'] = $item['rain'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
@@ -1881,7 +1881,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;                    
                     $outputDataRow['time_name'] = 'inGrowing';
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
-                    $outputDataRow['temp'] = $calculatedDataRows['temp'];
+                    $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
                     $outputDataRow['precip'] = $calculatedDataRows['precip'];
                     $outputDataRow['rain'] = $calculatedDataRows['rain'];
                     $outputDataRow['et'] = $calculatedDataRows['et'];
@@ -1897,7 +1897,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'inGrowing';
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
-                    $outputDataRow['temp'] = $calculatedDataRows['temp'];
+                    $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
                     $outputDataRow['precip'] = $calculatedDataRows['precip'];
                     $outputDataRow['rain'] = $calculatedDataRows['rain'];
                     $outputDataRow['snow_mm'] = $calculatedDataRows['snow_mm'];
@@ -1930,7 +1930,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'inGrowing';
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];  
-                    $outputDataRow['temp'] = $calculatedDataRows['temp'];
+                    $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
                     $outputDataRow['precip'] = $calculatedDataRows['precip'];
                     $outputDataRow['rain'] = $calculatedDataRows['rain'];
                     $outputDataRow['snow_mm'] = $calculatedDataRows['snow_mm'];
@@ -1997,7 +1997,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;                    
                     $outputDataRow['time_name'] = 'outGrowing';
                     $outputDataRow['time_year'] = $timeYear;
-                    $outputDataRow['temp'] = ($calculatedDataRowsBefore['temp'] + $calculatedDataRowsAfter['temp']) / 2;
+                    $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
                     $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
                     $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
                     $outputDataRow['et'] = $calculatedDataRowsBefore['et'] + $calculatedDataRowsAfter['et'];
@@ -2013,7 +2013,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'outGrowing';
                     $outputDataRow['time_year'] = $timeYear;                    
-                    $outputDataRow['temp'] = ($calculatedDataRowsBefore['temp'] + $calculatedDataRowsAfter['temp']) / 2;
+                    $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
                     $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
                     $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
                     $outputDataRow['snow_mm'] = $calculatedDataRowsBefore['snow_mm'] + $calculatedDataRowsAfter['snow_mm'];
@@ -2046,7 +2046,7 @@ class AveragingEngine
                     $outputDataRow['time_index'] = ++$index;
                     $outputDataRow['time_name'] = 'outGrowing';
                     $outputDataRow['time_year'] = $timeYear;                                                        
-                    $outputDataRow['temp'] = ($calculatedDataRowsBefore['temp'] + $calculatedDataRowsAfter['temp']) / 2;
+                    $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
                     $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
                     $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
                     $outputDataRow['snow_mm'] = $calculatedDataRowsBefore['snow_mm'] + $calculatedDataRowsAfter['snow_mm'];
@@ -2177,7 +2177,7 @@ class AveragingEngine
         switch($this->type){
             case self::INPUT_AVERAGING:
                 $select = [                                     
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->sum('precip'),
                     'rain' => $query->func()->sum('rain'),
                     'et' => $query->func()->sum('et'),
@@ -2191,7 +2191,7 @@ class AveragingEngine
 
             case self::SNOW_AVERAGING:    
                 $select = [      
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->sum('precip'),
                     'rain' => $query->func()->sum('rain'),
                     'snow_mm' => $query->func()->sum('snow_mm'),                               
@@ -2222,7 +2222,7 @@ class AveragingEngine
 
             case self::SOIL_WATER_AVERAGING:    
                 $select = [  
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->sum('precip'),
                     'rain' => $query->func()->sum('rain'),                                   
                     'snow_mm' => $query->func()->sum('snow_mm'),                               
@@ -2375,7 +2375,7 @@ class AveragingEngine
         switch($this->type){
             case self::INPUT_AVERAGING:
                 $querySelect = [        
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->sum('precip'),
                     'rain' => $query->func()->sum('rain'),
                     'et' => $query->func()->sum('et'),
@@ -2389,7 +2389,7 @@ class AveragingEngine
 
             case self::SNOW_AVERAGING:    
                 $querySelect = [           
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->sum('precip'),
                     'rain' => $query->func()->sum('rain'),
                     'snow_mm' => $query->func()->sum('snow_mm'),                               
@@ -2420,7 +2420,7 @@ class AveragingEngine
 
             case self::SOIL_WATER_AVERAGING:    
                 $querySelect = [                                     
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->sum('precip'),
                     'rain' => $query->func()->sum('rain'),                                   
                     'snow_mm' => $query->func()->sum('snow_mm'),                               
@@ -2477,7 +2477,7 @@ class AveragingEngine
         switch($this->type){
             case self::INPUT_AVERAGING:
                 $select = [                                 
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->avg('precip'),
                     'rain' => $query->func()->avg('rain'),
                     'et' => $query->func()->avg('et'),
@@ -2491,7 +2491,7 @@ class AveragingEngine
 
             case self::SNOW_AVERAGING:    
                 $select = [     
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->avg('precip'),
                     'rain' => $query->func()->avg('rain'),
                     'snow_mm' => $query->func()->avg('snow_mm'),                               
@@ -2522,7 +2522,7 @@ class AveragingEngine
 
             case self::SOIL_WATER_AVERAGING:    
                 $select = [                                     
-                    'temp' => $query->func()->avg('temp'),
+                    'elevation' => $query->func()->avg('elevation'),
                     'precip' => $query->func()->avg('precip'),
                     'rain' => $query->func()->avg('rain'),                                   
                     'snow_mm' => $query->func()->avg('snow_mm'),                               

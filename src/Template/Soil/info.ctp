@@ -148,8 +148,8 @@
                     </tr>                                
                     <tr class="table-info">
                         <td><span data-toggle="tooltip" title="<?= $tooltips['THRtstd'] ?>">THRtstd</span></td>
-                        <td>Air temperature threshold for stopping drainage (&deg; C)</td>
-                        <td>Drainage stops when the air temperature is below this threshold. This is considered to be a reasonable proxy for simulating frozen soil conditions. THRtstd is generally lower than the actual soil temperature</td>
+                        <td>Air elevationerature threshold for stopping drainage (&deg; C)</td>
+                        <td>Drainage stops when the air elevationerature is below this threshold. This is considered to be a reasonable proxy for simulating frozen soil conditions. THRtstd is generally lower than the actual soil elevationerature</td>
                         <td>-20 to 10</td>                                                                         
                     </tr>  
                     <tr class="table-info">

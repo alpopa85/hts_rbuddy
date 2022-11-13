@@ -549,7 +549,7 @@ class SnowController extends AppController
 
         $newDataLine = array(
             'Avg',
-            Utils::formatDataDecimals('temp', Utils::fetchSnowStatsFromDb('temp', $startDate, $endDate)[0]['average']),
+            Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['average']),
@@ -579,7 +579,7 @@ class SnowController extends AppController
 
         $newDataLine = array(
             'Min',
-            Utils::formatDataDecimals('temp', Utils::fetchSnowStatsFromDb('temp', $startDate, $endDate)[0]['minimum']),
+            Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['minimum']),
@@ -609,7 +609,7 @@ class SnowController extends AppController
 
         $newDataLine = array(
             'Max',
-            Utils::formatDataDecimals('temp', Utils::fetchSnowStatsFromDb('temp', $startDate, $endDate)[0]['maximum']),
+            Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['maximum']),
@@ -639,7 +639,7 @@ class SnowController extends AppController
 
         $newDataLine = array(
             'Std Dev',      
-            Utils::formatDataDecimals('temp', Utils::fetchSnowStatsFromDb('temp', $startDate, $endDate)[0]['std_dev']),
+            Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['std_dev']),

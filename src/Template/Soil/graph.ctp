@@ -46,7 +46,7 @@
                     <option value="none"><span>None</span></option>
 
                     <optgroup label="Input Data">
-                        <option selected value="temp">TEMP</option>
+                        <option selected value="elevation">elevation</option>
                         <option value="precip">TOTPP</option>
                         <option value="rain">RAIN</option>
                         <option value="et">ETA</option>
@@ -111,7 +111,7 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="temp">TEMP</option>
+                        <option value="elevation">elevation</option>
                         <option value="precip">TOTPP</option>
                         <option value="rain">RAIN</option>
                         <option value="et">ETA</option>
@@ -176,7 +176,7 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="temp">TEMP</option>
+                        <option value="elevation">elevation</option>
                         <option value="precip">TOTPP</option>
                         <option value="rain">RAIN</option>
                         <option value="et">ETA</option>
@@ -241,7 +241,7 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="temp">TEMP</option>
+                        <option value="elevation">elevation</option>
                         <option value="precip">TOTPP</option>
                         <option value="rain">RAIN</option>
                         <option value="et">ETA</option>
@@ -339,7 +339,7 @@
 
             <div class="row py-1 pt-3">
                 <div class="col-12 d-flex justify-content-left">            
-                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span></a>
+                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></a>
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></a>
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span></a>
                 </div>
@@ -413,7 +413,7 @@
                 <thead>
                     <tr>
                     <th scope="col">Statistic<br /><span id="stat_type"></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span> (&deg;C)</th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span> (&deg;C)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span> (mm)</th>                
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['SNOF'] ?>">SNOF</span> (mm)</th>
@@ -662,8 +662,8 @@
 
         getTraceName: function(elem) {
             switch (elem) {        
-                case 'temp':
-                    return 'TEMP (&deg;C)';                
+                case 'elevation':
+                    return 'elevation (&deg;C)';                
                 case 'precip':
                     return 'TOTPP (mm)';
                 case 'rain':
@@ -1267,12 +1267,12 @@
         $(".y-axis").bootstrapSwitch('offColor', 'success');
         $(".y-axis").bootstrapSwitch('state', true);  
 
-        // graph stuff - initialized for source 1 (input daily) and type temp
+        // graph stuff - initialized for source 1 (input daily) and type elevation
         getTimeData(1).then(function(response) {
             inputGraphObj.initTraces();
             inputGraphObj.setGraphSource(1);
             inputGraphObj.setTimeData(response);
-            inputGraphObj.setTraceType(1, 'temp');
+            inputGraphObj.setTraceType(1, 'elevation');
             inputGraphObj.setTraceType(2, 'none');
             inputGraphObj.setTraceType(3, 'none');
             inputGraphObj.setTraceType(4, 'none');

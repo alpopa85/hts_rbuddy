@@ -442,7 +442,7 @@
   <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="snowAnalysisModalTitle">Performing Snow Analysis...</h5>
+        <h5 class="modal-title" id="snowAnalysisModalTitle">Performing Analysis...</h5>
         <div float="right">
           <h5 class="modal-title" id="analysisCompletionRate">0 %</h5>
         </div>
@@ -463,7 +463,7 @@
                 <div class="mb-1 pl-1">Select time step for calibration stats:</div>
                 <select class="custom-select" id="calib_type">
                     <option selected value="1">Daily</option>
-                    <option value="2">Monthly</option>                    
+                    <!-- <option value="2">Monthly</option>                    
                     <option value="10">Seasons</option>
                     <?php if ($this->isSetGrowthSeason->getFlag()) { ?>
                         <option value="11">Growing Season</option>
@@ -471,7 +471,7 @@
                     <option value="3">Yearly</option>
                     <option value="21">Typical Year Daily</option>
                     <option value="22">Typical Year Monthly</option>
-                    <option value="24">Typical Year Seasons</option>
+                    <option value="24">Typical Year Seasons</option> -->
                     <!-- <?php if ($this->isSetGrowthSeason->getFlag()) { ?>
                         <option value="25">Typical Year Growing Season</option>
                     <?php } ?> -->

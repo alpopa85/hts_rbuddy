@@ -43,13 +43,13 @@
                     <tr>
                         <td>
                             <div class="custom-control custom-checkbox text-left">
-                                <input type="checkbox" class="custom-control-input" id="temp-check" checked>
-                                <label class="custom-control-label" for="temp-check"><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span></label>
+                                <input type="checkbox" class="custom-control-input" id="elevation-check" checked>
+                                <label class="custom-control-label" for="elevation-check"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></label>
                             </div>
                         </td>
                         <td>
                             <div class="custom-control custom-switch text-right">
-                                <input type="checkbox" class="custom-control-input y-axis" id="temp-axis">
+                                <input type="checkbox" class="custom-control-input y-axis" id="elevation-axis">
                             </div>
                         </td>
                     </tr>
@@ -369,7 +369,7 @@
 
             <div class="row py-1 pt-3">
                 <div class="col-12 d-flex justify-content-left">            
-                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span></a>
+                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></a>
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></a>
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span></a>
                 </div>
@@ -443,7 +443,7 @@
                 <thead>
                     <tr>
                     <th scope="col">Statistic<br /><span id="stat_type"></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span> (&deg;C)</th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span> (&deg;C)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span> (mm)</th>                
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['SNOF'] ?>">SNOF</span> (mm)</th>
@@ -696,7 +696,7 @@
         initTraces: function(){
             // input traces
             this.trace1 = {
-                name: 'TEMP (&deg;C)',
+                name: 'elevation (&deg;C)',
                 yaxis: 'y'
             };
 
@@ -802,7 +802,7 @@
 
             switch(elem){
                 // input traces
-                case 'temp-check':
+                case 'elevation-check':
                     $.extend(this.trace1, newTrace);
                     break;
                 case 'precip-check':
@@ -891,7 +891,7 @@
             // console.log('changing axis for ' + elem);
 
             switch (elem) {
-                case 'temp-axis':
+                case 'elevation-axis':
                     if (!this.trace1.yaxis.localeCompare('y2')) {
                         this.trace1.yaxis = 'y';
                     } else {
@@ -1042,9 +1042,9 @@
             this.graphType = elem;
             switch(elem){
                 // inpu
-                case 'temp-check':
+                case 'elevation-check':
                     this.graphTypeCode = this.graphTypeCode ^ Math.pow(2,3);
-                    enabled = $("#temp-check").prop('checked');
+                    enabled = $("#elevation-check").prop('checked');
                     break;
                 case 'precip-check':
                     this.graphTypeCode = this.graphTypeCode ^ Math.pow(2,2);
@@ -1399,14 +1399,14 @@
         $(".y-axis").bootstrapSwitch('offColor', 'success');
         $(".y-axis").bootstrapSwitch('state', true);  
 
-        // graph stuff - initialized for source 1 (input daily) and type temp-check
+        // graph stuff - initialized for source 1 (input daily) and type elevation-check
         getTimeData(1).then(function(response) {
             inputGraphObj.initTraces();
             inputGraphObj.setGraphSource(1);
             inputGraphObj.setTimeData(response);
             // inputGraphObj.setGraphSource(1);
             inputGraphObj.resetGraphCode();
-            inputGraphObj.toggleGraphType('temp-check');
+            inputGraphObj.toggleGraphType('elevation-check');
             inputGraphObj.refreshGraph(true);
         }).catch(function(error) {
             // console.log(error);
@@ -1424,14 +1424,14 @@
             // }
 
             $(':checkbox').prop('checked', false);
-            $("#temp-check").prop('checked', true);
+            $("#elevation-check").prop('checked', true);
 
             getTimeData(graphSource).then(function(response) {
                 inputGraphObj.setGraphSource(graphSource);
                 inputGraphObj.setTimeData(response);
                 // inputGraphObj.setGraphSource(graphSource);
                 inputGraphObj.resetGraphCode();
-                inputGraphObj.toggleGraphType('temp-check');
+                inputGraphObj.toggleGraphType('elevation-check');
                 inputGraphObj.refreshGraph(true);
             }).catch(function(error) {
                 // console.log(error);

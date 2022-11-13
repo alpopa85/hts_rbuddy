@@ -37,7 +37,7 @@
                 'controller' => 'input',
                 'action' => 'export-daily'], [
                     'class' => 'dropdown-item']); ?>     
-                    
+<?php /*                    
                 <?= $this->Html->link('Monthly', [
                 'controller' => 'input',
                 'action' => 'export-monthly'], [
@@ -89,17 +89,21 @@
                 <?= $this->Html->link('Typical Year Average', [
                 'controller' => 'input',
                 'action' => 'export-typical-year'], [
-                    'class' => 'dropdown-item']); ?>              
+                    'class' => 'dropdown-item']); ?>       
+                    
+        */?>
                 <hr/>
                 <?= $this->Html->link('Export Statistics', [
                 'controller' => 'input',
                 'action' => 'export-statistics'], [
                     'class' => 'dropdown-item']); ?>     
+        <?/*
                 <hr/>
                 <?= $this->Html->link('Export Global Configuration', [
                 'controller' => 'input',
                 'action' => 'export-metadata'], [
                     'class' => 'dropdown-item']); ?>  
+        */?>
             </div>
         </li>  
         <?php } ?>
@@ -143,13 +147,14 @@
                     'id' => 'table']); ?>            
         </li>                
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Export Snow Data</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Export Results</a>
             <div class="dropdown-menu">   
                 <?= $this->Html->link('Daily', [
                 'controller' => 'snow',
                 'action' => 'export-daily'], [
                     'class' => 'dropdown-item']); ?>     
-                    
+                
+        <?php /*
                 <?= $this->Html->link('Monthly', [
                 'controller' => 'snow',
                 'action' => 'export-monthly'], [
@@ -201,12 +206,16 @@
                 <?= $this->Html->link('Typical Year Average', [
                 'controller' => 'snow',
                 'action' => 'export-typical-year'], [
-                    'class' => 'dropdown-item']); ?>              
+                    'class' => 'dropdown-item']); ?>   
+                    
+            */?>
                 <hr/>
                 <?= $this->Html->link('Export Statistics', [
                 'controller' => 'snow',
                 'action' => 'export-statistics'], [
                     'class' => 'dropdown-item']); ?>   
+
+            <?php /*
                 <hr/>
                 <?= $this->Html->link('Export Snow Configuration', [
                 'controller' => 'snow',
@@ -215,7 +224,8 @@
                 <?= $this->Html->link('Export Global Configuration', [
                 'controller' => 'input',
                 'action' => 'export-metadata'], [
-                    'class' => 'dropdown-item']); ?>                           
+                    'class' => 'dropdown-item']); ?>     
+            */?>
             </div>
         </li> 
         <?php } ?>  

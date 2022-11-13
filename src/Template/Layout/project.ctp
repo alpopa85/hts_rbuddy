@@ -130,23 +130,23 @@
                 <?= $this->Html->link('Input Data', [
                     'controller' => 'input',
                     'action' => 'index'], [
-                        'class' => 'nav-link disabled',
+                        'class' => 'nav-link',
                         'id' => 'input']); ?>  
                 <!-- <?= (isset($ucdFields) && $ucdFields['total']) ? $this->Html->link('UCD', "#ucd", [
                     'class' => ['nav-link', 'orange-ucd'],
                     'id' => 'reset-ucd',
                     'data-toggle' => 'modal',
-                    'data-target' => '#ucdModalReset']) : ''; ?>     
-                <?= $this->Html->link('Snow', [
+                    'data-target' => '#ucdModalReset']) : ''; ?> -->    
+                <?= $this->Html->link('Analysis', [
                     'controller' => 'snow',
                     'action' => 'index'], [
                         'class' => 'nav-link',
                         'id' => 'snow']);?>                           
-                <?= $this->Html->link('Water Balance', [
+                <!-- <?= $this->Html->link('Water Balance', [
                     'controller' => 'soil',
                     'action' => 'index'], [
                         'class' => 'nav-link',
-                        'id' => 'soil_water']); ?>                              -->
+                        'id' => 'soil_water']); ?> -->
                 <?= $inputDataFlag ? $this->Html->link('Reset Data', "#reset", [
                     'class' => ['nav-link', 'red-reset'],
                     'id' => 'reset-data',
@@ -164,7 +164,7 @@
         </div>
 
         <?= $this->Html->link(
-            $this->Html->image('hts_logo_2.png', array('height' => '45', 'width' => 'auto', 'alt' => 'RECHARGE BUDDY')),
+            $this->Html->image('hts_logo_2.png', array('height' => '45', 'width' => 'auto', 'alt' => 'Recharge Buddy')),
             ['controller' => 'main', 
             'action' => 'index'], [
             'class' => 'navbar-brand',

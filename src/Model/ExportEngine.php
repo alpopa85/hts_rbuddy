@@ -288,76 +288,46 @@ class ExportEngine
 
     public function exportInputStatistics($returnCollection = false)
     {
-        $tempStats = Utils::fetchInputStatsFromDb('temp')[0];   
-        $precipStats = Utils::fetchInputStatsFromDb('precip')[0];                
-        $rainStats = Utils::fetchInputStatsFromDb('rain')[0];   
-        $etStats = Utils::fetchInputStatsFromDb('et')[0];   
+        $elevationStats = Utils::fetchInputStatsFromDb('elevation')[0];           
         $ucd1Stats = Utils::fetchInputStatsFromDb('ucd1')[0];   
         $ucd2Stats = Utils::fetchInputStatsFromDb('ucd2')[0];   
-        $ucd3Stats = Utils::fetchInputStatsFromDb('ucd3')[0];   
-        $ucd4Stats = Utils::fetchInputStatsFromDb('ucd4')[0];   
-        $ucd5Stats = Utils::fetchInputStatsFromDb('ucd5')[0]; 
+        $ucd3Stats = Utils::fetchInputStatsFromDb('ucd3')[0]; 
 
         $statsData = [];
         $statsData[] = array(
             'Statistic',
-            'TEMP (C)',
-            'TOTPP (mm)',
-            'RAIN (mm)',
-            'ETA (mm)',
+            'Elevation (masl)',            
             'UCD1',
             'UCD2',
-            'UCD3',
-            'UCD4',
-            'UCD5'
+            'UCD3'
         );        
         $statsData[] = array(
             'Avg',
-            Utils::formatDataDecimals('temp', $tempStats['average']),
-            Utils::formatDataDecimals('precip', $precipStats['average']),
-            Utils::formatDataDecimals('rain', $rainStats['average']),
-            Utils::formatDataDecimals('et', $etStats['average']),
+            Utils::formatDataDecimals('elevation', $elevationStats['average']),            
             Utils::formatDataDecimals('ucd1', $ucd1Stats['average']),         
             Utils::formatDataDecimals('ucd2', $ucd2Stats['average']),
-            Utils::formatDataDecimals('ucd3', $ucd3Stats['average']),
-            Utils::formatDataDecimals('ucd4', $ucd4Stats['average']),
-            Utils::formatDataDecimals('ucd5', $ucd5Stats['average'])         
+            Utils::formatDataDecimals('ucd3', $ucd3Stats['average'])         
         );
         $statsData[] = array(
             'Min',
-            Utils::formatDataDecimals('temp', $tempStats['minimum']),
-            Utils::formatDataDecimals('precip', $precipStats['minimum']),
-            Utils::formatDataDecimals('rain', $rainStats['minimum']),
-            Utils::formatDataDecimals('et', $etStats['minimum']),
+            Utils::formatDataDecimals('elevation', $elevationStats['minimum']),           
             Utils::formatDataDecimals('ucd1', $ucd1Stats['minimum']),         
             Utils::formatDataDecimals('ucd2', $ucd2Stats['minimum']),
-            Utils::formatDataDecimals('ucd3', $ucd3Stats['minimum']),
-            Utils::formatDataDecimals('ucd4', $ucd4Stats['minimum']),
-            Utils::formatDataDecimals('ucd5', $ucd5Stats['minimum'])  
+            Utils::formatDataDecimals('ucd3', $ucd3Stats['minimum'])  
         );
         $statsData[] = array(
             'Max',
-            Utils::formatDataDecimals('temp', $tempStats['maximum']),
-            Utils::formatDataDecimals('precip', $precipStats['maximum']),
-            Utils::formatDataDecimals('rain', $rainStats['maximum']),
-            Utils::formatDataDecimals('et', $etStats['maximum']),
+            Utils::formatDataDecimals('elevation', $elevationStats['maximum']),            
             Utils::formatDataDecimals('ucd1', $ucd1Stats['maximum']),         
             Utils::formatDataDecimals('ucd2', $ucd2Stats['maximum']),
-            Utils::formatDataDecimals('ucd3', $ucd3Stats['maximum']),
-            Utils::formatDataDecimals('ucd4', $ucd4Stats['maximum']),
-            Utils::formatDataDecimals('ucd5', $ucd5Stats['maximum'])
+            Utils::formatDataDecimals('ucd3', $ucd3Stats['maximum'])
         );
         $statsData[] = array(
             'Std Dev',
-            Utils::formatDataDecimals('temp', $tempStats['std_dev']),
-            Utils::formatDataDecimals('precip', $precipStats['std_dev']),
-            Utils::formatDataDecimals('rain', $rainStats['std_dev']),
-            Utils::formatDataDecimals('et', $etStats['std_dev']),
+            Utils::formatDataDecimals('elevation', $elevationStats['std_dev']),            
             Utils::formatDataDecimals('ucd1', $ucd1Stats['std_dev']),         
             Utils::formatDataDecimals('ucd2', $ucd2Stats['std_dev']),
-            Utils::formatDataDecimals('ucd3', $ucd3Stats['std_dev']),
-            Utils::formatDataDecimals('ucd4', $ucd4Stats['std_dev']),
-            Utils::formatDataDecimals('ucd5', $ucd5Stats['std_dev'])
+            Utils::formatDataDecimals('ucd3', $ucd3Stats['std_dev'])
         );  
         
         if ($returnCollection){
@@ -387,7 +357,7 @@ class ExportEngine
         // header
         $newDataLine = array(
             'Statistic',
-            'TEMP (C)',
+            'elevation (C)',
             'TOTPP (mm)',
             'RAIN (mm)',                                   
             'SNOF (mm)',                                   
@@ -418,7 +388,7 @@ class ExportEngine
         // avg
         $newDataLine = array(
             'Avg',
-            Utils::formatDataDecimals('temp', Utils::fetchSnowStatsFromDb('temp', $startDate, $endDate)[0]['average']),
+            Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['average']),
@@ -449,7 +419,7 @@ class ExportEngine
         // min
         $newDataLine = array(
             'Min',
-            Utils::formatDataDecimals('temp', Utils::fetchSnowStatsFromDb('temp', $startDate, $endDate)[0]['minimum']),
+            Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['minimum']),
@@ -480,7 +450,7 @@ class ExportEngine
         // max
         $newDataLine = array(
             'Max',
-            Utils::formatDataDecimals('temp', Utils::fetchSnowStatsFromDb('temp', $startDate, $endDate)[0]['maximum']),
+            Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['maximum']),
@@ -511,7 +481,7 @@ class ExportEngine
         // std dev
         $newDataLine = array(
             'Std Dev',      
-            Utils::formatDataDecimals('temp', Utils::fetchSnowStatsFromDb('temp', $startDate, $endDate)[0]['std_dev']),
+            Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['std_dev']),
@@ -562,7 +532,7 @@ class ExportEngine
         // header
         $newDataLine = array(
             'Statistic',
-            'TEMP (C)',
+            'elevation (C)',
             'TOTPP (mm)',
             'RAIN (mm)',                                   
             'SNOF (mm)',                                   
@@ -596,7 +566,7 @@ class ExportEngine
         }
         $statsData[] = $newDataLine;    
 
-        $temp = Utils::fetchSoilWaterStatsFromDb('temp', $startDate, $endDate)[0];      
+        $elevation = Utils::fetchSoilWaterStatsFromDb('elevation', $startDate, $endDate)[0];      
         $precip = Utils::fetchSoilWaterStatsFromDb('precip', $startDate, $endDate)[0];      
         $rain = Utils::fetchSoilWaterStatsFromDb('rain', $startDate, $endDate)[0];      
         $snow_mm = Utils::fetchSoilWaterStatsFromDb('snow_mm', $startDate, $endDate)[0];                    
@@ -626,7 +596,7 @@ class ExportEngine
 
         $newDataLine = array(
             'Avg',
-            Utils::formatDataDecimals('temp', $temp['average']),
+            Utils::formatDataDecimals('elevation', $elevation['average']),
             Utils::formatDataDecimals('precip', $precip['average']),
             Utils::formatDataDecimals('rain', $rain['average']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['average']),
@@ -662,7 +632,7 @@ class ExportEngine
 
         $newDataLine = array(
             'Min',
-            Utils::formatDataDecimals('temp', $temp['minimum']),
+            Utils::formatDataDecimals('elevation', $elevation['minimum']),
             Utils::formatDataDecimals('precip', $precip['minimum']),
             Utils::formatDataDecimals('rain', $rain['minimum']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['minimum']),
@@ -698,7 +668,7 @@ class ExportEngine
 
         $newDataLine = array(
             'Max',
-            Utils::formatDataDecimals('temp', $temp['maximum']),
+            Utils::formatDataDecimals('elevation', $elevation['maximum']),
             Utils::formatDataDecimals('precip', $precip['maximum']),
             Utils::formatDataDecimals('rain', $rain['maximum']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['maximum']),
@@ -734,7 +704,7 @@ class ExportEngine
 
         $newDataLine = array(
             'Std Dev',            
-            Utils::formatDataDecimals('temp', $temp['std_dev']),
+            Utils::formatDataDecimals('elevation', $elevation['std_dev']),
             Utils::formatDataDecimals('precip', $precip['std_dev']),
             Utils::formatDataDecimals('rain', $rain['std_dev']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['std_dev']),

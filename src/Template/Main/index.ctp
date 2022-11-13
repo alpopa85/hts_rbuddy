@@ -7,7 +7,7 @@
             <h3>Online Tool</h3>
         </div>        
     </div>
-<!--
+<?/*
     <div class="intro-content swib-maintext">
 
         <table class="table table-sm table-hover table-borderless text-center pb-5" id="contents">
@@ -106,7 +106,7 @@
             <li class="py-5 no-marker">
                 <h3 class="top-section" id="chapter_1">1. About RECHARGE BUDDY</h3> 
 
-                <h5>RECHARGE BUDDY (Snow, Soil Water and Water Balance Model) is an online tool for obtaining daily estimates of snow related processes (e.g., snowfall, snowmelt, snow layer thickness), soil water content and a series of soil water budget components (e.g., infiltration, drainage, surface runoff) based on user provided daily meteorological (i.e., mean air temperature, total precipitation, rainfall), evapotranspiration and calibration data. RECHARGE BUDDY has been developed through a collaborative research effort between Canadian Rivers Institute (CRI), University of New Brunswick (UNB), Agriculture and Agri-Food Canada (AAFC) and Environment and Climate Change Canada (ECCC). RECHARGE BUDDY is a result of a larger research effort aimed at evaluating the effects of agricultural production systems on groundwater and surface water quantity and quality. RECHARGE BUDDY is part of Hydrology Tool Set (HTS; <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>). In addition to RECHARGE BUDDY, HTS includes SepHydro (daily baseflow / hydrograph separation; 11 methods), ETCalc (daily potential, reference and actual evapotranspiration estimation; 8 methods) and SWIB (daily estimation of soil water stress, crop water deficit, irrigation requirement and its impact on aquifer storage, water balance components).</h5>
+                <h5>RECHARGE BUDDY (Snow, Soil Water and Water Balance Model) is an online tool for obtaining daily estimates of snow related processes (e.g., snowfall, snowmelt, snow layer thickness), soil water content and a series of soil water budget components (e.g., infiltration, drainage, surface runoff) based on user provided daily meteorological (i.e., mean air elevationerature, total precipitation, rainfall), evapotranspiration and calibration data. RECHARGE BUDDY has been developed through a collaborative research effort between Canadian Rivers Institute (CRI), University of New Brunswick (UNB), Agriculture and Agri-Food Canada (AAFC) and Environment and Climate Change Canada (ECCC). RECHARGE BUDDY is a result of a larger research effort aimed at evaluating the effects of agricultural production systems on groundwater and surface water quantity and quality. RECHARGE BUDDY is part of Hydrology Tool Set (HTS; <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>). In addition to RECHARGE BUDDY, HTS includes SepHydro (daily baseflow / hydrograph separation; 11 methods), ETCalc (daily potential, reference and actual evapotranspiration estimation; 8 methods) and SWIB (daily estimation of soil water stress, crop water deficit, irrigation requirement and its impact on aquifer storage, water balance components).</h5>
 
                 <br/>
                 <h5>Citation:<br/>
@@ -143,7 +143,7 @@
                 <div class="row mt-2">
                     <div class="col-8 offset-2 text-center">
                         <h5 class="fig-title">Fig 1. Simplified workflow diagram for RECHARGE BUDDY model</h5>
-                        <h6>TEMP - daily mean daily air temperature; TOTPP - daily total precipitation; RAIN - daily rain; ETA - daily actual (or crop) evapotranspiration; UCD - user calibration data</h6>
+                        <h6>elevation - daily mean daily air elevationerature; TOTPP - daily total precipitation; RAIN - daily rain; ETA - daily actual (or crop) evapotranspiration; UCD - user calibration data</h6>
                     </div>
                 </div>  
 
@@ -163,7 +163,7 @@
 
                 <ul>
                     <li>
-                        <h5>Air temperature (TEMP). This is a parameter used by the SNOW module. TEMP is required for calculation of a series of snow and drainage related processes. TEMP represents the daily mean air temperature and is typically available from in situ measurements or from other sources (e.g., weather stations, online databases, etc.). In the input data file, the units for TEMP are &deg; C;</h5>
+                        <h5>Air elevationerature (elevation). This is a parameter used by the SNOW module. elevation is required for calculation of a series of snow and drainage related processes. elevation represents the daily mean air elevationerature and is typically available from in situ measurements or from other sources (e.g., weather stations, online databases, etc.). In the input data file, the units for elevation are &deg; C;</h5>
                     </li>
 
                     <li>
@@ -197,7 +197,7 @@
                             <tr class="table-primary">
                                 <th scope="row">Columns</th>
                                 <td>DATE</td>
-                                <td><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span></td>
+                                <td><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['ETA'] ?>">ETA</span></td>                
@@ -234,7 +234,7 @@
                     <li>
                         <h5><span class="underlined">Required data</span>:
                             <br/>DATE - use yyyy-mm-dd format; 
-                            <br/>TEMP -  daily mean daily air temperature; 
+                            <br/>elevation -  daily mean daily air elevationerature; 
                             <br/>TOTPP - daily total precipitation;
                             <br/>RAIN - daily rain;
                             <br/>ETA - daily actual (or crop) evapotranspiration;</h5>
@@ -250,7 +250,7 @@
                     </li>
 
                     <li>
-                        <h5>The user input data file must be uploaded using a file with one column dedicated to calendar date, four columns dedicated to input data (TEMP, TOTPP, RAIN, ETA) and up to five columns dedicated to calibration data (UCD1 to UCD5)</h5>
+                        <h5>The user input data file must be uploaded using a file with one column dedicated to calendar date, four columns dedicated to input data (elevation, TOTPP, RAIN, ETA) and up to five columns dedicated to calibration data (UCD1 to UCD5)</h5>
                     </li>
 
                     <li>
@@ -368,20 +368,20 @@
                                 </tr>                                
                                 <tr class="table-info">
                                     <td><span data-toggle="tooltip" title="<?= $tooltips['THRrs'] ?>">THRrs</span></td>
-                                    <td>Air temperature threshold for rain to be accumulated as snow (&deg; C)</td>
-                                    <td>Precipitation falling as rain is treated as snow when air temperature is below this threshold. This results in the respective rain amount to be added to the snow layer instead of infiltrating and/or becoming surface runoff</td>
+                                    <td>Air elevationerature threshold for rain to be accumulated as snow (&deg; C)</td>
+                                    <td>Precipitation falling as rain is treated as snow when air elevationerature is below this threshold. This results in the respective rain amount to be added to the snow layer instead of infiltrating and/or becoming surface runoff</td>
                                     <td>-20 to 10</td>                                                                      
                                 </tr>                                
                                 <tr class="table-info">
                                     <td><span data-toggle="tooltip" title="<?= $tooltips['THRsm'] ?>">THRsm</span></td>
-                                    <td>Air temperature threshold for initiating snowmelt (&deg; C)</td>
-                                    <td>Melting of the snow occurs on days with air temperature above this threshold</td>
+                                    <td>Air elevationerature threshold for initiating snowmelt (&deg; C)</td>
+                                    <td>Melting of the snow occurs on days with air elevationerature above this threshold</td>
                                     <td>-20 to 10</td>                                                                         
                                 </tr>  
                                 <tr class="table-info">
                                     <td><span data-toggle="tooltip" title="<?= $tooltips['CFTsm'] ?>">CFTsm</span></td>
-                                    <td>Correction factor - snowmelt due to air temperature (mm)</td>
-                                    <td>The amount of snow that is melted for each degree of air temperature above THRsm</td>
+                                    <td>Correction factor - snowmelt due to air elevationerature (mm)</td>
+                                    <td>The amount of snow that is melted for each degree of air elevationerature above THRsm</td>
                                     <td>&ge; 0</td>                                                                      
                                 </tr>
                                 <tr class="table-info">
@@ -553,8 +553,8 @@
                                 </tr>                                
                                 <tr class="table-info">
                                     <td><span data-toggle="tooltip" title="<?= $tooltips['THRtstd'] ?>">THRtstd</span></td>
-                                    <td>Air temperature threshold for stopping drainage (&deg; C)</td>
-                                    <td>Drainage stops when the air temperature is below this threshold. This is considered to be a reasonable proxy for simulating frozen soil conditions. THRtstd is generally lower than the actual soil temperature</td>
+                                    <td>Air elevationerature threshold for stopping drainage (&deg; C)</td>
+                                    <td>Drainage stops when the air elevationerature is below this threshold. This is considered to be a reasonable proxy for simulating frozen soil conditions. THRtstd is generally lower than the actual soil elevationerature</td>
                                     <td>-20 to 10</td>                                                                         
                                 </tr>  
                                 <tr class="table-info">
@@ -620,7 +620,7 @@
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_3.4">3.4. SNOW Module</h4><br/>
 
-                <h5>The SNOW module allows for estimation of a series of snow related processes (e.g., snowfall, snowmelt, snow layer thickness) and produces the amount of water available (i.e., water available for infiltration and surface runoff) for calculations carried out in the WATER BALANCE module. The input data for the SNOW module consists of daily time series of mean air temperature, total precipitation, rainfall amount and evapotranspiration. Air temperature, total precipitation and rainfall amount are readily available from weather monitoring stations. If not directly available to the user, evapotranspiration can be calculated on a daily basis using ETCalc, a tool included in the Hydrology Tool Set (HTS) available at <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>. The user is also required to provide a series of coefficients that control the snow related processes as well as a calibration time series (e.g., thickness of the soil layer) which allows for the calibration of the model.</h5>
+                <h5>The SNOW module allows for estimation of a series of snow related processes (e.g., snowfall, snowmelt, snow layer thickness) and produces the amount of water available (i.e., water available for infiltration and surface runoff) for calculations carried out in the WATER BALANCE module. The input data for the SNOW module consists of daily time series of mean air elevationerature, total precipitation, rainfall amount and evapotranspiration. Air elevationerature, total precipitation and rainfall amount are readily available from weather monitoring stations. If not directly available to the user, evapotranspiration can be calculated on a daily basis using ETCalc, a tool included in the Hydrology Tool Set (HTS) available at <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>. The user is also required to provide a series of coefficients that control the snow related processes as well as a calibration time series (e.g., thickness of the soil layer) which allows for the calibration of the model.</h5>
 
                 <h5>All the calculations for this module are performed using millimeters of water (mm) units. In addition, the snow layer thickness is available both as mm (<span data-toggle="tooltip" title="<?= $tooltips['SNTFmm'] ?>">SNTFmm</span>) and cm (<span data-toggle="tooltip" title="<?= $tooltips['SNTFcm'] ?>">SNTFcm</span>).</h5>
 
@@ -633,7 +633,7 @@
                 <div class="row mt-2 my-5">
                     <div class="col-8 offset-2 text-center">
                         <h5 class="fig-title">Fig 2. Simplified workflow diagram for the SNOW module</h5>
-                        <h6>TOTPP - daily total precipitation (input data); RAIN - daily rain (input data); ETA - daily actual (or crop) evapotranspiration (input data); SNOF - Snowfall amount; SNTF - Snow layer thickness; Etas - Above soil ET; Etis - Soil ET; WATisrf - Water available for infiltration or surface runoff; THRrs - Air temperature threshold for rain to be accumulated as snow; THRsm - Air temperature threshold for initiating snowmelt; CFTsm - Correction factor (snowmelt due to air temperature); CFRsm - Correction factor (snowmelt due to rain); SNMT - Snowmelt due to temperature; SNMR - Snowmelt due to temperature; CFets - Correction factor (portion of evapotranspiration occurring in the soil); THRets - Soil water content threshold for stopping soil evapotranspiration when the soil is dry. Dashed lines indicate output parameters from the SNOW module used for subsequent calculations in the WATER Balance module.</h6>
+                        <h6>TOTPP - daily total precipitation (input data); RAIN - daily rain (input data); ETA - daily actual (or crop) evapotranspiration (input data); SNOF - Snowfall amount; SNTF - Snow layer thickness; Etas - Above soil ET; Etis - Soil ET; WATisrf - Water available for infiltration or surface runoff; THRrs - Air elevationerature threshold for rain to be accumulated as snow; THRsm - Air elevationerature threshold for initiating snowmelt; CFTsm - Correction factor (snowmelt due to air elevationerature); CFRsm - Correction factor (snowmelt due to rain); SNMT - Snowmelt due to elevationerature; SNMR - Snowmelt due to elevationerature; CFets - Correction factor (portion of evapotranspiration occurring in the soil); THRets - Soil water content threshold for stopping soil evapotranspiration when the soil is dry. Dashed lines indicate output parameters from the SNOW module used for subsequent calculations in the WATER Balance module.</h6>
                     </div>
                 </div> 
 
@@ -652,9 +652,9 @@
                             <td>Date for analyzed data</td>                                                                      
                         </tr>                                
                         <tr class="table-info">
-                            <td><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span></td>
-                            <td>Temperature (&deg; C)</td>
-                            <td>Mean air temperature (input data)</td>                                                                         
+                            <td><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></td>
+                            <td>elevationerature (&deg; C)</td>
+                            <td>Mean air elevationerature (input data)</td>                                                                         
                         </tr>            
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></td>
@@ -694,7 +694,7 @@
                         <tr class="table-info">
                             <td><span style="font-weight:600;" data-toggle="tooltip" title="<?= $tooltips['RSSL'] ?>">RSSL</span></td>
                             <td>Rain and snowfall contributing to snow layer (mm)</td>
-                            <td>Amount of water from rain and snowfall that accumulates to the snow layer before temperature and precipitation corrections for the snow layer are applied</td>                                                                         
+                            <td>Amount of water from rain and snowfall that accumulates to the snow layer before elevationerature and precipitation corrections for the snow layer are applied</td>                                                                         
                         </tr>            
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['RSI'] ?>">RSI</span></td>
@@ -703,8 +703,8 @@
                         </tr>     
                         <tr class="table-info">
                             <td><span style="font-weight:600;" data-toggle="tooltip" title="<?= $tooltips['SNMT'] ?>">SNMT</span></td>
-                            <td>Snowmelt due to temperature (mm)</td>
-                            <td>The amount of snowmelt is dependent on the air temperature. SNMT is calculated using the degree-day concept and is dependent on THRsm and CFTsm</td>                                                                         
+                            <td>Snowmelt due to elevationerature (mm)</td>
+                            <td>The amount of snowmelt is dependent on the air elevationerature. SNMT is calculated using the degree-day concept and is dependent on THRsm and CFTsm</td>                                                                         
                         </tr>  
                         <tr class="table-info">
                             <td><span style="font-weight:600;" data-toggle="tooltip" title="<?= $tooltips['SNMR'] ?>">SNMR</span></td>
@@ -714,12 +714,12 @@
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['SNTFmm'] ?>">SNTFmm</span></td>
                             <td>Snow layer thickness (mm) </td>
-                            <td>Snow layer thickness (expressed as mm) after temperature and precipitation corrections. SNTF represents the final values of snow layer thickness and is a key output parameter</td>                                                                         
+                            <td>Snow layer thickness (expressed as mm) after elevationerature and precipitation corrections. SNTF represents the final values of snow layer thickness and is a key output parameter</td>                                                                         
                         </tr> 
                         <tr class="table-info">
                             <td><span style="font-weight:600;" data-toggle="tooltip" title="<?= $tooltips['SNMF'] ?>">SNMF</span></td>
                             <td>Snowmelt (mm)</td>
-                            <td>Snowmelt amount after temperature and precipitation corrections. SNMF represents water originating from the snow layer that becomes available for infiltration and/or surface runoff. The assumption is that all the snow that melts become available for infiltration and/or surface runoff instead of being stored above the ground in liquid</td>                                                                         
+                            <td>Snowmelt amount after elevationerature and precipitation corrections. SNMF represents water originating from the snow layer that becomes available for infiltration and/or surface runoff. The assumption is that all the snow that melts become available for infiltration and/or surface runoff instead of being stored above the ground in liquid</td>                                                                         
                         </tr> 
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['ETA'] ?>">ETA</span></td>
@@ -749,7 +749,7 @@
                         <tr class="table-info">
                             <td><span style="font-weight:600;" data-toggle="tooltip" title="<?= $tooltips['SNTFcm'] ?>">SNTFcm</span></td>
                             <td>Snow layer thickness (cm)</td>
-                            <td>Snow layer thickness (expressed as cm) after temperature and precipitation corrections. SNTFcm is obtained by converting SNTFmm to cm of snow by using CFSmc. SNTFcm represents the final values of snow layer thickness and is a key output parameter.</td>                                                                         
+                            <td>Snow layer thickness (expressed as cm) after elevationerature and precipitation corrections. SNTFcm is obtained by converting SNTFmm to cm of snow by using CFSmc. SNTFcm represents the final values of snow layer thickness and is a key output parameter.</td>                                                                         
                         </tr> 
                         <tr class="table-info">
                             <td><span style="font-weight:600;" data-toggle="tooltip" title="<?= $tooltips['UCD'] ?>">UCD</span></td>
@@ -779,7 +779,7 @@
                 <div class="row mt-2 my-5">
                     <div class="col-8 offset-2 text-center">
                         <h5 class="fig-title">Fig 2. Simplified workflow diagram for the WATER BALANCE module</h5>
-                        <h6>WATisrf - Water available for infiltration or surface runoff; Etas - Above soil ET; Etis - Soil ET; INFcap - Infiltration capacity; SRact - Total surface runoff after removing drainage boost; THRinfLH - Soil water content threshold for switching between low and high infiltration rate; CFeidr - Drainage boost correction factor (from excess infiltration); INFact - Actual infiltration; SWCfin - Soil water content; DRact - Actual drainage; CFosdr - Drainage boost correction factor (from soil oversaturation); DRAfre - Drainage with frozen soil conditions; THRtstd - Air temperature threshold for stopping drainage; THRdraHL - Soil water content threshold for switching drainage from high to low rate (%); THRswstd - Soil water content threshold for stopping drainage; DRAcap - Drainage capacity.</h6>
+                        <h6>WATisrf - Water available for infiltration or surface runoff; Etas - Above soil ET; Etis - Soil ET; INFcap - Infiltration capacity; SRact - Total surface runoff after removing drainage boost; THRinfLH - Soil water content threshold for switching between low and high infiltration rate; CFeidr - Drainage boost correction factor (from excess infiltration); INFact - Actual infiltration; SWCfin - Soil water content; DRact - Actual drainage; CFosdr - Drainage boost correction factor (from soil oversaturation); DRAfre - Drainage with frozen soil conditions; THRtstd - Air elevationerature threshold for stopping drainage; THRdraHL - Soil water content threshold for switching drainage from high to low rate (%); THRswstd - Soil water content threshold for stopping drainage; DRAcap - Drainage capacity.</h6>
                     </div>
                 </div> 
 
@@ -798,9 +798,9 @@
                             <td>Date for analyzed data</td>                                                                      
                         </tr>                                
                         <tr class="table-info">
-                            <td><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span></td>
-                            <td>Temperature (&deg; C)</td>
-                            <td>Mean air temperature (input data)</td>                                                                         
+                            <td><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></td>
+                            <td>elevationerature (&deg; C)</td>
+                            <td>Mean air elevationerature (input data)</td>                                                                         
                         </tr>            
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></td>
@@ -835,7 +835,7 @@
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['DRAcap'] ?>">DRAfre</span></td>
                             <td>Drainage with frozen soil conditions (mm)</td>
-                            <td>DRAcap corrected for frozen soil conditions as triggered by THRtstd. Drainage stops when soil temperature is lower than THRtstd</td>                                                                         
+                            <td>DRAcap corrected for frozen soil conditions as triggered by THRtstd. Drainage stops when soil elevationerature is lower than THRtstd</td>                                                                         
                         </tr> 
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['DRAfin'] ?>">DRAfin</span></td>
@@ -1040,7 +1040,7 @@
             <li class="pt-5 pb-3 no-marker">
                 <h3 class="top-section" id="chapter_4">4. User Guide</h3> 
 
-                <h5>RECHARGE BUDDY (Snow, Soil Water and Water Balance Model) is an online model for obtaining daily estimates of snow related processes (e.g., snowfall, snowmelt, snow layer thickness), soil water content and a series of soil water budget components (e.g., infiltration, drainage, surface runoff) based on user provided daily meteorological (i.e., mean air temperature, total precipitation, rainfall), evapotranspiration and calibration data. The model provides tabular and graphical representations of the input data, output data, and user calibration data (UCD), as well as representative statistics for various time intervals including daily, monthly, meteorological and growing seasons, yearly and various averaging intervals for multiyear data sets (see section <a href="#chapter_3.2">3.2. Time steps and averaging</a>). The model incorporates extensive calibration routines for each calculation module included (i.e., Snow Module, Water Balance Module), which can be used if user calibration data (i.e., UCD) is provided.</h5>
+                <h5>RECHARGE BUDDY (Snow, Soil Water and Water Balance Model) is an online model for obtaining daily estimates of snow related processes (e.g., snowfall, snowmelt, snow layer thickness), soil water content and a series of soil water budget components (e.g., infiltration, drainage, surface runoff) based on user provided daily meteorological (i.e., mean air elevationerature, total precipitation, rainfall), evapotranspiration and calibration data. The model provides tabular and graphical representations of the input data, output data, and user calibration data (UCD), as well as representative statistics for various time intervals including daily, monthly, meteorological and growing seasons, yearly and various averaging intervals for multiyear data sets (see section <a href="#chapter_3.2">3.2. Time steps and averaging</a>). The model incorporates extensive calibration routines for each calculation module included (i.e., Snow Module, Water Balance Module), which can be used if user calibration data (i.e., UCD) is provided.</h5>
 
                 <h5>At the top, a contextual menu provides access to the various modules available. The modules can be accessed progressively, in the following order: 1) Home (Information module); 2) Input Data (Data entry module); 3) Snow (Calculation module); and 4) Water Balance (Calculation module). Once the calculations of a module are completed, the user can advance to the next module and can also return to the respective module at any time during the session. Additional menu tabs are available for both the data entry (i.e., Info, Load Data, Graphical View, Table View and Export Input Data for the Input Data module) and calculation (i.e., Info, Analysis, Graphical View, Table View and Export Data available for the SNOW and WATER BALANCE modules) modules. In the following sections the options available under the Input Data - Load menu tab and under the Analysis menu tab of each calculation module are presented in separate subsections. The options available under the other menu tabs are common to all three modules mentioned above and are presented as an additional subsection</h5>
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>
@@ -1087,7 +1087,7 @@
 
                 <h5>For using RECHARGE BUDDY the users need to upload daily timeseries. The model accepts source data sets in Comma Separated File (csv) format. The users can use the "Export Input Data - Daily" menu to obtain a correctly formatted input file that can be used as a model for populating the input data file with user data. The user input file can be uploaded to RECHARGE BUDDY by using the "Upload user data" button. RECHARGE BUDDY allows uploading of files with maximum 7500 rows (~20 years of daily data). It is recommended to split the input data set in blocks of 20 years daily timeseries when the intent is to analyze longer time periods. It should be noted that the model cannot accommodate missing data (i.e., blank rows in required data columns) or erroneous data entries, and hence it is recommended that the integrity of the source data is verified before uploading.</h5>
 
-                <h5>The input data file consists of a tabular file with 1 column dedicated to calendar date, 4 columns dedicated to required input data (TEMP - daily mean daily air temperature; TOTPP - daily total precipitation; RAIN - daily rain; ETA - daily actual (or crop) evapotranspiration) and 5 columns reserved for optional user calibration data (UCD1 to UCD5). The required input data columns have to contain values in all rows, while the optional data columns can be left blank if data is not available. UCD data sets are not restricted to certain parameters and can include time series for any parameter that the user intends to use for comparing with the output from RECHARGE BUDDY.  Examples of calibration time series datasets include thickness of snow layer, soil water content, groundwater recharge, surface runoff, etc.</h5>
+                <h5>The input data file consists of a tabular file with 1 column dedicated to calendar date, 4 columns dedicated to required input data (elevation - daily mean daily air elevationerature; TOTPP - daily total precipitation; RAIN - daily rain; ETA - daily actual (or crop) evapotranspiration) and 5 columns reserved for optional user calibration data (UCD1 to UCD5). The required input data columns have to contain values in all rows, while the optional data columns can be left blank if data is not available. UCD data sets are not restricted to certain parameters and can include time series for any parameter that the user intends to use for comparing with the output from RECHARGE BUDDY.  Examples of calibration time series datasets include thickness of snow layer, soil water content, groundwater recharge, surface runoff, etc.</h5>
 
                 <div class="table-responsive text-left pt-2">
 
@@ -1105,7 +1105,7 @@
                             <tr class="table-primary">
                                 <th scope="row">Columns</th>
                                 <td>DATE</td>
-                                <td><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span></td>
+                                <td><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['ETA'] ?>">ETA</span></td>                
@@ -1142,7 +1142,7 @@
                     <li>
                         <h5><span class="underlined">Required data</span>:
                             <br/>DATE - use yyyy-mm-dd format; 
-                            <br/>TEMP -  daily mean daily air temperature; 
+                            <br/>elevation -  daily mean daily air elevationerature; 
                             <br/>TOTPP - daily total precipitation;
                             <br/>RAIN - daily rain;
                             <br/>ETA - daily actual (or crop) evapotranspiration;</h5>
@@ -1158,7 +1158,7 @@
                     </li>
 
                     <li>
-                        <h5>The user input data file must be uploaded using a file with one column dedicated to calendar date, four columns dedicated to input data (TEMP, TOTPP, RAIN, ETA) and up to five columns dedicated to calibration data (UCD1 to UCD5)</h5>
+                        <h5>The user input data file must be uploaded using a file with one column dedicated to calendar date, four columns dedicated to input data (elevation, TOTPP, RAIN, ETA) and up to five columns dedicated to calibration data (UCD1 to UCD5)</h5>
                     </li>
 
                     <li>
@@ -1229,20 +1229,20 @@
                         </tr>                                
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['THRrs'] ?>">THRrs</span></td>
-                            <td>Air temperature threshold for rain to be accumulated as snow (&deg; C)</td>
-                            <td>Precipitation falling as rain is treated as snow when air temperature is below this threshold. This results in the respective rain amount to be added to the snow layer instead of infiltrating and/or becoming surface runoff</td>
+                            <td>Air elevationerature threshold for rain to be accumulated as snow (&deg; C)</td>
+                            <td>Precipitation falling as rain is treated as snow when air elevationerature is below this threshold. This results in the respective rain amount to be added to the snow layer instead of infiltrating and/or becoming surface runoff</td>
                             <td>-20 to 10</td>                                                                      
                         </tr>                                
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['THRsm'] ?>">THRsm</span></td>
-                            <td>Air temperature threshold for initiating snowmelt (&deg; C)</td>
-                            <td>Melting of the snow occurs on days with air temperature above this threshold</td>
+                            <td>Air elevationerature threshold for initiating snowmelt (&deg; C)</td>
+                            <td>Melting of the snow occurs on days with air elevationerature above this threshold</td>
                             <td>-20 to 10</td>                                                                         
                         </tr>  
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['CFTsm'] ?>">CFTsm</span></td>
-                            <td>Correction factor - snowmelt due to air temperature (mm)</td>
-                            <td>The amount of snow that is melted for each degree of air temperature above THRsm</td>
+                            <td>Correction factor - snowmelt due to air elevationerature (mm)</td>
+                            <td>The amount of snow that is melted for each degree of air elevationerature above THRsm</td>
                             <td>&ge; 0</td>                                                                      
                         </tr>
                         <tr class="table-info">
@@ -1422,8 +1422,8 @@
                         </tr>                                
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['THRtstd'] ?>">THRtstd</span></td>
-                            <td>Air temperature threshold for stopping drainage (&deg; C)</td>
-                            <td>Drainage stops when the air temperature is below this threshold. This is considered to be a reasonable proxy for simulating frozen soil conditions. THRtstd is generally lower than the actual soil temperature</td>
+                            <td>Air elevationerature threshold for stopping drainage (&deg; C)</td>
+                            <td>Drainage stops when the air elevationerature is below this threshold. This is considered to be a reasonable proxy for simulating frozen soil conditions. THRtstd is generally lower than the actual soil elevationerature</td>
                             <td>-20 to 10</td>                                                                         
                         </tr>  
                         <tr class="table-info">
@@ -1551,5 +1551,5 @@
         </ul>                
     </div>    
 
-    -->
+    */?>
 </div>

@@ -34,7 +34,7 @@ class SnowAnalysisEngine
             'time_day',
             'time_month',
             'time_year',
-            'temp',
+            'elevation',
             'precip',
             'rain',
             'et',
@@ -158,7 +158,7 @@ class SnowAnalysisEngine
         $outputArray = [];
 
         // get cols from input
-        $outputArray['temp'] = $inputData['temp'];
+        $outputArray['elevation'] = $inputData['elevation'];
         $outputArray['precip'] = $inputData['precip'];
         $outputArray['rain'] = $inputData['rain'];
         $outputArray['ucd1'] = $inputData['ucd1'];
@@ -171,7 +171,7 @@ class SnowAnalysisEngine
         $outputArray['e'] = $inputData['precip'] - $inputData['rain'];
 
         // col F
-        if ($inputData['temp'] > $this->params['thr_rs']) {
+        if ($inputData['elevation'] > $this->params['thr_rs']) {
             $outputArray['f'] = 0;
         } else {
             $outputArray['f'] = $inputData['rain'];
@@ -181,7 +181,7 @@ class SnowAnalysisEngine
         $outputArray['g'] = $inputData['rain'] - $outputArray['f'];
         
         // col H
-        if ($inputData['temp'] < $this->params['thr_sm']) {
+        if ($inputData['elevation'] < $this->params['thr_sm']) {
             $outputArray['h'] = $outputArray['e'];
         } else {
             $outputArray['h'] = 0;
@@ -196,12 +196,12 @@ class SnowAnalysisEngine
         // col K
         $outputArray['k'] = $outputArray['g'] + $outputArray['i'];        
 
-        // col L - Temperature Dependent Snow Melt
+        // col L - elevationerature Dependent Snow Melt
         if ($isFirstRow) {
             $outputArray['l'] = 0;
         } else {
-            if (($inputData['temp'] > $this->params['thr_sm']) && $lastOutputDataRow['n'] > 0) {
-                $outputArray['l'] = $this->params['cft_sm'] * (sqrt(pow($inputData['temp'], 2)) - sqrt(pow($this->params['thr_sm'], 2)));
+            if (($inputData['elevation'] > $this->params['thr_sm']) && $lastOutputDataRow['n'] > 0) {
+                $outputArray['l'] = $this->params['cft_sm'] * (sqrt(pow($inputData['elevation'], 2)) - sqrt(pow($this->params['thr_sm'], 2)));
             } else {
                 $outputArray['l'] = 0;
             } 
@@ -214,7 +214,7 @@ class SnowAnalysisEngine
             $outputArray['m'] = 0;
         } 
 
-        // col N - Snow Pack Accumulation after temp and rain corr
+        // col N - Snow Pack Accumulation after elevation and rain corr
         if ($isFirstRow) {
             $outputArray['n'] = $this->params['snwt_init'] * (1 / $this->params['cfs_mc']);
         } else {
@@ -236,7 +236,7 @@ class SnowAnalysisEngine
             }            
         }
 
-        // col P - Snowmelt after temp and rain effects
+        // col P - Snowmelt after elevation and rain effects
         $outputArray['p'] = $outputArray['o'] < 0 ? 0 : $outputArray['o'];
 
         $outputArray['q'] = $inputData['et'];
@@ -282,7 +282,7 @@ class SnowAnalysisEngine
             'time_year' => $outputDataRow['time_year']
         );
 
-        $dbReadyDataRow['temp'] = $outputDataRow['temp'];
+        $dbReadyDataRow['elevation'] = $outputDataRow['elevation'];
         $dbReadyDataRow['precip'] = $outputDataRow['precip'];
         $dbReadyDataRow['rain'] = $outputDataRow['rain'];
 
