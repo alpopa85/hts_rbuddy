@@ -34,15 +34,10 @@ class SnowAnalysisEngine
             'time_day',
             'time_month',
             'time_year',
-            'elevation',
-            'precip',
-            'rain',
-            'et',
+            'elevation',            
             'ucd1',
             'ucd2',
-            'ucd3',
-            'ucd4',
-            'ucd5'
+            'ucd3'            
         ];                 
 
         return $requiredFields;
@@ -77,7 +72,7 @@ class SnowAnalysisEngine
         
         // delete previous output
         Utils::removeSnowDataset();    
-        Utils::removeSoilWaterDataset(); 
+        // Utils::removeSoilWaterDataset(); 
         
         // get calibration mappings
         // $calibration = Utils::getSnowCalibrationFields();
@@ -158,115 +153,33 @@ class SnowAnalysisEngine
         $outputArray = [];
 
         // get cols from input
-        $outputArray['elevation'] = $inputData['elevation'];
-        $outputArray['precip'] = $inputData['precip'];
-        $outputArray['rain'] = $inputData['rain'];
+        $outputArray['elevation'] = $inputData['elevation'];        
         $outputArray['ucd1'] = $inputData['ucd1'];
         $outputArray['ucd2'] = $inputData['ucd2'];
-        $outputArray['ucd3'] = $inputData['ucd3'];
-        $outputArray['ucd4'] = $inputData['ucd4'];
-        $outputArray['ucd5'] = $inputData['ucd5'];
-
-        // col E
-        $outputArray['e'] = $inputData['precip'] - $inputData['rain'];
-
-        // col F
-        if ($inputData['elevation'] > $this->params['thr_rs']) {
-            $outputArray['f'] = 0;
-        } else {
-            $outputArray['f'] = $inputData['rain'];
-        }
-
-        // col G
-        $outputArray['g'] = $inputData['rain'] - $outputArray['f'];
-        
-        // col H
-        if ($inputData['elevation'] < $this->params['thr_sm']) {
-            $outputArray['h'] = $outputArray['e'];
-        } else {
-            $outputArray['h'] = 0;
-        }
-
-        // col I
-        $outputArray['i'] = $outputArray['e'] - $outputArray['h'];
-
-        // col J
-        $outputArray['j'] = $outputArray['f'] + $outputArray['h'];
-
-        // col K
-        $outputArray['k'] = $outputArray['g'] + $outputArray['i'];        
-
-        // col L - elevationerature Dependent Snow Melt
+        $outputArray['ucd3'] = $inputData['ucd3'];        
+                
         if ($isFirstRow) {
-            $outputArray['l'] = 0;
+            $outputArray['elev_change'] = 0;
         } else {
-            if (($inputData['elevation'] > $this->params['thr_sm']) && $lastOutputDataRow['n'] > 0) {
-                $outputArray['l'] = $this->params['cft_sm'] * (sqrt(pow($inputData['elevation'], 2)) - sqrt(pow($this->params['thr_sm'], 2)));
-            } else {
-                $outputArray['l'] = 0;
-            } 
-        }    
-        
-        // col M - Rain Dependent Snow Melt
-        if (($inputData['rain'] > 0) && ($lastOutputDataRow['n'] > 0)) {            
-            $outputArray['m'] = $inputData['rain'] * $this->params['cfp_sm'];
-        } else {
-            $outputArray['m'] = 0;
-        } 
-
-        // col N - Snow Pack Accumulation after elevation and rain corr
-        if ($isFirstRow) {
-            $outputArray['n'] = $this->params['snwt_init'] * (1 / $this->params['cfs_mc']);
-        } else {
-            $outputArray['n'] = $lastOutputDataRow['n'] + $outputArray['j'] - $outputArray['l'] - $outputArray['m'];
-
-            if ($outputArray['n'] < 0) {
-                $outputArray['n'] = 0;
-            }
-        }
-        
-        // col O - Melted Snow
-        if ($isFirstRow) {
-            $outputArray['o'] = $this->params['snwm_init'];
-        } else {
-            if (($outputArray['l'] + $outputArray['m']) > $outputArray['n']) {
-                $outputArray['o'] = $lastOutputDataRow['n'] - $outputArray['n'];
-            } else {
-                $outputArray['o'] = $outputArray['l'] + $outputArray['m'];
-            }            
-        }
-
-        // col P - Snowmelt after elevation and rain effects
-        $outputArray['p'] = $outputArray['o'] < 0 ? 0 : $outputArray['o'];
-
-        $outputArray['q'] = $inputData['et'];
-
-        // col R - Above soil ET
-        $outputArray['r'] = $inputData['et'] - $inputData['et'] * $this->params['cf_ets'];     
-        
-        // col S
-        $outputArray['s'] = 0; 
-        // !!!! to be recalculated in soil moisture module
-        // $inputData['et'] * $this->params['cf_ets'] - $soil['p']; 
-
-        // col T
-        $outputArray['t'] = $outputArray['s'] + $outputArray['r'];
-
-        // col U
-        $outputArray['u'] = $outputArray['p'] + $outputArray['k'];
-
-        // col V
-        $outputArray['v'] = $outputArray['u'] - $outputArray['t'];
-        $outputArray['v'] = $outputArray['v'] < 0 ? 0 : $outputArray['v'];
-
-        // col W
-        if ($isFirstRow) {
-            $outputArray['w'] = $this->params['snwt_init'];
-        } else {
-            $outputArray['w'] = $outputArray['n'] * $this->params['cfs_mc'];
-        }
-
+            $outputArray['elev_change'] = ($outputArray['elevation'] - $lastOutputDataRow['elevation']) * 1000;  
+        }        
+        $outputArray['aquif_storage_change'] = $this->getLayerSpecificYield($inputData['elevation'])*$outputArray['elev_change'];    
+        $outputArray['gw_recharge'] = $outputArray['aquif_storage_change'] > 0 ? $outputArray['aquif_storage_change'] : 0;
+        $outputArray['gw_discharge'] = $outputArray['aquif_storage_change'] < 0 ? $outputArray['aquif_storage_change'] : 0;
         return $outputArray;
+    }
+
+    private function getLayerSpecificYield($elevation) {
+        $factor = 0;
+
+        $paramsCount = $this->params['layer_count'];
+        for ($i = 0; $i < $paramsCount; $i++) {
+            if (($elevation <= $this->params['layer_h_'.$i]) && ($elevation > $this->params['layer_l_'.$i])) {
+                $factor = $this->params['layer_yield_'.$i];
+            }
+        }        
+
+        return $factor;
     }
 
     private function formatOutputDataRow($outputDataRow)
@@ -283,33 +196,14 @@ class SnowAnalysisEngine
         );
 
         $dbReadyDataRow['elevation'] = $outputDataRow['elevation'];
-        $dbReadyDataRow['precip'] = $outputDataRow['precip'];
-        $dbReadyDataRow['rain'] = $outputDataRow['rain'];
-
-        $dbReadyDataRow['snow_mm'] = $outputDataRow['e'];
-        $dbReadyDataRow['rains'] = $outputDataRow['f'];
-        $dbReadyDataRow['rainns'] = $outputDataRow['g'];
-        $dbReadyDataRow['snoa'] = $outputDataRow['h'];
-        $dbReadyDataRow['snom'] = $outputDataRow['i'];
-        $dbReadyDataRow['rssl'] = $outputDataRow['j'];
-        $dbReadyDataRow['rsi'] = $outputDataRow['k'];
-        $dbReadyDataRow['tdsm'] = $outputDataRow['l'];
-        $dbReadyDataRow['rdsm'] = $outputDataRow['m'];
-        $dbReadyDataRow['snow_acc'] = $outputDataRow['n'];
-        $dbReadyDataRow['snowmelt'] = $outputDataRow['p'];
-        $dbReadyDataRow['et'] = $outputDataRow['q'];
-        $dbReadyDataRow['et_above_g'] = $outputDataRow['r'];
-        $dbReadyDataRow['etfsas'] = $outputDataRow['s'];
-        $dbReadyDataRow['et_above_re'] = $outputDataRow['t'];
-        $dbReadyDataRow['watisri'] = $outputDataRow['u'];
-        $dbReadyDataRow['water_or_sr'] = $outputDataRow['v'];
-        $dbReadyDataRow['snow_calc'] = $outputDataRow['w'];
+        $dbReadyDataRow['elev_change'] = $outputDataRow['elev_change'];
+        $dbReadyDataRow['aquif_storage_change'] = $outputDataRow['aquif_storage_change'];
+        $dbReadyDataRow['gw_recharge'] = $outputDataRow['gw_recharge'];
+        $dbReadyDataRow['gw_discharge'] = $outputDataRow['gw_discharge'];
 
         $dbReadyDataRow['ucd1'] = $outputDataRow['ucd1'];
         $dbReadyDataRow['ucd2'] = $outputDataRow['ucd2'];
-        $dbReadyDataRow['ucd3'] = $outputDataRow['ucd3'];
-        $dbReadyDataRow['ucd4'] = $outputDataRow['ucd4'];
-        $dbReadyDataRow['ucd5'] = $outputDataRow['ucd5'];
+        $dbReadyDataRow['ucd3'] = $outputDataRow['ucd3'];        
 
         return $dbReadyDataRow;
     }

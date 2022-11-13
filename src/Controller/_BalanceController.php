@@ -50,8 +50,8 @@ class BalanceController extends AppController
             'sr'           
         );
         $this->requiredInputFieldsForExport = array(
-            'precip',
-            'et'
+            'elev_change',
+            'gw_recharge'
         );
     }
 
@@ -133,7 +133,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -181,7 +181,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -229,7 +229,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -277,7 +277,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -325,7 +325,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -373,7 +373,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -421,7 +421,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -469,7 +469,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -517,7 +517,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -565,7 +565,7 @@ class BalanceController extends AppController
             $newData->time_index = $rowBalance->time_index;
             $newData->time_name = $rowBalance->time_name;
             $newData->mm_h20 = $rowBalance->mm_h20;
-            $newData->precip = $dataInput[$currentIndex]->precip;
+            $newData->elev_change = $dataInput[$currentIndex]->elev_change;
             $newData->et_total = $dataInput[$currentIndex]->et;
             $newData->et_lost = $rowBalance->et_lost;
             $newData->et_soil = $rowBalance->et_soil;
@@ -614,7 +614,7 @@ class BalanceController extends AppController
             foreach($dataRow as $value){                    
                 $csvRow[] = $value;                                                        
             }
-            $csvRow[2] = $dataInput[$currentIndex][1]; // precip
+            $csvRow[2] = $dataInput[$currentIndex][1]; // elev_change
             $csvRow[3] = $dataInput[$currentIndex][3]; // et total
             $csvRowCollection[] = implode(',', $csvRow);
 
@@ -688,7 +688,7 @@ class BalanceController extends AppController
         $finalData = array();
         $currentIndex = 0;
         foreach ($fetchedData['recordsData'] as $balanceData){
-            $balanceData[3] = $inputData['recordsData'][$currentIndex][2]; // precip
+            $balanceData[3] = $inputData['recordsData'][$currentIndex][2]; // elev_change
             $balanceData[4] = $inputData['recordsData'][$currentIndex][4]; // et_total            
             $finalData[] = $balanceData;            
             $currentIndex++;
@@ -720,17 +720,17 @@ class BalanceController extends AppController
         $et_soil = Utils::fetchWaterBalanceStatsFromDb('et_soil')[0];       
 
         // from Input
-        $precip = Utils::fetchInputStatsFromDb('precip')[0];        
-        $et_total = Utils::fetchInputStatsFromDb('et')[0];   
+        $elev_change = Utils::fetchInputStatsFromDb('elev_change')[0];        
+        $et_total = Utils::fetchInputStatsFromDb('gw_recharge')[0];   
 
         $statsData = [];
         $statsData[] = array(
             'Average',
             Utils::formatDataDecimals('h20', $mm_h20['average']),
-            Utils::formatDataDecimals('precip', $precip['average']),
-            Utils::formatDataDecimals('et', $et_total['average']),
-            Utils::formatDataDecimals('et', $et_lost['average']),
-            Utils::formatDataDecimals('et', $et_soil['average']),           
+            Utils::formatDataDecimals('elev_change', $elev_change['average']),
+            Utils::formatDataDecimals('gw_recharge', $et_total['average']),
+            Utils::formatDataDecimals('gw_recharge', $et_lost['average']),
+            Utils::formatDataDecimals('gw_recharge', $et_soil['average']),           
             Utils::formatDataDecimals('wchg', $wchg_loss['average']),
             Utils::formatDataDecimals('wchg', $wchg_gain['average']),
             Utils::formatDataDecimals('drain', $drain['average']),
@@ -740,10 +740,10 @@ class BalanceController extends AppController
         $statsData[] = array(
             'Minimum',            
             Utils::formatDataDecimals('h20', $mm_h20['minimum']),
-            Utils::formatDataDecimals('precip', $precip['minimum']),
-            Utils::formatDataDecimals('et', $et_total['minimum']),
-            Utils::formatDataDecimals('et', $et_lost['minimum']),
-            Utils::formatDataDecimals('et', $et_soil['minimum']),
+            Utils::formatDataDecimals('elev_change', $elev_change['minimum']),
+            Utils::formatDataDecimals('gw_recharge', $et_total['minimum']),
+            Utils::formatDataDecimals('gw_recharge', $et_lost['minimum']),
+            Utils::formatDataDecimals('gw_recharge', $et_soil['minimum']),
             Utils::formatDataDecimals('wchg', $wchg_loss['minimum']),
             Utils::formatDataDecimals('wchg', $wchg_gain['minimum']),
             Utils::formatDataDecimals('drain', $drain['minimum']),
@@ -753,10 +753,10 @@ class BalanceController extends AppController
         $statsData[] = array(
             'Maximum',            
             Utils::formatDataDecimals('h20', $mm_h20['maximum']),
-            Utils::formatDataDecimals('precip', $precip['maximum']),
-            Utils::formatDataDecimals('et', $et_total['maximum']),
-            Utils::formatDataDecimals('et', $et_lost['maximum']),
-            Utils::formatDataDecimals('et', $et_soil['maximum']),
+            Utils::formatDataDecimals('elev_change', $elev_change['maximum']),
+            Utils::formatDataDecimals('gw_recharge', $et_total['maximum']),
+            Utils::formatDataDecimals('gw_recharge', $et_lost['maximum']),
+            Utils::formatDataDecimals('gw_recharge', $et_soil['maximum']),
             Utils::formatDataDecimals('wchg', $wchg_loss['maximum']),
             Utils::formatDataDecimals('wchg', $wchg_gain['maximum']),
             Utils::formatDataDecimals('drain', $drain['maximum']),
@@ -766,10 +766,10 @@ class BalanceController extends AppController
         $statsData[] = array(
             'Std Dev',                        
             Utils::formatDataDecimals('h20', $mm_h20['std_dev']),
-            Utils::formatDataDecimals('precip', $precip['std_dev']),
-            Utils::formatDataDecimals('et', $et_total['std_dev']),
-            Utils::formatDataDecimals('et', $et_lost['std_dev']),
-            Utils::formatDataDecimals('et', $et_soil['std_dev']),
+            Utils::formatDataDecimals('elev_change', $elev_change['std_dev']),
+            Utils::formatDataDecimals('gw_recharge', $et_total['std_dev']),
+            Utils::formatDataDecimals('gw_recharge', $et_lost['std_dev']),
+            Utils::formatDataDecimals('gw_recharge', $et_soil['std_dev']),
             Utils::formatDataDecimals('wchg', $wchg_loss['std_dev']),
             Utils::formatDataDecimals('wchg', $wchg_gain['std_dev']),
             Utils::formatDataDecimals('drain', $drain['std_dev']),

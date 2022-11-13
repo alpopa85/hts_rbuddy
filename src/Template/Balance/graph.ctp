@@ -31,13 +31,13 @@
                 <tr>
                     <td>
                         <div class="custom-control custom-checkbox text-left">
-                            <input type="checkbox" class="custom-control-input" id="precip-check" checked>
-                            <label class="custom-control-label" for="precip-check">Precipitation</label>
+                            <input type="checkbox" class="custom-control-input" id="elev_change-check" checked>
+                            <label class="custom-control-label" for="elev_change-check">elev_changeitation</label>
                         </div>
                     </td>
                     <td>
                         <div class="custom-control custom-switch text-right">
-                            <input type="checkbox" class="custom-control-input y-axis" id="precip-axis">                            
+                            <input type="checkbox" class="custom-control-input y-axis" id="elev_change-axis">                            
                         </div>
                     </td>                   
                 </tr>
@@ -265,7 +265,7 @@
                 <tr>
                     <th scope="col">Statistic</th>                       
                     <th scope="col">SWC in Soil (mm)</th>
-                    <th scope="col">Precip (mm)</th>
+                    <th scope="col">elev_change (mm)</th>
                     <th scope="col">ET Total (mm)</th>
                     <th scope="col">ET Above Ground (mm)</th>
                     <th scope="col">ET From Soil (mm)</th>
@@ -416,7 +416,7 @@
         
         initTraces: function(){
             this.trace1 = {            
-                name: 'Precipitation (mm)',
+                name: 'elev_changeitation (mm)',
                 yaxis: 'y'
             };
             
@@ -494,7 +494,7 @@
             // console.log('set trace for elem ' + elem);
 
             switch(elem){
-                case 'precip-check':                    
+                case 'elev_change-check':                    
                     // this.trace1 = $.extend({}, {...newTrace,...this.trace1};
                     $.extend(this.trace1, newTrace);
                     break;
@@ -567,7 +567,7 @@
             // console.log('changing axis for ' + elem);
 
             switch(elem){
-                case 'precip-axis':                    
+                case 'elev_change-axis':                    
                     if (!this.trace1.yaxis.localeCompare('y2')){
                         this.trace1.yaxis = 'y';
                     } else {
@@ -687,9 +687,9 @@
 
             this.graphType = elem;
             switch(elem){
-                case 'precip-check':
+                case 'elev_change-check':
                     this.graphTypeCode = this.graphTypeCode ^ 8;      
-                    enabled = $("#precip-check").prop('checked');          
+                    enabled = $("#elev_change-check").prop('checked');          
                     break;
                 case 'sm-check':
                     this.graphTypeCode = this.graphTypeCode ^ 4; 
@@ -857,13 +857,13 @@
         $(".y-axis").bootstrapSwitch('offColor', 'success');
         $(".y-axis").bootstrapSwitch('state', true);  
 
-        // graph stuff - initialized for source 1 (input daily) and type precip-check
+        // graph stuff - initialized for source 1 (input daily) and type elev_change-check
         getTimeData(1).then(function(response){
             inputGraphObj.initTraces();
             inputGraphObj.setTimeData(response);                        
             inputGraphObj.setGraphSource(1);
             inputGraphObj.resetGraphCode();            
-            inputGraphObj.toggleGraphType('precip-check');            
+            inputGraphObj.toggleGraphType('elev_change-check');            
             inputGraphObj.refreshGraph(true);
         }).catch(function(error){
             // console.log(error);
@@ -881,13 +881,13 @@
             }
             
             $(':checkbox').prop('checked', false);
-            $("#precip-check").prop('checked', true);
+            $("#elev_change-check").prop('checked', true);
 
             getTimeData(graphSource).then(function(response){                        
                 inputGraphObj.setTimeData(response);            
                 inputGraphObj.setGraphSource(graphSource);   
                 inputGraphObj.resetGraphCode();
-                inputGraphObj.toggleGraphType('precip-check');            
+                inputGraphObj.toggleGraphType('elev_change-check');            
                 inputGraphObj.refreshGraph(true);
             }).catch(function(error){
                 // console.log(error);

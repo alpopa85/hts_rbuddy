@@ -2,13 +2,13 @@
     
     <div class="intro-content swib-maintext my-5">      
         <div class="swib-title text-center mb-5">
-            <h2>Snow Module</h2>
+            <h2>Analysis Module</h2>
         </div>
 
         <div class="table-responsive text-left">
 
             <h5>On the Analysis Tab the user must provide the following:</h5>                
-
+<?/*
             <table class="table table-bordered text-center my-3">
                 <thead class="thead-dark">
                     <tr class="table-primary" style="font-style:italic">
@@ -50,20 +50,20 @@
                     </tr>                                
                     <tr class="table-info">
                         <td><span data-toggle="tooltip" title="<?= $tooltips['THRrs'] ?>">THRrs</span></td>
-                        <td>Air elevationerature threshold for rain to be accumulated as snow (&deg; C)</td>
-                        <td>Precipitation falling as rain is treated as snow when air elevationerature is below this threshold. This results in the respective rain amount to be added to the snow layer instead of infiltrating and/or becoming surface runoff</td>
+                        <td>Air temperature threshold for rain to be accumulated as snow (&deg; C)</td>
+                        <td>elev_changeitation falling as rain is treated as snow when air temperature is below this threshold. This results in the respective rain amount to be added to the snow layer instead of infiltrating and/or becoming surface runoff</td>
                         <td>-20 to 10</td>                                                                      
                     </tr>                                
                     <tr class="table-info">
                         <td><span data-toggle="tooltip" title="<?= $tooltips['THRsm'] ?>">THRsm</span></td>
-                        <td>Air elevationerature threshold for initiating snowmelt (&deg; C)</td>
-                        <td>Melting of the snow occurs on days with air elevationerature above this threshold</td>
+                        <td>Air temperature threshold for initiating snowmelt (&deg; C)</td>
+                        <td>Melting of the snow occurs on days with air temperature above this threshold</td>
                         <td>-20 to 10</td>                                                                         
                     </tr>  
                     <tr class="table-info">
                         <td><span data-toggle="tooltip" title="<?= $tooltips['CFTsm'] ?>">CFTsm</span></td>
-                        <td>Correction factor - snowmelt due to air elevationerature (mm)</td>
-                        <td>The amount of snow that is melted for each degree of air elevationerature above THRsm</td>
+                        <td>Correction factor - snowmelt due to air temperature (mm)</td>
+                        <td>The amount of snow that is melted for each degree of air temperature above THRsm</td>
                         <td>&ge; 0</td>                                                                      
                     </tr>
                     <tr class="table-info">
@@ -99,5 +99,6 @@
             <h5>Consult section <a href="<?= $this->Url->build('/main/index#chapter_3.3');?>">3.3.</a> and section <a href="<?= $this->Url->build('/main/index#chapter_3.4');?>">3.4.</a> for more details.</h5>
         </div> 
     </div>
+    */ ?>
    
 </div>

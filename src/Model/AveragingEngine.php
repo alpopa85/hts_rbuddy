@@ -222,9 +222,9 @@ class AveragingEngine
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -239,8 +239,8 @@ class AveragingEngine
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -252,7 +252,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -273,8 +273,8 @@ class AveragingEngine
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -328,9 +328,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];                    
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -344,8 +344,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -357,7 +357,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -377,8 +377,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = $item['time_year'];            
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -432,9 +432,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Spring/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -448,8 +448,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Spring/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -461,7 +461,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -481,8 +481,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Spring/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -536,9 +536,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Summer/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -552,8 +552,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Summer/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -565,7 +565,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -585,8 +585,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Summer/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -640,9 +640,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Fall/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -656,8 +656,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Fall/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -669,7 +669,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -689,8 +689,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Fall/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -749,9 +749,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Winter/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
                     $outputDataRow['elevation'] = ($item['elevation'] + $decemberAverages['elevation']) / 2;
-                    $outputDataRow['precip'] = $item['precip'] + $decemberAverages['precip'];                        
-                    $outputDataRow['rain'] = $item['rain'] + $decemberAverages['rain'];
-                    $outputDataRow['et'] = $item['et'] + $decemberAverages['et'];                        
+                    $outputDataRow['elev_change'] = $item['elev_change'] + $decemberAverages['elev_change'];                        
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'] + $decemberAverages['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'] + $decemberAverages['gw_recharge'];                        
                     $outputDataRow['ucd1'] = self::getAverageOfTwo($item['ucd1'], $decemberAverages['ucd1'], $this->ucd1AvgMethod);
                     $outputDataRow['ucd2'] = self::getAverageOfTwo($item['ucd2'], $decemberAverages['ucd2'], $this->ucd2AvgMethod);
                     $outputDataRow['ucd3'] = self::getAverageOfTwo($item['ucd3'], $decemberAverages['ucd3'], $this->ucd3AvgMethod);
@@ -767,8 +767,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Winter/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                                        
                     $outputDataRow['elevation'] = ($item['elevation'] + $decemberAverages['elevation']) / 2;
-                    $outputDataRow['precip'] = $item['precip'] + $decemberAverages['precip'];
-                    $outputDataRow['rain'] = $item['rain'] + $decemberAverages['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'] + $decemberAverages['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'] + $decemberAverages['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'] + $decemberAverages['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'] + $decemberAverages['rains'];
                     $outputDataRow['rainns'] = $item['rainns'] + $decemberAverages['rainns'];
@@ -780,7 +780,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'] + $decemberAverages['rdsm'];
                     $outputDataRow['snow_acc'] = ($item['snow_acc'] + $decemberAverages['snow_acc']) / 2;
                     $outputDataRow['snowmelt'] = $item['snowmelt'] + $decemberAverages['snowmelt'];
-                    $outputDataRow['et'] = $item['et'] + $decemberAverages['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'] + $decemberAverages['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'] + $decemberAverages['et_above_g'];
                     $outputDataRow['etfsas'] = $item['etfsas'] + $decemberAverages['etfsas'];
                     $outputDataRow['et_above_re'] = $item['et_above_re'] + $decemberAverages['et_above_re'];
@@ -802,8 +802,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Winter/' . $item['time_year'];           
                     $outputDataRow['time_year'] = $item['time_year'];                    
                     $outputDataRow['elevation'] = ($item['elevation'] + $decemberAverages['elevation']) / 2;
-                    $outputDataRow['precip'] = $item['precip'] + $decemberAverages['precip'];
-                    $outputDataRow['rain'] = $item['rain'] + $decemberAverages['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'] + $decemberAverages['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'] + $decemberAverages['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'] + $decemberAverages['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'] + $decemberAverages['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'] + $decemberAverages['infcap'];
@@ -888,9 +888,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'inGrowing/' . $calculatedDataRows['time_year'];
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
                     $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
-                    $outputDataRow['precip'] = $calculatedDataRows['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRows['rain'];
-                    $outputDataRow['et'] = $calculatedDataRows['et'];
+                    $outputDataRow['elev_change'] = $calculatedDataRows['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRows['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $calculatedDataRows['gw_recharge'];
                     $outputDataRow['ucd1'] = $calculatedDataRows['ucd1'];
                     $outputDataRow['ucd2'] = $calculatedDataRows['ucd2'];
                     $outputDataRow['ucd3'] = $calculatedDataRows['ucd3'];
@@ -904,8 +904,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'inGrowing/' . $calculatedDataRows['time_year'];           
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
                     $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
-                    $outputDataRow['precip'] = $calculatedDataRows['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRows['rain'];
+                    $outputDataRow['elev_change'] = $calculatedDataRows['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRows['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $calculatedDataRows['snow_mm'];
                     $outputDataRow['rains'] = $calculatedDataRows['rains'];
                     $outputDataRow['rainns'] = $calculatedDataRows['rainns'];
@@ -917,7 +917,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $calculatedDataRows['rdsm'];
                     $outputDataRow['snow_acc'] = $calculatedDataRows['snow_acc'];
                     $outputDataRow['snowmelt'] = $calculatedDataRows['snowmelt'];
-                    $outputDataRow['et'] = $calculatedDataRows['et'];
+                    $outputDataRow['gw_recharge'] = $calculatedDataRows['gw_recharge'];
                     $outputDataRow['et_above_g'] = $calculatedDataRows['et_above_g'];  
                     $outputDataRow['etfsas'] = $calculatedDataRows['etfsas'];                  
                     $outputDataRow['et_above_re'] = $calculatedDataRows['et_above_re'];                    
@@ -937,8 +937,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'inGrowing/' . $calculatedDataRows['time_year'];           
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
                     $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
-                    $outputDataRow['precip'] = $calculatedDataRows['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRows['rain'];
+                    $outputDataRow['elev_change'] = $calculatedDataRows['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRows['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $calculatedDataRows['snow_mm'];
                     $outputDataRow['water_or_sr'] = $calculatedDataRows['water_or_sr'];
                     $outputDataRow['infcap'] = $calculatedDataRows['infcap'];
@@ -1004,9 +1004,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'outGrowing/' . $timeYear;
                     $outputDataRow['time_year'] = $timeYear;
                     $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
-                    $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
-                    $outputDataRow['et'] = $calculatedDataRowsBefore['et'] + $calculatedDataRowsAfter['et'];
+                    $outputDataRow['elev_change'] = $calculatedDataRowsBefore['elev_change'] + $calculatedDataRowsAfter['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRowsBefore['aquif_storage_change'] + $calculatedDataRowsAfter['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $calculatedDataRowsBefore['gw_recharge'] + $calculatedDataRowsAfter['gw_recharge'];
                     $outputDataRow['ucd1'] = self::getAverageOfTwo($calculatedDataRowsBefore['ucd1'], $calculatedDataRowsAfter['ucd1'], $this->ucd1AvgMethod);
                     $outputDataRow['ucd2'] = self::getAverageOfTwo($calculatedDataRowsBefore['ucd2'], $calculatedDataRowsAfter['ucd2'], $this->ucd2AvgMethod);
                     $outputDataRow['ucd3'] = self::getAverageOfTwo($calculatedDataRowsBefore['ucd3'], $calculatedDataRowsAfter['ucd3'], $this->ucd3AvgMethod);
@@ -1020,8 +1020,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'outGrowing/' . $timeYear;           
                     $outputDataRow['time_year'] = $timeYear;                    
                     $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
-                    $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
+                    $outputDataRow['elev_change'] = $calculatedDataRowsBefore['elev_change'] + $calculatedDataRowsAfter['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRowsBefore['aquif_storage_change'] + $calculatedDataRowsAfter['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $calculatedDataRowsBefore['snow_mm'] + $calculatedDataRowsAfter['snow_mm'];
                     $outputDataRow['rains'] = $calculatedDataRowsBefore['rains'] + $calculatedDataRowsAfter['rains'];
                     $outputDataRow['rainns'] = $calculatedDataRowsBefore['rainns'] + $calculatedDataRowsAfter['rainns'];
@@ -1033,7 +1033,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $calculatedDataRowsBefore['rdsm'] + $calculatedDataRowsAfter['rdsm'];
                     $outputDataRow['snow_acc'] = ($calculatedDataRowsBefore['snow_acc'] + $calculatedDataRowsAfter['snow_acc']) / 2;
                     $outputDataRow['snowmelt'] = $calculatedDataRowsBefore['snowmelt'] + $calculatedDataRowsAfter['snowmelt'];
-                    $outputDataRow['et'] = $calculatedDataRowsBefore['et'] + $calculatedDataRowsAfter['et'];
+                    $outputDataRow['gw_recharge'] = $calculatedDataRowsBefore['gw_recharge'] + $calculatedDataRowsAfter['gw_recharge'];
                     $outputDataRow['et_above_g'] = $calculatedDataRowsBefore['et_above_g'] + $calculatedDataRowsAfter['et_above_g'];
                     $outputDataRow['etfsas'] = $calculatedDataRowsBefore['etfsas'] + $calculatedDataRowsAfter['etfsas'];
                     $outputDataRow['et_above_re'] = $calculatedDataRowsBefore['et_above_re'] + $calculatedDataRowsAfter['et_above_re'];
@@ -1053,8 +1053,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'outGrowing/' . $timeYear;           
                     $outputDataRow['time_year'] = $timeYear;                    
                     $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
-                    $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
+                    $outputDataRow['elev_change'] = $calculatedDataRowsBefore['elev_change'] + $calculatedDataRowsAfter['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRowsBefore['aquif_storage_change'] + $calculatedDataRowsAfter['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $calculatedDataRowsBefore['snow_mm'] + $calculatedDataRowsAfter['snow_mm'];
                     $outputDataRow['water_or_sr'] = $calculatedDataRowsBefore['water_or_sr'] + $calculatedDataRowsAfter['water_or_sr'];
                     $outputDataRow['infcap'] = $calculatedDataRowsBefore['infcap'] + $calculatedDataRowsAfter['infcap'];
@@ -1139,9 +1139,9 @@ class AveragingEngine
                     $outputDataRow['time_day'] = $item['time_day'];                                        
                     $outputDataRow['time_date'] = 2000 . '-' . $item['time_month'] . '-' . $item['time_day']; 
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -1158,8 +1158,8 @@ class AveragingEngine
                     $outputDataRow['time_day'] = $item['time_day'];                                        
                     $outputDataRow['time_date'] = 2000 . '-' . $item['time_month'] . '-' . $item['time_day']; 
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -1171,7 +1171,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -1194,8 +1194,8 @@ class AveragingEngine
                     $outputDataRow['time_day'] = $item['time_day'];                                        
                     $outputDataRow['time_date'] = 2000 . '-' . $item['time_month'] . '-' . $item['time_day'];    
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -1252,9 +1252,9 @@ class AveragingEngine
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -1269,8 +1269,8 @@ class AveragingEngine
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -1282,7 +1282,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -1303,8 +1303,8 @@ class AveragingEngine
                     $outputDataRow['time_month'] = $item['time_month'];
                     $outputDataRow['time_year'] = $item['time_year'];          
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -1358,9 +1358,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Typical Year';
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -1374,8 +1374,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Typical Year';
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -1387,7 +1387,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -1407,8 +1407,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Typical Year';
                     $outputDataRow['time_year'] = $item['time_year'];                   
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -1462,9 +1462,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Spring';
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -1478,8 +1478,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Spring';
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -1491,7 +1491,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -1511,8 +1511,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Spring';
                     $outputDataRow['time_year'] = $item['time_year'];         
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -1566,9 +1566,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Summer';
                     $outputDataRow['time_year'] = $item['time_year'];               
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -1582,8 +1582,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Summer';
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -1595,7 +1595,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -1615,8 +1615,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Summer';
                     $outputDataRow['time_year'] = $item['time_year'];     
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -1670,9 +1670,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Fall';
                     $outputDataRow['time_year'] = $item['time_year'];         
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -1686,8 +1686,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Fall';
                     $outputDataRow['time_year'] = $item['time_year'];      
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -1699,7 +1699,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -1719,8 +1719,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Fall';
                     $outputDataRow['time_year'] = $item['time_year'];   
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -1774,9 +1774,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Winter';
                     $outputDataRow['time_year'] = $item['time_year'];               
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['ucd1'] = $item['ucd1'];
                     $outputDataRow['ucd2'] = $item['ucd2'];
                     $outputDataRow['ucd3'] = $item['ucd3'];
@@ -1790,8 +1790,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Winter';
                     $outputDataRow['time_year'] = $item['time_year'];
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['rains'] = $item['rains'];
                     $outputDataRow['rainns'] = $item['rainns'];
@@ -1803,7 +1803,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $item['rdsm'];
                     $outputDataRow['snow_acc'] = $item['snow_acc'];
                     $outputDataRow['snowmelt'] = $item['snowmelt'];
-                    $outputDataRow['et'] = $item['et'];
+                    $outputDataRow['gw_recharge'] = $item['gw_recharge'];
                     $outputDataRow['et_above_g'] = $item['et_above_g'];  
                     $outputDataRow['etfsas'] = $item['etfsas'];                  
                     $outputDataRow['et_above_re'] = $item['et_above_re'];                    
@@ -1823,8 +1823,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'Winter';
                     $outputDataRow['time_year'] = $item['time_year'];           
                     $outputDataRow['elevation'] = $item['elevation'];
-                    $outputDataRow['precip'] = $item['precip'];
-                    $outputDataRow['rain'] = $item['rain'];
+                    $outputDataRow['elev_change'] = $item['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $item['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $item['snow_mm'];
                     $outputDataRow['water_or_sr'] = $item['water_or_sr'];
                     $outputDataRow['infcap'] = $item['infcap'];
@@ -1882,9 +1882,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'inGrowing';
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
                     $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
-                    $outputDataRow['precip'] = $calculatedDataRows['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRows['rain'];
-                    $outputDataRow['et'] = $calculatedDataRows['et'];
+                    $outputDataRow['elev_change'] = $calculatedDataRows['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRows['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $calculatedDataRows['gw_recharge'];
                     $outputDataRow['ucd1'] = $calculatedDataRows['ucd1'];
                     $outputDataRow['ucd2'] = $calculatedDataRows['ucd2'];
                     $outputDataRow['ucd3'] = $calculatedDataRows['ucd3'];
@@ -1898,8 +1898,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'inGrowing';
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];
                     $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
-                    $outputDataRow['precip'] = $calculatedDataRows['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRows['rain'];
+                    $outputDataRow['elev_change'] = $calculatedDataRows['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRows['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $calculatedDataRows['snow_mm'];
                     $outputDataRow['rains'] = $calculatedDataRows['rains'];
                     $outputDataRow['rainns'] = $calculatedDataRows['rainns'];
@@ -1911,7 +1911,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $calculatedDataRows['rdsm'];
                     $outputDataRow['snow_acc'] = $calculatedDataRows['snow_acc'];
                     $outputDataRow['snowmelt'] = $calculatedDataRows['snowmelt'];
-                    $outputDataRow['et'] = $calculatedDataRows['et'];
+                    $outputDataRow['gw_recharge'] = $calculatedDataRows['gw_recharge'];
                     $outputDataRow['et_above_g'] = $calculatedDataRows['et_above_g'];  
                     $outputDataRow['etfsas'] = $calculatedDataRows['etfsas'];                  
                     $outputDataRow['et_above_re'] = $calculatedDataRows['et_above_re'];                    
@@ -1931,8 +1931,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'inGrowing';
                     $outputDataRow['time_year'] = $calculatedDataRows['time_year'];  
                     $outputDataRow['elevation'] = $calculatedDataRows['elevation'];
-                    $outputDataRow['precip'] = $calculatedDataRows['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRows['rain'];
+                    $outputDataRow['elev_change'] = $calculatedDataRows['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRows['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $calculatedDataRows['snow_mm'];
                     $outputDataRow['water_or_sr'] = $calculatedDataRows['water_or_sr'];
                     $outputDataRow['infcap'] = $calculatedDataRows['infcap'];
@@ -1998,9 +1998,9 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'outGrowing';
                     $outputDataRow['time_year'] = $timeYear;
                     $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
-                    $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
-                    $outputDataRow['et'] = $calculatedDataRowsBefore['et'] + $calculatedDataRowsAfter['et'];
+                    $outputDataRow['elev_change'] = $calculatedDataRowsBefore['elev_change'] + $calculatedDataRowsAfter['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRowsBefore['aquif_storage_change'] + $calculatedDataRowsAfter['aquif_storage_change'];
+                    $outputDataRow['gw_recharge'] = $calculatedDataRowsBefore['gw_recharge'] + $calculatedDataRowsAfter['gw_recharge'];
                     $outputDataRow['ucd1'] = self::getAverageOfTwo($calculatedDataRowsBefore['ucd1'], $calculatedDataRowsAfter['ucd1'], $this->ucd1AvgMethod);
                     $outputDataRow['ucd2'] = self::getAverageOfTwo($calculatedDataRowsBefore['ucd2'], $calculatedDataRowsAfter['ucd2'], $this->ucd2AvgMethod);
                     $outputDataRow['ucd3'] = self::getAverageOfTwo($calculatedDataRowsBefore['ucd3'], $calculatedDataRowsAfter['ucd3'], $this->ucd3AvgMethod);
@@ -2014,8 +2014,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'outGrowing';
                     $outputDataRow['time_year'] = $timeYear;                    
                     $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
-                    $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
+                    $outputDataRow['elev_change'] = $calculatedDataRowsBefore['elev_change'] + $calculatedDataRowsAfter['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRowsBefore['aquif_storage_change'] + $calculatedDataRowsAfter['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $calculatedDataRowsBefore['snow_mm'] + $calculatedDataRowsAfter['snow_mm'];
                     $outputDataRow['rains'] = $calculatedDataRowsBefore['rains'] + $calculatedDataRowsAfter['rains'];
                     $outputDataRow['rainns'] = $calculatedDataRowsBefore['rainns'] + $calculatedDataRowsAfter['rainns'];
@@ -2027,7 +2027,7 @@ class AveragingEngine
                     $outputDataRow['rdsm'] = $calculatedDataRowsBefore['rdsm'] + $calculatedDataRowsAfter['rdsm'];
                     $outputDataRow['snow_acc'] = ($calculatedDataRowsBefore['snow_acc'] + $calculatedDataRowsAfter['snow_acc']) / 2;
                     $outputDataRow['snowmelt'] = $calculatedDataRowsBefore['snowmelt'] + $calculatedDataRowsAfter['snowmelt'];
-                    $outputDataRow['et'] = $calculatedDataRowsBefore['et'] + $calculatedDataRowsAfter['et'];
+                    $outputDataRow['gw_recharge'] = $calculatedDataRowsBefore['gw_recharge'] + $calculatedDataRowsAfter['gw_recharge'];
                     $outputDataRow['et_above_g'] = $calculatedDataRowsBefore['et_above_g'] + $calculatedDataRowsAfter['et_above_g'];
                     $outputDataRow['etfsas'] = $calculatedDataRowsBefore['etfsas'] + $calculatedDataRowsAfter['etfsas'];
                     $outputDataRow['et_above_re'] = $calculatedDataRowsBefore['et_above_re'] + $calculatedDataRowsAfter['et_above_re'];
@@ -2047,8 +2047,8 @@ class AveragingEngine
                     $outputDataRow['time_name'] = 'outGrowing';
                     $outputDataRow['time_year'] = $timeYear;                                                        
                     $outputDataRow['elevation'] = ($calculatedDataRowsBefore['elevation'] + $calculatedDataRowsAfter['elevation']) / 2;
-                    $outputDataRow['precip'] = $calculatedDataRowsBefore['precip'] + $calculatedDataRowsAfter['precip'];
-                    $outputDataRow['rain'] = $calculatedDataRowsBefore['rain'] + $calculatedDataRowsAfter['rain'];
+                    $outputDataRow['elev_change'] = $calculatedDataRowsBefore['elev_change'] + $calculatedDataRowsAfter['elev_change'];
+                    $outputDataRow['aquif_storage_change'] = $calculatedDataRowsBefore['aquif_storage_change'] + $calculatedDataRowsAfter['aquif_storage_change'];
                     $outputDataRow['snow_mm'] = $calculatedDataRowsBefore['snow_mm'] + $calculatedDataRowsAfter['snow_mm'];
                     $outputDataRow['water_or_sr'] = $calculatedDataRowsBefore['water_or_sr'] + $calculatedDataRowsAfter['water_or_sr'];
                     $outputDataRow['infcap'] = $calculatedDataRowsBefore['infcap'] + $calculatedDataRowsAfter['infcap'];
@@ -2178,9 +2178,9 @@ class AveragingEngine
             case self::INPUT_AVERAGING:
                 $select = [                                     
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->sum('precip'),
-                    'rain' => $query->func()->sum('rain'),
-                    'et' => $query->func()->sum('et'),
+                    'elev_change' => $query->func()->sum('elev_change'),
+                    'aquif_storage_change' => $query->func()->sum('aquif_storage_change'),
+                    'gw_recharge' => $query->func()->sum('gw_recharge'),
                     'ucd1' => $ucd1Avg,
                     'ucd2' => $ucd2Avg,
                     'ucd3' => $ucd3Avg,
@@ -2192,8 +2192,8 @@ class AveragingEngine
             case self::SNOW_AVERAGING:    
                 $select = [      
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->sum('precip'),
-                    'rain' => $query->func()->sum('rain'),
+                    'elev_change' => $query->func()->sum('elev_change'),
+                    'aquif_storage_change' => $query->func()->sum('aquif_storage_change'),
                     'snow_mm' => $query->func()->sum('snow_mm'),                               
                     'rains' => $query->func()->sum('rains'),
                     'rainns' => $query->func()->sum('rainns'),
@@ -2205,7 +2205,7 @@ class AveragingEngine
                     'rdsm' => $query->func()->sum('rdsm'),
                     'snow_acc' => $query->func()->avg('snow_acc'),
                     'snowmelt' => $query->func()->sum('snowmelt'),
-                    'et' => $query->func()->sum('et'),
+                    'gw_recharge' => $query->func()->sum('gw_recharge'),
                     'et_above_g' => $query->func()->sum('et_above_g'),                    
                     'etfsas' => $query->func()->sum('etfsas'),                    
                     'et_above_re' => $query->func()->sum('et_above_re'),                    
@@ -2223,8 +2223,8 @@ class AveragingEngine
             case self::SOIL_WATER_AVERAGING:    
                 $select = [  
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->sum('precip'),
-                    'rain' => $query->func()->sum('rain'),                                   
+                    'elev_change' => $query->func()->sum('elev_change'),
+                    'aquif_storage_change' => $query->func()->sum('aquif_storage_change'),                                   
                     'snow_mm' => $query->func()->sum('snow_mm'),                               
                     'water_or_sr' => $query->func()->sum('water_or_sr'),
                     'infcap' => $query->func()->sum('infcap'),                   
@@ -2376,9 +2376,9 @@ class AveragingEngine
             case self::INPUT_AVERAGING:
                 $querySelect = [        
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->sum('precip'),
-                    'rain' => $query->func()->sum('rain'),
-                    'et' => $query->func()->sum('et'),
+                    'elev_change' => $query->func()->sum('elev_change'),
+                    'aquif_storage_change' => $query->func()->sum('aquif_storage_change'),
+                    'gw_recharge' => $query->func()->sum('gw_recharge'),
                     'ucd1' => $ucd1Avg,
                     'ucd2' => $ucd2Avg,
                     'ucd3' => $ucd3Avg,
@@ -2390,8 +2390,8 @@ class AveragingEngine
             case self::SNOW_AVERAGING:    
                 $querySelect = [           
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->sum('precip'),
-                    'rain' => $query->func()->sum('rain'),
+                    'elev_change' => $query->func()->sum('elev_change'),
+                    'aquif_storage_change' => $query->func()->sum('aquif_storage_change'),
                     'snow_mm' => $query->func()->sum('snow_mm'),                               
                     'rains' => $query->func()->sum('rains'),
                     'rainns' => $query->func()->sum('rainns'),
@@ -2403,7 +2403,7 @@ class AveragingEngine
                     'rdsm' => $query->func()->sum('rdsm'),
                     'snow_acc' => $query->func()->avg('snow_acc'),
                     'snowmelt' => $query->func()->sum('snowmelt'),
-                    'et' => $query->func()->sum('et'),
+                    'gw_recharge' => $query->func()->sum('gw_recharge'),
                     'et_above_g' => $query->func()->sum('et_above_g'),                    
                     'etfsas' => $query->func()->sum('etfsas'),                    
                     'et_above_re' => $query->func()->sum('et_above_re'),                    
@@ -2421,8 +2421,8 @@ class AveragingEngine
             case self::SOIL_WATER_AVERAGING:    
                 $querySelect = [                                     
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->sum('precip'),
-                    'rain' => $query->func()->sum('rain'),                                   
+                    'elev_change' => $query->func()->sum('elev_change'),
+                    'aquif_storage_change' => $query->func()->sum('aquif_storage_change'),                                   
                     'snow_mm' => $query->func()->sum('snow_mm'),                               
                     'water_or_sr' => $query->func()->sum('water_or_sr'),
                     'infcap' => $query->func()->sum('infcap'),                   
@@ -2478,9 +2478,9 @@ class AveragingEngine
             case self::INPUT_AVERAGING:
                 $select = [                                 
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->avg('precip'),
-                    'rain' => $query->func()->avg('rain'),
-                    'et' => $query->func()->avg('et'),
+                    'elev_change' => $query->func()->avg('elev_change'),
+                    'aquif_storage_change' => $query->func()->avg('aquif_storage_change'),
+                    'gw_recharge' => $query->func()->avg('gw_recharge'),
                     'ucd1' => $query->func()->avg('ucd1'),
                     'ucd2' => $query->func()->avg('ucd2'),
                     'ucd3' => $query->func()->avg('ucd3'),
@@ -2492,8 +2492,8 @@ class AveragingEngine
             case self::SNOW_AVERAGING:    
                 $select = [     
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->avg('precip'),
-                    'rain' => $query->func()->avg('rain'),
+                    'elev_change' => $query->func()->avg('elev_change'),
+                    'aquif_storage_change' => $query->func()->avg('aquif_storage_change'),
                     'snow_mm' => $query->func()->avg('snow_mm'),                               
                     'rains' => $query->func()->avg('rains'),
                     'rainns' => $query->func()->avg('rainns'),
@@ -2505,7 +2505,7 @@ class AveragingEngine
                     'rdsm' => $query->func()->avg('rdsm'),
                     'snow_acc' => $query->func()->avg('snow_acc'),
                     'snowmelt' => $query->func()->avg('snowmelt'),
-                    'et' => $query->func()->avg('et'),
+                    'gw_recharge' => $query->func()->avg('gw_recharge'),
                     'et_above_g' => $query->func()->avg('et_above_g'),                    
                     'etfsas' => $query->func()->avg('etfsas'),                    
                     'et_above_re' => $query->func()->avg('et_above_re'),                    
@@ -2523,8 +2523,8 @@ class AveragingEngine
             case self::SOIL_WATER_AVERAGING:    
                 $select = [                                     
                     'elevation' => $query->func()->avg('elevation'),
-                    'precip' => $query->func()->avg('precip'),
-                    'rain' => $query->func()->avg('rain'),                                   
+                    'elev_change' => $query->func()->avg('elev_change'),
+                    'aquif_storage_change' => $query->func()->avg('aquif_storage_change'),                                   
                     'snow_mm' => $query->func()->avg('snow_mm'),                               
                     'water_or_sr' => $query->func()->avg('water_or_sr'),
                     'infcap' => $query->func()->avg('infcap'),                   

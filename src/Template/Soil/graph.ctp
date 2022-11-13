@@ -47,7 +47,7 @@
 
                     <optgroup label="Input Data">
                         <option selected value="elevation">elevation</option>
-                        <option value="precip">TOTPP</option>
+                        <option value="elev_change">TOTPP</option>
                         <option value="rain">RAIN</option>
                         <option value="et">ETA</option>
                     </optgroup>                                        
@@ -112,7 +112,7 @@
                     
                     <optgroup label="Input Data">
                         <option value="elevation">elevation</option>
-                        <option value="precip">TOTPP</option>
+                        <option value="elev_change">TOTPP</option>
                         <option value="rain">RAIN</option>
                         <option value="et">ETA</option>
                     </optgroup>
@@ -177,7 +177,7 @@
                     
                     <optgroup label="Input Data">
                         <option value="elevation">elevation</option>
-                        <option value="precip">TOTPP</option>
+                        <option value="elev_change">TOTPP</option>
                         <option value="rain">RAIN</option>
                         <option value="et">ETA</option>
                     </optgroup>
@@ -242,7 +242,7 @@
                     
                     <optgroup label="Input Data">
                         <option value="elevation">elevation</option>
-                        <option value="precip">TOTPP</option>
+                        <option value="elev_change">TOTPP</option>
                         <option value="rain">RAIN</option>
                         <option value="et">ETA</option>
                     </optgroup>
@@ -341,7 +341,7 @@
                 <div class="col-12 d-flex justify-content-left">            
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></a>
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></a>
-                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span></a>
+                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></a>
                 </div>
             </div>
 
@@ -415,7 +415,7 @@
                     <th scope="col">Statistic<br /><span id="stat_type"></th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span> (&deg;C)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span> (mm)</th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span> (mm)</th>                
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span> (mm)</th>                
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['SNOF'] ?>">SNOF</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['WATisrf'] ?>">WATisrf</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['INFact'] ?>">INFact</span> (mm)</th>
@@ -664,11 +664,11 @@
             switch (elem) {        
                 case 'elevation':
                     return 'elevation (&deg;C)';                
-                case 'precip':
+                case 'elev_change':
                     return 'TOTPP (mm)';
-                case 'rain':
+                case 'aquif_storage_change':
                     return 'RAIN (mm)';
-                case 'et':
+                case 'gw_recharge':
                     return 'ETA (mm)';
                 case 'ucd1': 
                     return 'UCD1';

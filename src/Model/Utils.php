@@ -269,7 +269,7 @@ class Utils
 
             $timeSeriesColIndex = 0;
             $elevationSeriesColIndex = 1;
-            // $precipSeriesColIndex = 2;
+            // $elev_changeSeriesColIndex = 2;
             // $rainSeriesColIndex = 3;
             // $etSeriesColIndex = 4;
 
@@ -320,19 +320,19 @@ class Utils
                 }
 
                 /*
-                if (Utils::validateInput('precip', $data[$precipSeriesColIndex]) == false) {
+                if (Utils::validateInput('elev_change', $data[$elev_changeSeriesColIndex]) == false) {
                     Utils::removeCompleteDataset();
-                    Log::error('Precipitation must be between 0 and 1800.');
-                    throw new Exception('Precipitation must be between 0 and 1800 [Line ' . ($rowCounter + 1) . ']');
+                    Log::error('elev_changeitation must be between 0 and 1800.');
+                    throw new Exception('elev_changeitation must be between 0 and 1800 [Line ' . ($rowCounter + 1) . ']');
                 }
 
-                if (Utils::validateInput('rain', $data[$rainSeriesColIndex]) == false) {
+                if (Utils::validateInput('aquif_storage_change', $data[$rainSeriesColIndex]) == false) {
                     Utils::removeCompleteDataset();
                     Log::error('Rain amount must be between 0 and 1800.');
                     throw new Exception('Rain amount must be between 0 and 1800 [Line ' . ($rowCounter + 1) . ']');
                 }
 
-                if (Utils::validateInput('et', $data[$etSeriesColIndex]) == false) {
+                if (Utils::validateInput('gw_recharge', $data[$etSeriesColIndex]) == false) {
                     Utils::removeCompleteDataset();
                     Log::error('Evapotranspiration must be between 0 and 100.');
                     throw new Exception('Evapotranspiration must be between 0 and 100 [Line ' . ($rowCounter + 1) . ']');
@@ -1081,7 +1081,7 @@ class Utils
                 break;
             // 2 dec            
             case 'elevation':
-            case 'et':
+            case 'gw_recharge':
             case 'et_above_g':          
             case 'etfsas':                                      
             case 'et_above_re':
@@ -1299,10 +1299,10 @@ class Utils
                 $item->time_index,
                 $customDateTime,
                 self::formatDataDecimals('mm_h20', $item->mm_h20),
-                null, // placeholder for precip
+                null, // placeholder for elev_change
                 null, // et_total
-                self::formatDataDecimals('et', $item->et_lost), // et_above_fround
-                self::formatDataDecimals('et', $item->et_soil), // et_from_soil                
+                self::formatDataDecimals('gw_recharge', $item->et_lost), // et_above_fround
+                self::formatDataDecimals('gw_recharge', $item->et_soil), // et_from_soil                
                 self::formatDataDecimals('wchg', $item->wchg_loss),
                 self::formatDataDecimals('wchg', $item->wchg_gain),
                 self::formatDataDecimals('drain', $item->drain),
@@ -1465,8 +1465,8 @@ class Utils
                 $item->time_index,
                 $item->time_name,
                 Utils::formatDataDecimals('elevation', $item->elevation),
-                Utils::formatDataDecimals('precip', $item->precip),
-                Utils::formatDataDecimals('rain', $item->rain),
+                Utils::formatDataDecimals('elev_change', $item->elev_change),
+                Utils::formatDataDecimals('aquif_storage_change', $item->rain),
                 Utils::formatDataDecimals('snow_mm', $item->snow_mm),
                 Utils::formatDataDecimals('rains', $item->rains),
                 Utils::formatDataDecimals('rainns', $item->rainns),
@@ -1478,7 +1478,7 @@ class Utils
                 Utils::formatDataDecimals('rdsm', $item->rdsm),
                 Utils::formatDataDecimals('snow_acc', $item->snow_acc),
                 Utils::formatDataDecimals('snowmelt', $item->snowmelt),
-                Utils::formatDataDecimals('et', $item->et),
+                Utils::formatDataDecimals('gw_recharge', $item->et),
                 Utils::formatDataDecimals('et_above_g', $item->et_above_g),
                 Utils::formatDataDecimals('etfsas', $item->etfsas),
                 Utils::formatDataDecimals('et_above_re', $item->et_above_re),
@@ -2106,8 +2106,8 @@ class Utils
                 $item->time_index,
                 $customDateTime,
                 Utils::formatDataDecimals('elevation', $item->elevation),
-                Utils::formatDataDecimals('precip', $item->precip),
-                Utils::formatDataDecimals('rain', $item->rain),
+                Utils::formatDataDecimals('elev_change', $item->elev_change),
+                Utils::formatDataDecimals('aquif_storage_change', $item->rain),
                 Utils::formatDataDecimals('snow_mm', $item->snow_mm),
                 Utils::formatDataDecimals('water_or_sr', $item->water_or_sr),
                 // Utils::formatDataDecimals('infcap', $item->infcap),
@@ -3124,23 +3124,14 @@ class Utils
                 $paramsData[] = $newParam;
             }
 
-            if (strcmp(explode("_", $formDataKey)[0], "precipToSnow") == 0) {
+            if (strcmp(explode("_", $formDataKey)[0], "layer_") == 0) {
                 $paramsData[] = array(
                     'dataset' => self::getCurrentDataset(),
-                    'param_name' => 'precipToSnow_count',
+                    'param_name' => 'layer_count',
                     'param_value' => $index,
                     'param_type' => $type
                 );
-            }
-
-            if (strcmp(explode("_", $formDataKey)[0], "snowMmToCm") == 0) {
-                $paramsData[] = array(
-                    'dataset' => self::getCurrentDataset(),
-                    'param_name' => 'snowMmToCm_count',
-                    'param_value' => $index,
-                    'param_type' => $type
-                );
-            }
+            }           
         }        
 
         foreach ($paramsData as $item) {
@@ -3365,109 +3356,29 @@ class Utils
         $graphTypeFieldMapper = [
             // input
             'elevation' => 'elevation',
-            'precip' => 'precip',
-            'rain' => 'rain',
-            'et' => 'et',
+            // output
+            'elev_change' => 'elev_change',
+            'aquif_storage_change' => 'aquif_storage_change',
+            'gw_recharge' => 'gw_recharge',
+            'gw_discharge' => 'gw_discharge',
             // validation
             'ucd1' => 'ucd1',
             'ucd2' => 'ucd2',
-            'ucd3' => 'ucd3',
-            'ucd4' => 'ucd4',
-            'ucd5' => 'ucd5',
-            // snow
-            'snow' => 'snow_mm',
-            'rains' => 'rains',
-            'rainns' => 'rainns',
-            'snoa' => 'snoa',
-            'snom' => 'snom',
-            'rssl' => 'rssl',
-            'rsi' => 'rsi',            
-            'tdsm' => 'tdsm',
-            'rdsm' => 'rdsm',
-            'snow_acc' => 'snow_acc',
-            'snowmelt' => 'snowmelt',
-            'et_above_g' => 'et_above_g',
-            'etfsas' => 'etfsas',
-            'et_above_re' => 'et_above_re',
-            'water_or_sr' => 'water_or_sr',
-            'snow_calc' => 'snow_calc',
-            // soil
-            'inf_cap_corr' => 'inf_cap_corr',
-            'drafre' => 'drafre',
-            'drain_corr' => 'drain_corr',
-            'drain_boost_excess' => 'drain_boost_excess',
-            'drain_boost_oversat' => 'drain_boost_oversat',
-            'drain_total' => 'drain_total',
-            'etisi' => 'etisi',
-            'et_corr' => 'et_corr',
-            'etfsas' => 'etfsas',
-            'swcint' => 'swcint',
-            'swc_corr_sat' => 'swc_corr_sat',
-            'swc_corr_sat_pc' => 'swc_corr_sat_pc',
-            'sr_exc' => 'sr_exc',
-            'sr_exc_less_drain' => 'sr_exc_less_drain',
-            'sr_sat' => 'sr_sat',
-            'sr_sat_less_drain' => 'sr_sat_less_drain',
-            'sr_total' => 'sr_total',
-            'sr_total_less_drain' => 'sr_total_less_drain',
-            'net_gain' => 'net_gain',
-            'net_loss' => 'net_loss',
-            'days_low_swc' => 'days_low_swc',
-            'days_high_swc' => 'days_high_swc'
+            'ucd3' => 'ucd3'            
         ];
 
         $graphTypeTableMapper = [
             // input
             'elevation' => 'InputData',
-            'precip' => 'InputData',
-            'rain' => 'InputData',
-            'et' => 'InputData',
+            // output
+            'elev_change' => 'SnowData',
+            'aquif_storage_change' => 'SnowData',
+            'gw_recharge' => 'SnowData',
+            'gw_discharge' => 'SnowData',
             // validation
             'ucd1' => 'InputData',
             'ucd2' => 'InputData',
-            'ucd3' => 'InputData',
-            'ucd4' => 'InputData',
-            'ucd5' => 'InputData',        
-            // snow
-            'snow' => 'SnowData',
-            'rains' => 'SnowData',
-            'rainns' => 'SnowData',
-            'snoa' => 'SnowData',
-            'snom' => 'SnowData',
-            'rssl' => 'SnowData',
-            'rsi' => 'SnowData',            
-            'tdsm' => 'SnowData',
-            'rdsm' => 'SnowData',
-            'snow_acc' => 'SnowData',
-            'snowmelt' => 'SnowData',
-            'et_above_g' => 'SnowData',
-            'etfsas' => 'SnowData',
-            'et_above_re' => 'SnowData',
-            'water_or_sr' => 'SnowData',
-            'snow_calc' => 'SnowData',
-            // soil            
-            'inf_cap_corr' => 'SoilWaterData',
-            'drafre' => 'SoilWaterData',
-            'drain_corr' => 'SoilWaterData',
-            'drain_boost_excess' => 'SoilWaterData',
-            'drain_boost_oversat' => 'SoilWaterData',
-            'drain_total' => 'SoilWaterData',
-            'etisi' => 'SoilWaterData',
-            'et_corr' => 'SoilWaterData',
-            'etfsas' => 'SoilWaterData',
-            'swcint' => 'SoilWaterData',
-            'swc_corr_sat' => 'SoilWaterData',
-            'swc_corr_sat_pc' => 'SoilWaterData',
-            'sr_exc' => 'SoilWaterData',
-            'sr_exc_less_drain' => 'SoilWaterData',
-            'sr_sat' => 'SoilWaterData',
-            'sr_sat_less_drain' => 'SoilWaterData',
-            'sr_total' => 'SoilWaterData',
-            'sr_total_less_drain' => 'SoilWaterData',
-            'net_gain' => 'SoilWaterData',
-            'net_loss' => 'SoilWaterData',
-            'days_low_swc' => 'SoilWaterData',
-            'days_high_swc' => 'SoilWaterData'
+            'ucd3' => 'InputData'            
         ];
 
         $graphSourceTableMapper = [
@@ -3624,13 +3535,13 @@ class Utils
             case 'elevation':
                 return Utils::validateInputelevation($data);
                 break;
-            case 'precip':
-                return Utils::validateInputPrecip($data);
+            case 'elev_change':
+                return Utils::validateInputelev_change($data);
                 break;
-            case 'rain':
+            case 'aquif_storage_change':
                 return Utils::validateInputRain($data);
                 break;
-            case 'et':
+            case 'gw_recharge':
                 return Utils::validateInputEt($data);
                 break;
             // case 'snow':
@@ -3671,7 +3582,7 @@ class Utils
         return false;
     }
 
-    private static function validateInputPrecip($data)
+    private static function validateInputelev_change($data)
     {
         if ($data != null) {
             if ($data >= 0) {
@@ -3834,7 +3745,7 @@ class Utils
             ->first();
 
             if ($user instanceof User) {
-                if ($user->snow) {
+                if ($user->output_ready) {
                     return true;
                 } else {
                     return false;
@@ -4165,7 +4076,11 @@ class Utils
     public static function getToolTips()
     {
         return array(
-            'elevation' => 'Ground Water table elevation (meters above sea level)',            
+            'elevation' => 'Ground Water table elevation (meters above sea level)',   
+            'elev_change' => 'Elevation Change (mm)',
+            'aquif_storage_change' => 'aquif_storage_change',
+            'gw_recharge' => 'gw_recharge',
+            'gw_discharge' => 'gw_discharge',
             'UCD' => 'User calibration data',
             'UCD1' => 'User calibration data',
             'UCD2' => 'User calibration data',
@@ -4174,7 +4089,9 @@ class Utils
             'GS_start_month' => 'Growth Season Start Month',
             'GS_end_day' => 'Growth Season End Day',
             'GS_end_month' => 'Growth Season End Month',
-            // params            
+            // params   
+            'yield' => 'Specific yield m3/m3 adjusted for layer',        
+            'yield_val' => 'Values greater or equal than 0'         
             // output            
         );
     }
@@ -4942,53 +4859,34 @@ class Utils
     public static function getDefaultParams()
     {
         $snowDefaultParams = [
-            'precipToSnow_count' => 7,
-            'precipToSnow_lt_0' => -99,
-            'precipToSnow_ht_0' => -5,
-            'precipToSnow_factor_0' => 100,
-            'precipToSnow_lt_1' => -5,
-            'precipToSnow_ht_1' => -1,
-            'precipToSnow_factor_1' => 80,
-            'precipToSnow_lt_2' => -1,
-            'precipToSnow_ht_2' => 0,
-            'precipToSnow_factor_2' => 70,
-            'precipToSnow_lt_3' => 0,
-            'precipToSnow_ht_3' => 1,
-            'precipToSnow_factor_3' => 30,
-            'precipToSnow_lt_4' => 1,
-            'precipToSnow_ht_4' => 2,
-            'precipToSnow_factor_4' => 20,
-            'precipToSnow_lt_5' => 2,
-            'precipToSnow_ht_5' => 3,
-            'precipToSnow_factor_5' => 10,
-            'precipToSnow_lt_6' => 3,
-            'precipToSnow_ht_6' => 99,
-            'precipToSnow_factor_6' => 0,
-            'snowMmToCm_count' => 8,
-            'snowMmToCm_lt_0' => -99,
-            'snowMmToCm_ht_0' => -29,
-            'snowMmToCm_factor_0' => 10,
-            'snowMmToCm_lt_1' => -29,
-            'snowMmToCm_ht_1' => -18,
-            'snowMmToCm_factor_1' => 5,
-            'snowMmToCm_lt_2' => -18,
-            'snowMmToCm_ht_2' => -13,
-            'snowMmToCm_factor_2' => 4,
-            'snowMmToCm_lt_3' => -13,
-            'snowMmToCm_ht_3' => -10,
-            'snowMmToCm_factor_3' => 3,
-            'snowMmToCm_lt_4' => -10,
-            'snowMmToCm_ht_4' => -7,
-            'snowMmToCm_factor_4' => 2,
-            'snowMmToCm_lt_5' => -7,
-            'snowMmToCm_ht_5' => 1,
-            'snowMmToCm_factor_5' => 1,
-            'snowMmToCm_lt_6' => 1,
-            'snowMmToCm_ht_6' => 5,
-            'snowMmToCm_factor_6' => 0.5,
-            'snowMmToCm_lt_7' => 5,
-            'snowMmToCm_ht_7' => 99,
-            'snowMmToCm_factor_7' => 0,
+            'layer_count' => 7,
+            'layer_l_0' => 0,
+            'layer_h_0' => 25,
+            'layer_yield_0' => 0.1,
+            
+            'layer_l_1' => 25,
+            'layer_h_1' => 28,
+            'layer_yield_1' => 0.105,
+
+            'layer_l_2' => 28,
+            'layer_h_2' => 30,
+            'layer_yield_2' => 0.11,
+
+            'layer_l_3' => 30,
+            'layer_h_3' => 31.5,
+            'layer_yield_3' => 0.115,
+
+            'layer_l_4' => 31.5,
+            'layer_h_4' => 33,
+            'layer_yield_4' => 0.12,
+
+            'layer_l_5' => 33,
+            'layer_h_5' => 35,
+            'layer_yield_5' => 0.125,
+
+            'layer_l_6' => 35,
+            'layer_h_6' => 8848,
+            'layer_yield_6' => 0.13
         ];
         
         return $snowDefaultParams;
@@ -4998,12 +4896,12 @@ class Utils
     {
         $calibrationData = [
             [ // pair 1
-                'output' => 'snow_mm',
+                'output' => 'gw_recharge',
                 'ucd' => 'ucd1'
             ],
             [ // pair 2
-                'output' => 'rain_mm',
-                'ucd' => 'ucd3'
+                'output' => 'gw_discharge',
+                'ucd' => 'ucd2'
             ]
         ];
 

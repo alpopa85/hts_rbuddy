@@ -24,7 +24,7 @@ class AnalysisEngine
     const WCHG_OUTPUT_FIELD_LOSS = 'wchg_loss';
 
     const WB = "WATER BALANCE";
-    const WB_REQ_FIELDS = ['precip', 'et'];
+    const WB_REQ_FIELDS = ['elev_change', 'gw_recharge'];
     const WB_OUTPUT_FIELD_ET_LOST = 'et_lost';
     const WB_OUTPUT_FIELD_ET_SOIL = 'et_soil';
     const WB_OUTPUT_FIELD_DRAIN = 'drain';
@@ -128,7 +128,7 @@ class AnalysisEngine
 
         // sr aux parameters
         $mm_h20_window_data = [];
-        $precip_window_data = [];
+        $elev_change_window_data = [];
         $wcgh_gain_window_data = [];
         $et_window_data = [];
 
@@ -170,8 +170,8 @@ class AnalysisEngine
                             $this->calculateWaterBalance(array(
                                 'net_loss' => $outputDataRow[self::WCHG_OUTPUT_FIELD_LOSS],
                                 'net_gain' => $outputDataRow[self::WCHG_OUTPUT_FIELD_GAIN],
-                                'et' => $inputDataRow['et'],
-                                'precip' => $inputDataRow['precip']
+                                'gw_recharge' => $inputDataRow['gw_recharge'],
+                                'elev_change' => $inputDataRow['elev_change']
                             ))
                         );    
                         // Log::debug('balanceOutputRow: ' . json_encode($outputDataRow)); 
@@ -272,8 +272,8 @@ class AnalysisEngine
     private function calculateWaterBalance($params)
     {
         // evapotranspiration after substracting what's lost before entering the soil
-        $et_fromSoil = $params['et'] * ((100 - $this->params['et_loss']) / 100); 
-        $et_lostAboveGround = $params['et'] - $et_fromSoil;
+        $et_fromSoil = $params['gw_recharge'] * ((100 - $this->params['et_loss']) / 100); 
+        $et_lostAboveGround = $params['gw_recharge'] - $et_fromSoil;
         
         $inf = $params['net_gain'] + $et_fromSoil;                
 
@@ -295,7 +295,7 @@ class AnalysisEngine
     {        
         // sr aux parameters
         $mm_h20_window_data = [];
-        $precip_window_data = [];
+        $elev_change_window_data = [];
         $wcgh_gain_window_data = [];
         $et_window_data = [];
 
@@ -337,9 +337,9 @@ class AnalysisEngine
 
             // initialize values
             $mm_h20_window_data[$positionInWindow-1] = $outputDataRow[self::MM_H20_OUTPUT_FIELD];
-            $precip_window_data[$positionInWindow-1] = $inputDataRow['precip'];
+            $elev_change_window_data[$positionInWindow-1] = $inputDataRow['elev_change'];
             $wcgh_gain_window_data[$positionInWindow-1] = $outputDataRow[self::WCHG_OUTPUT_FIELD_GAIN];
-            $et_window_data[$positionInWindow-1] = $inputDataRow['et'];
+            $et_window_data[$positionInWindow-1] = $inputDataRow['gw_recharge'];
             $outputDataRow[self::WB_OUTPUT_FIELD_SR] = 0;
                 
             if ($positionInWindow == $windowSize) { // calculate SR values only if reached last slot in window            
@@ -348,7 +348,7 @@ class AnalysisEngine
                 // Log::debug('TimeIndex: ' . $outputDataRow['time_index']);
                 // Log::debug('Position ' . $positionInWindow);
                 // Log::debug('mm_h20_window_data :' . json_encode($mm_h20_window_data));
-                // Log::debug('precip_window_data :' . json_encode($precip_window_data));
+                // Log::debug('elev_change_window_data :' . json_encode($elev_change_window_data));
                 // Log::debug('wcgh_gain_window_data :' . json_encode($wcgh_gain_window_data));
                 // Log::debug('et_window_data :' . json_encode($et_window_data));
 
@@ -376,7 +376,7 @@ class AnalysisEngine
                         if ($secondHalfAverage <= $firstHalfAverage){ // NO SR in this case
                             // Log::debug('Condition 1 not met! ' . $firstHalfAverage . ' >= ' . $secondHalfAverage);
                             // $mm_h20_window_data = [];
-                            // $precip_window_data = [];
+                            // $elev_change_window_data = [];
                             // $wcgh_gain_window_data = [];
                             // $et_window_data = [];
 
@@ -387,7 +387,7 @@ class AnalysisEngine
 
                 // condition 2
                     // calculate averages for pp & et
-                        $ppAverage = array_sum($precip_window_data)/$windowSize;
+                        $ppAverage = array_sum($elev_change_window_data)/$windowSize;
                         $etAverage = array_sum($et_window_data)/$windowSize;
 
                     // calculate first half averages

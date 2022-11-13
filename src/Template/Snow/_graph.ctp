@@ -57,13 +57,13 @@
                     <tr>
                         <td>
                             <div class="custom-control custom-checkbox text-left">
-                                <input type="checkbox" class="custom-control-input" id="precip-check">
-                                <label class="custom-control-label" for="precip-check"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></label>
+                                <input type="checkbox" class="custom-control-input" id="elev_change-check">
+                                <label class="custom-control-label" for="elev_change-check"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></label>
                             </div>
                         </td>
                         <td>
                             <div class="custom-control custom-switch text-right">
-                                <input type="checkbox" class="custom-control-input y-axis" id="precip-axis">
+                                <input type="checkbox" class="custom-control-input y-axis" id="elev_change-axis">
                             </div>
                         </td>
                     </tr>
@@ -72,7 +72,7 @@
                         <td>
                             <div class="custom-control custom-checkbox text-left">
                                 <input type="checkbox" class="custom-control-input" id="rain-check">
-                                <label class="custom-control-label" for="rain-check"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span></label>
+                                <label class="custom-control-label" for="rain-check"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></label>
                             </div>
                         </td>
                         <td>
@@ -343,7 +343,7 @@
                 <div class="col-12 d-flex justify-content-left">            
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></a>
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></a>
-                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span></a>
+                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></a>
                 </div>
             </div>
 
@@ -405,7 +405,7 @@
                         <th scope="col">Statistic<br /><span id="stat_type"></th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span> (&deg;C)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span> (mm)</th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span> (mm)</th>                
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span> (mm)</th>                
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['SNOF'] ?>">SNOF</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAINS'] ?>">RAINS</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAINNS'] ?>">RAINNS</span> (mm)</th>
@@ -744,7 +744,7 @@
                 case 'elevation-check':
                     $.extend(this.trace1, newTrace);
                     break;
-                case 'precip-check':
+                case 'elev_change-check':
                     $.extend(this.trace2, newTrace);
                     break;
                 case 'rain-check':
@@ -832,7 +832,7 @@
                     }
                     // console.log(this.trace1);
                     break;
-                case 'precip-axis':
+                case 'elev_change-axis':
                     if (!this.trace2.yaxis.localeCompare('y2')) {
                         this.trace2.yaxis = 'y';
                     } else {
@@ -965,9 +965,9 @@
                     this.graphTypeCode = this.graphTypeCode ^ Math.pow(2,3);
                     enabled = $("#elevation-check").prop('checked');
                     break;
-                case 'precip-check':
+                case 'elev_change-check':
                     this.graphTypeCode = this.graphTypeCode ^ Math.pow(2,2);
-                    enabled = $("#precip-check").prop('checked');
+                    enabled = $("#elev_change-check").prop('checked');
                     break;
                 case 'rain-check':
                     this.graphTypeCode = this.graphTypeCode ^ Math.pow(2,1);

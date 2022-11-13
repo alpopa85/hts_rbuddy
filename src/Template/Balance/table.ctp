@@ -27,7 +27,7 @@
                 <th scope="col">Index</th>
                 <th scope="col" class="date-col">Date</th>                                                                   
                 <th scope="col">SWC in Soil (mm)</th>
-                <th scope="col">Precip (mm)</th>
+                <th scope="col">elev_change (mm)</th>
                 <th scope="col">ET Total (mm)</th>
                 <th scope="col">ET Above Ground (mm)</th>
                 <th scope="col">ET From Soil (mm)</th>
@@ -53,7 +53,7 @@
             <tr>
                 <th scope="col">Statistic</th>                       
                 <th scope="col">SWC in Soil (mm)</th>
-                <th scope="col">Precip (mm)</th>
+                <th scope="col">elev_change (mm)</th>
                 <th scope="col">ET Total (mm)</th>
                 <th scope="col">ET Above Ground (mm)</th>
                 <th scope="col">ET From Soil (mm)</th>

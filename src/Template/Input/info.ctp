@@ -66,7 +66,7 @@
                 </li>
 
                 <li>
-                    <h5>The user input data file must be uploaded using a file with one column dedicated to calendar date, two columns dedicated to input data (TEMP, PRECIP) and up to three columns dedicated to calibration data (UCD1 to UCD3)</h5>
+                    <h5>The user input data file must be uploaded using a file with one column dedicated to calendar date, two columns dedicated to input data (TEMP, elev_change) and up to three columns dedicated to calibration data (UCD1 to UCD3)</h5>
                 </li>
 
                 <li>

@@ -40,7 +40,7 @@ class SoilwaterAnalysisEngine
             'time_year',
             'time_date',
             'elevation',
-            'et'            
+            'gw_recharge'            
         ];                 
 
         return $requiredFields;
@@ -67,8 +67,8 @@ class SoilwaterAnalysisEngine
             'snow_mm',
             'water_or_sr',
             'elevation',
-            'precip',
-            'rain',
+            'elev_change',
+            'aquif_storage_change',
             'ucd1',
             'ucd2',
             'ucd3',
@@ -180,8 +180,8 @@ class SoilwaterAnalysisEngine
 
         // get cols from snow
         $outputArray['elevation'] = $snowData['elevation'];
-        $outputArray['precip'] = $snowData['precip'];
-        $outputArray['rain'] = $snowData['rain'];
+        $outputArray['elev_change'] = $snowData['elev_change'];
+        $outputArray['aquif_storage_change'] = $snowData['aquif_storage_change'];
         $outputArray['ucd1'] = $snowData['ucd1'];
         $outputArray['ucd2'] = $snowData['ucd2'];
         $outputArray['ucd3'] = $snowData['ucd3'];
@@ -255,7 +255,7 @@ class SoilwaterAnalysisEngine
         $outputArray['l'] = $outputArray['u']*$this->params['cf_eidr'];
 
         // col O
-        $outputArray['o'] = $inputData['et']*$this->params['cf_ets'];
+        $outputArray['o'] = $inputData['gw_recharge']*$this->params['cf_ets'];
 
         // col P
         $c_73 = ($this->params['thr_ets']/100)*($this->params['por_e']/100)*$this->params['thkn'];
@@ -381,8 +381,8 @@ class SoilwaterAnalysisEngine
         );
 
         $dbReadyDataRow['elevation'] = $outputDataRow['elevation'];
-        $dbReadyDataRow['precip'] = $outputDataRow['precip'];
-        $dbReadyDataRow['rain'] = $outputDataRow['rain'];
+        $dbReadyDataRow['elev_change'] = $outputDataRow['elev_change'];
+        $dbReadyDataRow['aquif_storage_change'] = $outputDataRow['aquif_storage_change'];
 
         $dbReadyDataRow['snow_mm'] = $outputDataRow['e'];
         $dbReadyDataRow['water_or_sr'] = $outputDataRow['f'];        

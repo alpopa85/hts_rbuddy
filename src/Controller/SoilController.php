@@ -568,8 +568,8 @@ class SoilController extends AppController
         $statsData = [];
 
         $elevation = Utils::fetchSoilWaterStatsFromDb('elevation', $startDate, $endDate)[0];      
-        $precip = Utils::fetchSoilWaterStatsFromDb('precip', $startDate, $endDate)[0];      
-        $rain = Utils::fetchSoilWaterStatsFromDb('rain', $startDate, $endDate)[0];      
+        $elev_change = Utils::fetchSoilWaterStatsFromDb('elev_change', $startDate, $endDate)[0];      
+        $rain = Utils::fetchSoilWaterStatsFromDb('aquif_storage_change', $startDate, $endDate)[0];      
         $snow_mm = Utils::fetchSoilWaterStatsFromDb('snow_mm', $startDate, $endDate)[0];                    
         $water_or_sr = Utils::fetchSoilWaterStatsFromDb('water_or_sr', $startDate, $endDate)[0];  
         // $infcap = Utils::fetchSoilWaterStatsFromDb('infcap', $startDate, $endDate)[0];  
@@ -600,8 +600,8 @@ class SoilController extends AppController
         $newDataLine = array(
             'Avg',
             Utils::formatDataDecimals('elevation', $elevation['average']),
-            Utils::formatDataDecimals('precip', $precip['average']),
-            Utils::formatDataDecimals('rain', $rain['average']),
+            Utils::formatDataDecimals('elev_change', $elev_change['average']),
+            Utils::formatDataDecimals('aquif_storage_change', $rain['average']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['average']),
             Utils::formatDataDecimals('water_or_sr', $water_or_sr['average']),
             // Utils::formatDataDecimals('infcap', $infcap['average']),
@@ -638,8 +638,8 @@ class SoilController extends AppController
         $newDataLine = array(
             'Min',
             Utils::formatDataDecimals('elevation', $elevation['minimum']),
-            Utils::formatDataDecimals('precip', $precip['minimum']),
-            Utils::formatDataDecimals('rain', $rain['minimum']),
+            Utils::formatDataDecimals('elev_change', $elev_change['minimum']),
+            Utils::formatDataDecimals('aquif_storage_change', $rain['minimum']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['minimum']),
             Utils::formatDataDecimals('water_or_sr', $water_or_sr['minimum']),
             // Utils::formatDataDecimals('infcap', $infcap['minimum']),
@@ -676,8 +676,8 @@ class SoilController extends AppController
         $newDataLine = array(
             'Max',
             Utils::formatDataDecimals('elevation', $elevation['maximum']),
-            Utils::formatDataDecimals('precip', $precip['maximum']),
-            Utils::formatDataDecimals('rain', $rain['maximum']),
+            Utils::formatDataDecimals('elev_change', $elev_change['maximum']),
+            Utils::formatDataDecimals('aquif_storage_change', $rain['maximum']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['maximum']),
             Utils::formatDataDecimals('water_or_sr', $water_or_sr['maximum']),
             // Utils::formatDataDecimals('infcap', $infcap['maximum']),
@@ -714,8 +714,8 @@ class SoilController extends AppController
         $newDataLine = array(
             'Std Dev',            
             Utils::formatDataDecimals('elevation', $elevation['std_dev']),
-            Utils::formatDataDecimals('precip', $precip['std_dev']),
-            Utils::formatDataDecimals('rain', $rain['std_dev']),
+            Utils::formatDataDecimals('elev_change', $elev_change['std_dev']),
+            Utils::formatDataDecimals('aquif_storage_change', $rain['std_dev']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['std_dev']),
             Utils::formatDataDecimals('water_or_sr', $water_or_sr['std_dev']),
             // Utils::formatDataDecimals('infcap', $infcap['std_dev']),

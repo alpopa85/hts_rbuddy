@@ -389,8 +389,8 @@ class ExportEngine
         $newDataLine = array(
             'Avg',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['average']),
+            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['average']),
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('rains', Utils::fetchSnowStatsFromDb('rains', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('rainns', Utils::fetchSnowStatsFromDb('rainns', $startDate, $endDate)[0]['average']),
@@ -402,7 +402,7 @@ class ExportEngine
             Utils::formatDataDecimals('rdsm', Utils::fetchSnowStatsFromDb('rdsm', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('snow_acc', Utils::fetchSnowStatsFromDb('snow_acc', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('snowmelt', Utils::fetchSnowStatsFromDb('snowmelt', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('et', Utils::fetchSnowStatsFromDb('et', $startDate, $endDate)[0]['average']),
+            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('et_above_g', Utils::fetchSnowStatsFromDb('et_above_g', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('etfsas', Utils::fetchSnowStatsFromDb('etfsas', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('et_above_re', Utils::fetchSnowStatsFromDb('et_above_re', $startDate, $endDate)[0]['average']),
@@ -420,8 +420,8 @@ class ExportEngine
         $newDataLine = array(
             'Min',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['minimum']),
+            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['minimum']),
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('rains', Utils::fetchSnowStatsFromDb('rains', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('rainns', Utils::fetchSnowStatsFromDb('rainns', $startDate, $endDate)[0]['minimum']),
@@ -433,7 +433,7 @@ class ExportEngine
             Utils::formatDataDecimals('rdsm', Utils::fetchSnowStatsFromDb('rdsm', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('snow_acc', Utils::fetchSnowStatsFromDb('snow_acc', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('snowmelt', Utils::fetchSnowStatsFromDb('snowmelt', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('et', Utils::fetchSnowStatsFromDb('et', $startDate, $endDate)[0]['minimum']),
+            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('et_above_g', Utils::fetchSnowStatsFromDb('et_above_g', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('etfsas', Utils::fetchSnowStatsFromDb('etfsas', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('et_above_re', Utils::fetchSnowStatsFromDb('et_above_re', $startDate, $endDate)[0]['minimum']),
@@ -451,8 +451,8 @@ class ExportEngine
         $newDataLine = array(
             'Max',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['maximum']),
+            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['maximum']),
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('rains', Utils::fetchSnowStatsFromDb('rains', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('rainns', Utils::fetchSnowStatsFromDb('rainns', $startDate, $endDate)[0]['maximum']),
@@ -464,7 +464,7 @@ class ExportEngine
             Utils::formatDataDecimals('rdsm', Utils::fetchSnowStatsFromDb('rdsm', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('snow_acc', Utils::fetchSnowStatsFromDb('snow_acc', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('snowmelt', Utils::fetchSnowStatsFromDb('snowmelt', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('et', Utils::fetchSnowStatsFromDb('et', $startDate, $endDate)[0]['maximum']),
+            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('et_above_g', Utils::fetchSnowStatsFromDb('et_above_g', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('etfsas', Utils::fetchSnowStatsFromDb('etfsas', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('et_above_re', Utils::fetchSnowStatsFromDb('et_above_re', $startDate, $endDate)[0]['maximum']),
@@ -482,8 +482,8 @@ class ExportEngine
         $newDataLine = array(
             'Std Dev',      
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('precip', Utils::fetchSnowStatsFromDb('precip', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('rain', Utils::fetchSnowStatsFromDb('rain', $startDate, $endDate)[0]['std_dev']),
+            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['std_dev']),
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('rains', Utils::fetchSnowStatsFromDb('rains', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('rainns', Utils::fetchSnowStatsFromDb('rainns', $startDate, $endDate)[0]['std_dev']),
@@ -495,7 +495,7 @@ class ExportEngine
             Utils::formatDataDecimals('rdsm', Utils::fetchSnowStatsFromDb('rdsm', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('snow_acc', Utils::fetchSnowStatsFromDb('snow_acc', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('snowmelt', Utils::fetchSnowStatsFromDb('snowmelt', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('et', Utils::fetchSnowStatsFromDb('et', $startDate, $endDate)[0]['std_dev']),
+            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('et_above_g', Utils::fetchSnowStatsFromDb('et_above_g', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('etfsas', Utils::fetchSnowStatsFromDb('etfsas', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('et_above_re', Utils::fetchSnowStatsFromDb('et_above_re', $startDate, $endDate)[0]['std_dev']),
@@ -567,8 +567,8 @@ class ExportEngine
         $statsData[] = $newDataLine;    
 
         $elevation = Utils::fetchSoilWaterStatsFromDb('elevation', $startDate, $endDate)[0];      
-        $precip = Utils::fetchSoilWaterStatsFromDb('precip', $startDate, $endDate)[0];      
-        $rain = Utils::fetchSoilWaterStatsFromDb('rain', $startDate, $endDate)[0];      
+        $elev_change = Utils::fetchSoilWaterStatsFromDb('elev_change', $startDate, $endDate)[0];      
+        $rain = Utils::fetchSoilWaterStatsFromDb('aquif_storage_change', $startDate, $endDate)[0];      
         $snow_mm = Utils::fetchSoilWaterStatsFromDb('snow_mm', $startDate, $endDate)[0];                    
         $water_or_sr = Utils::fetchSoilWaterStatsFromDb('water_or_sr', $startDate, $endDate)[0];  
         $inf_cap_corr = Utils::fetchSoilWaterStatsFromDb('inf_cap_corr', $startDate, $endDate)[0];  
@@ -597,8 +597,8 @@ class ExportEngine
         $newDataLine = array(
             'Avg',
             Utils::formatDataDecimals('elevation', $elevation['average']),
-            Utils::formatDataDecimals('precip', $precip['average']),
-            Utils::formatDataDecimals('rain', $rain['average']),
+            Utils::formatDataDecimals('elev_change', $elev_change['average']),
+            Utils::formatDataDecimals('aquif_storage_change', $rain['average']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['average']),
             Utils::formatDataDecimals('water_or_sr', $water_or_sr['average']),
             Utils::formatDataDecimals('inf_cap_corr', $inf_cap_corr['average']),
@@ -633,8 +633,8 @@ class ExportEngine
         $newDataLine = array(
             'Min',
             Utils::formatDataDecimals('elevation', $elevation['minimum']),
-            Utils::formatDataDecimals('precip', $precip['minimum']),
-            Utils::formatDataDecimals('rain', $rain['minimum']),
+            Utils::formatDataDecimals('elev_change', $elev_change['minimum']),
+            Utils::formatDataDecimals('aquif_storage_change', $rain['minimum']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['minimum']),
             Utils::formatDataDecimals('water_or_sr', $water_or_sr['minimum']),
             Utils::formatDataDecimals('inf_cap_corr', $inf_cap_corr['minimum']),
@@ -669,8 +669,8 @@ class ExportEngine
         $newDataLine = array(
             'Max',
             Utils::formatDataDecimals('elevation', $elevation['maximum']),
-            Utils::formatDataDecimals('precip', $precip['maximum']),
-            Utils::formatDataDecimals('rain', $rain['maximum']),
+            Utils::formatDataDecimals('elev_change', $elev_change['maximum']),
+            Utils::formatDataDecimals('aquif_storage_change', $rain['maximum']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['maximum']),
             Utils::formatDataDecimals('water_or_sr', $water_or_sr['maximum']),
             Utils::formatDataDecimals('inf_cap_corr', $inf_cap_corr['maximum']),
@@ -705,8 +705,8 @@ class ExportEngine
         $newDataLine = array(
             'Std Dev',            
             Utils::formatDataDecimals('elevation', $elevation['std_dev']),
-            Utils::formatDataDecimals('precip', $precip['std_dev']),
-            Utils::formatDataDecimals('rain', $rain['std_dev']),
+            Utils::formatDataDecimals('elev_change', $elev_change['std_dev']),
+            Utils::formatDataDecimals('aquif_storage_change', $rain['std_dev']),
             Utils::formatDataDecimals('snow_mm', $snow_mm['std_dev']),
             Utils::formatDataDecimals('water_or_sr', $water_or_sr['std_dev']),
             Utils::formatDataDecimals('inf_cap_corr', $inf_cap_corr['std_dev']),

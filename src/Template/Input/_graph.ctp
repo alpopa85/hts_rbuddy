@@ -53,13 +53,13 @@
                     <tr>
                         <td>
                             <div class="custom-control custom-checkbox text-left">
-                                <input type="checkbox" class="custom-control-input" id="precip-check">
-                                <label class="custom-control-label" for="precip-check"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></label>
+                                <input type="checkbox" class="custom-control-input" id="elev_change-check">
+                                <label class="custom-control-label" for="elev_change-check"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></label>
                             </div>
                         </td>
                         <td>
                             <div class="custom-control custom-switch text-left">
-                                <input type="checkbox" class="custom-control-input y-axis" id="precip-axis">
+                                <input type="checkbox" class="custom-control-input y-axis" id="elev_change-axis">
                             </div>
                         </td>
                     </tr>
@@ -68,7 +68,7 @@
                         <td>
                             <div class="custom-control custom-checkbox text-left">
                                 <input type="checkbox" class="custom-control-input" id="rain-check">
-                                <label class="custom-control-label" for="rain-check"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span></label>
+                                <label class="custom-control-label" for="rain-check"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></label>
                             </div>
                         </td>
                         <td>
@@ -222,7 +222,7 @@
                         <th scope="col">Statistic</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span> (&deg;C)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span> (mm)</th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAIN'] ?>">RAIN</span> (mm)</th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ETA'] ?>">ETA</span> (mm)</th> 
                         <?php for ($i = 0; $i < $nValidationColumns; $i++) {
                             switch ($i) {
@@ -470,7 +470,7 @@
                     // this.trace1 = $.extend({}, {...newTrace,...this.trace1};
                     $.extend(this.trace1, newTrace);
                     break;
-                case 'precip-check':
+                case 'elev_change-check':
                     $.extend(this.trace2, newTrace);
                     break;
                 case 'rain-check':
@@ -532,7 +532,7 @@
                     }
                     // console.log(this.trace1);
                     break;
-                case 'precip-axis':
+                case 'elev_change-axis':
                     if (!this.trace2.yaxis.localeCompare('y2')) {
                         this.trace2.yaxis = 'y';
                     } else {
@@ -608,9 +608,9 @@
                     this.graphTypeCode = this.graphTypeCode ^ 8;
                     enabled = $("#temp-check").prop('checked');
                     break;
-                case 'precip-check':
+                case 'elev_change-check':
                     this.graphTypeCode = this.graphTypeCode ^ 4;
-                    enabled = $("#precip-check").prop('checked');
+                    enabled = $("#elev_change-check").prop('checked');
                     break;
                 case 'rain-check':
                     this.graphTypeCode = this.graphTypeCode ^ 2;
