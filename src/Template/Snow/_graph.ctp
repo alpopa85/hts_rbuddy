@@ -44,7 +44,7 @@
                         <td>
                             <div class="custom-control custom-checkbox text-left">
                                 <input type="checkbox" class="custom-control-input" id="elevation-check" checked>
-                                <label class="custom-control-label" for="elevation-check"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></label>
+                                <label class="custom-control-label" for="elevation-check"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">elevation</span></label>
                             </div>
                         </td>
                         <td>
@@ -72,7 +72,7 @@
                         <td>
                             <div class="custom-control custom-checkbox text-left">
                                 <input type="checkbox" class="custom-control-input" id="rain-check">
-                                <label class="custom-control-label" for="rain-check"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></label>
+                                <label class="custom-control-label" for="rain-check"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span></label>
                             </div>
                         </td>
                         <td>
@@ -341,9 +341,9 @@
     
             <div class="row py-1 pt-3">
                 <div class="col-12 d-flex justify-content-left">            
-                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></a>
+                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">elevation</span></a>
                     <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></a>
-                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></a>
+                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span></a>
                 </div>
             </div>
 
@@ -403,9 +403,9 @@
                 <thead>
                     <tr>
                         <th scope="col">Statistic<br /><span id="stat_type"></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span> (&deg;C)</th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">elevation</span> (&deg;C)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span> (mm)</th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span> (mm)</th>                
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span> (mm)</th>                
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['SNOF'] ?>">SNOF</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAINS'] ?>">RAINS</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['RAINNS'] ?>">RAINNS</span> (mm)</th>

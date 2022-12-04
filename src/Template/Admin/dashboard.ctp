@@ -65,10 +65,8 @@
                         <th scope="col">Unique Visitors (IPs)</th>  
                         <th scope="col">Load Test Data</th>
                         <th scope="col">Load User Data</th>
-                        <th scope="col">Run Snow Module</th>
-                        <th scope="col">Export Snow Results</th>                        
-                        <th scope="col">Run Water Balance Module</th>                                            
-                        <th scope="col">Export Water Balance Results</th>
+                        <th scope="col">Run Analysis</th>
+                        <th scope="col">Export Results</th>                        
                     </tr>
                 </thead>        
             </table>
@@ -218,7 +216,7 @@
                     extend: 'csv',
                     filename: () => {         
                         var now = Date.now();               
-                        return 'swib_usageStats_' + now;
+                        return 'rbuddy_usageStats_' + now;
                     }                   
                 },                            
             ]                        

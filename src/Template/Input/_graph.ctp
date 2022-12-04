@@ -68,7 +68,7 @@
                         <td>
                             <div class="custom-control custom-checkbox text-left">
                                 <input type="checkbox" class="custom-control-input" id="rain-check">
-                                <label class="custom-control-label" for="rain-check"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></label>
+                                <label class="custom-control-label" for="rain-check"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span></label>
                             </div>
                         </td>
                         <td>
@@ -222,7 +222,7 @@
                         <th scope="col">Statistic</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TEMP'] ?>">TEMP</span> (&deg;C)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span> (mm)</th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span> (mm)</th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span> (mm)</th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ETA'] ?>">ETA</span> (mm)</th> 
                         <?php for ($i = 0; $i < $nValidationColumns; $i++) {
                             switch ($i) {

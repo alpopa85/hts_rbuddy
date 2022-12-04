@@ -117,6 +117,7 @@ class SnowController extends AppController
             $calibFieldNames[$key] = explode(' ', Utils::transformKey($value))[0];
         }
         $this->set('calibration', $calibFieldNames);
+        // Log::debug($calibFieldNames);
 
         $analysisParams = Utils::getParams();
         $this->set('analysisParams', $analysisParams);
@@ -131,9 +132,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');        
-        $response = $response->withDownload($this->exportPrefix . 'dailySnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'dailyOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     } 
@@ -147,9 +148,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'monthlySnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'monthlyOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     }
@@ -163,9 +164,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'yearlySnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'yearlyOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     }
@@ -179,9 +180,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'seasonsSnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'seasonsOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     }
@@ -195,9 +196,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'growingSeasonsSnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'growingSeasonsOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     }
@@ -211,9 +212,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'typicalDailySnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'typicalDailyOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     } 
@@ -227,9 +228,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'typicalMonthlySnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'typicalMonthlyOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     }
@@ -243,9 +244,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'typicalYearSnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'typicalYearOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     }
@@ -259,9 +260,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'typicalSeasonsSnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'typicalSeasonsOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     }
@@ -275,9 +276,9 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'typicalGrowingSeasonsSnow' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'typicalGrowingSeasonsOutput' . $this->exportSuffix);
 
-        Utils::addUsage('export_snow');
+        Utils::addUsage('export_output');
 
         return $response;
     }
@@ -291,7 +292,7 @@ class SnowController extends AppController
 
         $response = $response->withStringBody($data);
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'SnowStats' . $this->exportSuffix);
+        $response = $response->withDownload($this->exportPrefix . 'outputStats' . $this->exportSuffix);
 
         return $response;
     }    
@@ -306,7 +307,7 @@ class SnowController extends AppController
         $response = $response->withStringBody($data);
 
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'snowConfig' . $this->exportSuffix);        
+        $response = $response->withDownload($this->exportPrefix . 'outputConfig' . $this->exportSuffix);        
         return $response;
     } 
     
@@ -423,6 +424,7 @@ class SnowController extends AppController
 
             // save new analysis params
             // Log::debug('params: ' . json_encode($formData));   
+            Utils::removeParamsDataset();
             Utils::writeParamsToDb($formData, 'snow');           
             
             //perform snow analysis

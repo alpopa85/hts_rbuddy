@@ -46,14 +46,14 @@
                     <option value="none"><span>None</span></option>
 
                     <optgroup label="Input Data">
-                        <option selected value="elevation">Elevation</option>
+                        <option selected value="elevation">Elevation (masl)</option>
                     </optgroup>                                        
 
                     <optgroup label="Output Data">          
-                        <option value="elev_change">Elevation Change</option>
-                        <option value="aquif_storage_change">aquif_storage_change</option>
-                        <option value="gw_recharge">gw_recharge</option>
-                        <option value="gw_discharge">gw_discharge</option>                       
+                        <option value="elev_change">Change in Elevation (mm)</option>
+                        <option value="aquif_storage_change">Change in Aquifer Storage (mm)</option>
+                        <option value="gw_recharge">Groundwater Recharge (mm)</option>
+                        <option value="gw_discharge">Groundwater Discharge (mm)</option>                       
                     </optgroup>
 
                     <?php if ($nValidationColumns > 0) { ?>
@@ -82,14 +82,14 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="elevation">Elevation</option>                        
+                        <option value="elevation">Elevation (masl)</option>                        
                     </optgroup>                                        
 
                     <optgroup label="Output Data">          
-                        <option value="elev_change">Elevation Change</option>
-                        <option value="aquif_storage_change">aquif_storage_change</option>
-                        <option value="gw_recharge">gw_recharge</option>
-                        <option value="gw_discharge">gw_discharge</option>                                    
+                        <option value="elev_change">Change in Elevation (mm)</option>
+                        <option value="aquif_storage_change">Change in Aquifer Storage (mm)</option>
+                        <option value="gw_recharge">Groundwater Recharge (mm)</option>
+                        <option value="gw_discharge">Groundwater Discharge (mm)</option>                                    
                     </optgroup>
 
                     <?php if ($nValidationColumns > 0) { ?>
@@ -118,14 +118,14 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="elevation">Elevation</option>                       
+                        <option value="elevation">Elevation (masl)</option>                       
                     </optgroup>                                        
 
                     <optgroup label="Output Data">          
-                        <option value="elev_change">Elevation Change</option>
-                        <option value="aquif_storage_change">aquif_storage_change</option>
-                        <option value="gw_recharge">gw_recharge</option>
-                        <option value="gw_discharge">gw_discharge</option>                                     
+                        <option value="elev_change">Change in Elevation (mm)</option>
+                        <option value="aquif_storage_change">Change in Aquifer Storage (mm)</option>
+                        <option value="gw_recharge">Groundwater Recharge (mm)</option>
+                        <option value="gw_discharge">Groundwater Discharge (mm)</option>                                     
                     </optgroup>
 
                     <?php if ($nValidationColumns > 0) { ?>
@@ -154,14 +154,14 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="temp">TEMP</option>
+                        <option value="elevation">Elevation (masl)</option>
                     </optgroup>                                        
 
                     <optgroup label="Output Data">          
-                     <option value="elev_change">Elevation Change</option>
-                        <option value="aquif_storage_change">aquif_storage_change</option>
-                        <option value="gw_recharge">gw_recharge</option>
-                        <option value="gw_discharge">gw_discharge</option>                                      
+                        <option value="elev_change">Change in Elevation (mm)</option>
+                        <option value="aquif_storage_change">Change in Aquifer Storage (mm)</option>
+                        <option value="gw_recharge">Groundwater Recharge (mm)</option>
+                        <option value="gw_discharge">Groundwater Discharge (mm)</option>                                      
                     </optgroup>
 
                     <?php if ($nValidationColumns > 0) { ?>
@@ -223,16 +223,16 @@
     
             <div class="row py-1 pt-3">
                 <div class="col-12 d-flex justify-content-left">            
-                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">Elevation (masl)</span></a>                    
+                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">Elevation (masl)</span></a>                    
                 </div>
             </div>
 
             <div class="row py-1">
                 <div class="col-12 d-flex justify-content-left">            
-                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['elev_change'] ?>">Elevation Change (mm)</span></a>
-                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">aquif_storage_change</span></a>
-                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="5"><span data-toggle="tooltip" title="<?= $tooltips['gw_recharge'] ?>">gw_recharge</span></a>
-                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="6"><span data-toggle="tooltip" title="<?= $tooltips['gw_discharge'] ?>">gw_discharge</span></a>                    
+                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['ELEV_CHANGE'] ?>">Change in Elevation (mm)</span></a>
+                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">Change in Aquifer Storage (mm)</span></a>
+                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="5"><span data-toggle="tooltip" title="<?= $tooltips['GW_RECHARGE'] ?>">Groundwater Recharge (mm)</span></a>
+                    <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="6"><span data-toggle="tooltip" title="<?= $tooltips['GW_DISCHARGE'] ?>">Groundwater Discharge (mm)</span></a>                    
                 </div>        
             </div>
 
@@ -264,11 +264,11 @@
                 <thead>
                     <tr>
                         <th scope="col">Statistic<br /><span id="stat_type"></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">Elevation (masl)</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elev_change'] ?>">Elevation Change (mm)</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">aquif_storage_change</span></th>                
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['gw_recharge'] ?>">gw_recharge</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['gw_discharge'] ?>">gw_discharge</span></th>                        
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">Elevation (masl)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEV_CHANGE'] ?>">Change in Elevation (mm)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">Change in Aquifer Storage (mm)</span></th>                
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['GW_RECHARGE'] ?>">Groundwater Recharge (mm)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['GW_DISCHARGE'] ?>">Groundwater Discharge (mm)</span></th>                        
 
                         <?php for ($i = 0; $i < $nValidationColumns; $i++) {
                             switch ($i) {
@@ -494,13 +494,13 @@
                 case 'ucd3': 
                     return 'UCD3';                
                 case 'elev_change':
-                    return 'Elevation Change (mm)';        
+                    return 'Change in Elevation (mm)';        
                 case 'aquif_storage_change':
-                    return 'aquif_storage_change (mm)';
+                    return 'Change in Aquifer Storage (mm)';
                 case 'gw_recharge': 
-                    return 'gw_recharge (cm)';
+                    return 'Groundwater Recharge (mm)';
                 case 'gw_discharge': 
-                    return 'gw_discharge (mm)';                   
+                    return 'Groundwater Discharge (mm)';                   
             }        
         },
                 
@@ -955,7 +955,7 @@
                     className: "dt-head-center dt-body-center"
                 },
                 {
-                    targets: [1, 2, 6, 7, 8],
+                    targets: [1, 6, 7, 8],
                     visible: false
                 }
             ],

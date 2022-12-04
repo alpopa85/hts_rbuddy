@@ -1064,62 +1064,29 @@ class Utils
             case 'time_name':
             case 'time_index':            
                 return $value;
+                break;            
+            // 0 dec
+            case 'gs_start_day':
+            case 'gs_start_month':
+            case 'gs_end_day':
+            case 'gs_end_month':
+                return number_format($value, 0);
+                break;       
+            // 1 dec
+            case 'elev_change':
+            case 'aquif_storage_change':
+            case 'gw_recharge':
+            case 'gw_discharge':
+                return number_format($value, 1);
                 break;
             // 3 dec
-            case 'inf_lr':
-            case 'inf_hr':
-            case 'dra_lr':
-            case 'dra_hr':
-                return number_format($value, 3);
-                break;
             case 'r_2':
             case 'rmsd':
             case 'nrmsd_minmax':
             case 'nrmsd_mean':
             case 'nrmse_iqr':
-                return number_format($value, 5);
-                break;
-            // 2 dec            
-            case 'elevation':
-            case 'gw_recharge':
-            case 'et_above_g':          
-            case 'etfsas':                                      
-            case 'et_above_re':
-            case 'etisi':
-            case 'et_corr':                        
-            case 'ucd':
-            case 'ucd1':
-            case 'ucd2':
-            case 'ucd3':
-            case 'ucd4':
-            case 'ucd5':
-            case 'thr_rs':
-            case 'thr_sm':
-            case 'cft_sm':
-            case 'cfp_sm':
-            case 'cfs_mc':
-            case 'cf_ets':
-            case 'sr_init':
-            case 'ng_init':
-            case 'nl_init':
-            case 'thr_tsd':
-            case 'cf_eidr':
-            case 'cf_osdr':
-                return number_format($value, 2);
-                break;
-            // 0 dec
-            case 'days_low_swc':
-            case 'days_high_swc':
-            case 'gs_start_day':
-            case 'gs_start_month':
-            case 'gs_end_day':
-            case 'gs_end_month':
-            case 'thkn':
-                return number_format($value, 0);
-                break;                       
-            // 1 dec
             default:            
-                return number_format($value, 1);
+                return number_format($value, 3);
                 break;
         }
     }
@@ -1466,25 +1433,9 @@ class Utils
                 $item->time_name,
                 Utils::formatDataDecimals('elevation', $item->elevation),
                 Utils::formatDataDecimals('elev_change', $item->elev_change),
-                Utils::formatDataDecimals('aquif_storage_change', $item->rain),
-                Utils::formatDataDecimals('snow_mm', $item->snow_mm),
-                Utils::formatDataDecimals('rains', $item->rains),
-                Utils::formatDataDecimals('rainns', $item->rainns),
-                Utils::formatDataDecimals('snoa', $item->snoa),
-                Utils::formatDataDecimals('snom', $item->snom),
-                Utils::formatDataDecimals('rssl', $item->rssl),
-                Utils::formatDataDecimals('rsi', $item->rsi),
-                Utils::formatDataDecimals('tdsm', $item->tdsm),
-                Utils::formatDataDecimals('rdsm', $item->rdsm),
-                Utils::formatDataDecimals('snow_acc', $item->snow_acc),
-                Utils::formatDataDecimals('snowmelt', $item->snowmelt),
-                Utils::formatDataDecimals('gw_recharge', $item->et),
-                Utils::formatDataDecimals('et_above_g', $item->et_above_g),
-                Utils::formatDataDecimals('etfsas', $item->etfsas),
-                Utils::formatDataDecimals('et_above_re', $item->et_above_re),
-                // Utils::formatDataDecimals('watisri', $item->watisri),
-                Utils::formatDataDecimals('water_or_sr', $item->water_or_sr),
-                Utils::formatDataDecimals('snow_calc', $item->snow_calc)
+                Utils::formatDataDecimals('aquif_storage_change', $item->aquif_storage_change),               
+                Utils::formatDataDecimals('gw_recharge', $item->gw_recharge),
+                Utils::formatDataDecimals('gw_discharge', $item->gw_discharge)
             );
 
             // add validation data fields
@@ -1545,6 +1496,7 @@ class Utils
             ->fetch();
 
         $inputDataStats[0]->std_dev = $std[0];
+        // Log::debug($inputDataStats);
 
         return $inputDataStats;
     }
@@ -3124,7 +3076,7 @@ class Utils
                 $paramsData[] = $newParam;
             }
 
-            if (strcmp(explode("_", $formDataKey)[0], "layer_") == 0) {
+            if (strcmp(explode("_", $formDataKey)[0], "layer") == 0) {
                 $paramsData[] = array(
                     'dataset' => self::getCurrentDataset(),
                     'param_name' => 'layer_count',
@@ -3825,10 +3777,8 @@ class Utils
             $query->select([
                 'test_input' => $query->func()->sum('test_input'),
                 'input' => $query->func()->sum('input'),
-                'snow' => $query->func()->sum('snow'),
-                'export_snow' => $query->func()->sum('export_snow'),
-                'soil_water' => $query->func()->sum('soil_water'),
-                'export_soil_water' => $query->func()->sum('export_soil_water')                
+                'output' => $query->func()->sum('output'),
+                'export_output' => $query->func()->sum('export_output'),
             ]);
             $query->where([
                 'date_added >=' => $startDate,
@@ -3844,10 +3794,8 @@ class Utils
             $query->select([
                 'test_input' => $query->func()->sum('test_input'),
                 'input' => $query->func()->sum('input'),
-                'snow' => $query->func()->sum('snow'),
-                'export_snow' => $query->func()->sum('export_snow'),
-                'soil_water' => $query->func()->sum('soil_water'),
-                'export_soil_water' => $query->func()->sum('export_soil_water')  
+                'output' => $query->func()->sum('output'),
+                'export_output' => $query->func()->sum('export_output'),
             ]);
             $usageStatsData = $query->toArray();
         }
@@ -3857,10 +3805,8 @@ class Utils
             $data[] = array(
                 $item->test_input,
                 $item->input,
-                $item->snow,
-                $item->export_snow,
-                $item->soil_water,
-                $item->export_soil_water                
+                $item->output,
+                $item->export_output,                           
             );
         }
 
@@ -4076,11 +4022,11 @@ class Utils
     public static function getToolTips()
     {
         return array(
-            'elevation' => 'Ground Water table elevation (meters above sea level)',   
-            'elev_change' => 'Elevation Change (mm)',
-            'aquif_storage_change' => 'aquif_storage_change',
-            'gw_recharge' => 'gw_recharge',
-            'gw_discharge' => 'gw_discharge',
+            'ELEVATION' => 'Ground Water table elevation (meters above sea level)',   
+            'ELEV_CHANGE' => 'Change in Elevation (mm)',
+            'AQUIF_STORAGE_CHANGE' => 'Change in Aquifer Storage (mm)',
+            'GW_RECHARGE' => 'Groundwater Recharge (mm)',
+            'GW_DISCHARGE' => 'Groundwater Discharge (mm)',
             'UCD' => 'User calibration data',
             'UCD1' => 'User calibration data',
             'UCD2' => 'User calibration data',
@@ -4124,9 +4070,38 @@ class Utils
             }          
             
         // output
-            if(strcmp($key, 'snow_mm') == 0){
-                return 'SNOF (mm)';
-            }            
+            if(strcmp($key, 'elev_change') == 0){
+                return 'ELEV_CHANGE (mm)';
+            }
+
+            if(strcmp($key, 'aquif_storage_change') == 0){
+                return 'AQUIF_STORAGE_CHANGE (cm)';
+            }
+
+            if(strcmp($key, 'gw_recharge') == 0){
+                return 'GW_RECHARGE (mm)';
+            }    
+            
+            if(strcmp($key, 'gw_discharge') == 0){
+                return 'GW_DISCHARGE (mm)';
+            } 
+
+        // metadata
+            if(strcmp($key, 'gs_start_day') == 0){
+                return 'GS_start_day';
+            }
+
+            if(strcmp($key, 'gs_start_month') == 0){
+                return 'GS_start_month';
+            }
+
+            if(strcmp($key, 'gs_end_day') == 0){
+                return 'GS_end_day';
+            }
+
+            if(strcmp($key, 'gs_end_month') == 0){
+                return 'GS_end_month';
+            }           
 
         return $key;
     }    
@@ -4860,6 +4835,7 @@ class Utils
     {
         $snowDefaultParams = [
             'layer_count' => 7,
+
             'layer_l_0' => 0,
             'layer_h_0' => 25,
             'layer_yield_0' => 0.1,

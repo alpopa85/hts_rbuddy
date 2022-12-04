@@ -14,16 +14,16 @@
 
 <div class="row py-1 pt-3 px-5 field-buttons">
     <div class="col-12 d-flex justify-content-left">            
-        <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">Elevation (masl)</span></a>
+        <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">Elevation (masl)</span></a>
     </div>
 </div>
 
 <div class="row py-1 px-5 field-buttons">
     <div class="col-12 d-flex justify-content-left">                    
-        <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['elev_change'] ?>">Elevation Change (mm)</span></a>
-        <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">aquif_storage_change</span></a>
-        <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="5"><span data-toggle="tooltip" title="<?= $tooltips['gw_recharge'] ?>">gw_recharge</span></a>
-        <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="6"><span data-toggle="tooltip" title="<?= $tooltips['gw_discharge'] ?>">gw_discharge</span></a>                    
+        <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="3"><span data-toggle="tooltip" title="<?= $tooltips['ELEV_CHANGE'] ?>">Change in Elevation (mm)</span></a>
+        <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="4"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">Change in Aquifer Storage (mm)</span></a>
+        <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="5"><span data-toggle="tooltip" title="<?= $tooltips['GW_RECHARGE'] ?>">Groundwater Recharge (mm)</span></a>
+        <a class="btn btn-outline-danger btn-sm active col-hide-button toggle-vis" data-column="6"><span data-toggle="tooltip" title="<?= $tooltips['GW_DISCHARGE'] ?>">Groundwater Discharge (mm)</span></a>                    
     </div>        
 </div>
 
@@ -79,11 +79,11 @@
                     <tr>
                         <th scope="col">Index</th>
                         <th scope="col" class="date-col">Date</th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">Elevation (masl)</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elev_change'] ?>">Elevation Change (mm)</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">aquif_storage_change</span></th>                
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['gw_recharge'] ?>">gw_recharge</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['gw_discharge'] ?>">gw_discharge</span></th>                   
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">Elevation (masl)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEV_CHANGE'] ?>">Change in Elevation (mm)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">Change in Aquifer Storage (mm)</span></th>                
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['GW_RECHARGE'] ?>">Groundwater Recharge (mm)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['GW_DISCHARGE'] ?>">Groundwater Discharge (mm)</span></th>                   
                         
                         <?php for ($i = 0; $i < $nValidationColumns; $i++) {
                             switch ($i) {
@@ -138,11 +138,11 @@
                 <thead>
                     <tr>
                         <th scope="col">Statistic<br /><span id="stat_type"></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">Elevation (masl)</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elev_change'] ?>">Elevation Change (mm)</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">aquif_storage_change</span></th>                
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['gw_recharge'] ?>">gw_recharge</span></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['gw_discharge'] ?>">gw_discharge</span></th>    
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">Elevation (masl)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEV_CHANGE'] ?>">Change in Elevation (mm)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">Change in Aquifer Storage (mm)</span></th>                
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['GW_RECHARGE'] ?>">Groundwater Recharge (mm)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['GW_DISCHARGE'] ?>">Groundwater Discharge (mm)</span></th>  
 
                         <?php for ($i = 0; $i < $nValidationColumns; $i++) {
                             switch ($i) {
@@ -220,7 +220,9 @@
                     <tr>                        
                         <th scope="col">Statistic</th>                        
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips[$calibration['output1_field']] ?>"><?= $calibration['output1_field']?></span> vs <span data-toggle="tooltip" title="<?= $tooltips[$calibration['ucd1_field']] ?>"><?= $calibration['ucd1_field']?></span></th> 
+                        <?php if (!empty($calibration['output2_field']) && !empty($calibration['ucd2_field'])) { ?>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips[$calibration['output2_field']] ?>"><?= $calibration['output2_field']?></span> vs <span data-toggle="tooltip" title="<?= $tooltips[$calibration['ucd2_field']] ?>"><?= $calibration['ucd2_field']?></span></th>                       
+                        <?php } ?>
                     </tr>
                 </thead>
             </table>

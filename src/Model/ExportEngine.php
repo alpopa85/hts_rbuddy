@@ -357,27 +357,11 @@ class ExportEngine
         // header
         $newDataLine = array(
             'Statistic',
-            'elevation (C)',
-            'TOTPP (mm)',
-            'RAIN (mm)',                                   
-            'SNOF (mm)',                                   
-            'RAINS (mm)',                                   
-            'RAINNS (mm)',                                   
-            'SNOA (mm)',                                   
-            'SNOM (mm)',                                   
-            'RSSL (mm)',                                   
-            'RSI (mm)',                                   
-            'SNMT (mm)',                                   
-            'SNMR (mm)',                                   
-            'SNTFmm (mm)',                                   
-            'SNMF (mm)',
-            'ETA (mm)',                                   
-            'ETasi (mm)',                                   
-            'ETfsas (mm)',                                   
-            'ETasf (mm)',                                   
-            // 'WATisri (mm)',                                   
-            'WATisrf (mm)',                                   
-            'SNTFcm (cm)'                                    
+            'Elevation (masl)',                                     
+            'Change in Elevation (mm)',
+            'Change in Aquifer Storage (mm)',
+            'Groundwater Recharge (mm)',
+            'Groundwater Discharge (mm)'
         );        
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
@@ -390,25 +374,9 @@ class ExportEngine
             'Avg',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['average']),
             Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('rains', Utils::fetchSnowStatsFromDb('rains', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('rainns', Utils::fetchSnowStatsFromDb('rainns', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('snoa', Utils::fetchSnowStatsFromDb('snoa', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('snom', Utils::fetchSnowStatsFromDb('snom', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('rssl', Utils::fetchSnowStatsFromDb('rssl', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('rsi', Utils::fetchSnowStatsFromDb('rsi', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('tdsm', Utils::fetchSnowStatsFromDb('tdsm', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('rdsm', Utils::fetchSnowStatsFromDb('rdsm', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('snow_acc', Utils::fetchSnowStatsFromDb('snow_acc', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('snowmelt', Utils::fetchSnowStatsFromDb('snowmelt', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('et_above_g', Utils::fetchSnowStatsFromDb('et_above_g', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('etfsas', Utils::fetchSnowStatsFromDb('etfsas', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('et_above_re', Utils::fetchSnowStatsFromDb('et_above_re', $startDate, $endDate)[0]['average']),
-            // Utils::formatDataDecimals('watisri', Utils::fetchSnowStatsFromDb('watisri', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('water_or_sr', Utils::fetchSnowStatsFromDb('water_or_sr', $startDate, $endDate)[0]['average']),
-            Utils::formatDataDecimals('snow_calc', Utils::fetchSnowStatsFromDb('snow_calc', $startDate, $endDate)[0]['average'])
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['average']),            
+            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['average']),            
+            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['average'])
         );
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
@@ -421,25 +389,9 @@ class ExportEngine
             'Min',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['minimum']),
             Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('rains', Utils::fetchSnowStatsFromDb('rains', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('rainns', Utils::fetchSnowStatsFromDb('rainns', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('snoa', Utils::fetchSnowStatsFromDb('snoa', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('snom', Utils::fetchSnowStatsFromDb('snom', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('rssl', Utils::fetchSnowStatsFromDb('rssl', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('rsi', Utils::fetchSnowStatsFromDb('rsi', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('tdsm', Utils::fetchSnowStatsFromDb('tdsm', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('rdsm', Utils::fetchSnowStatsFromDb('rdsm', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('snow_acc', Utils::fetchSnowStatsFromDb('snow_acc', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('snowmelt', Utils::fetchSnowStatsFromDb('snowmelt', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('et_above_g', Utils::fetchSnowStatsFromDb('et_above_g', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('etfsas', Utils::fetchSnowStatsFromDb('etfsas', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('et_above_re', Utils::fetchSnowStatsFromDb('et_above_re', $startDate, $endDate)[0]['minimum']),
-            // Utils::formatDataDecimals('watisri', Utils::fetchSnowStatsFromDb('watisri', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('water_or_sr', Utils::fetchSnowStatsFromDb('water_or_sr', $startDate, $endDate)[0]['minimum']),
-            Utils::formatDataDecimals('snow_calc', Utils::fetchSnowStatsFromDb('snow_calc', $startDate, $endDate)[0]['minimum'])                 
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['minimum']),            
+            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['minimum']),            
+            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['minimum'])
         );
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
@@ -452,25 +404,9 @@ class ExportEngine
             'Max',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['maximum']),
             Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('rains', Utils::fetchSnowStatsFromDb('rains', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('rainns', Utils::fetchSnowStatsFromDb('rainns', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('snoa', Utils::fetchSnowStatsFromDb('snoa', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('snom', Utils::fetchSnowStatsFromDb('snom', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('rssl', Utils::fetchSnowStatsFromDb('rssl', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('rsi', Utils::fetchSnowStatsFromDb('rsi', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('tdsm', Utils::fetchSnowStatsFromDb('tdsm', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('rdsm', Utils::fetchSnowStatsFromDb('rdsm', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('snow_acc', Utils::fetchSnowStatsFromDb('snow_acc', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('snowmelt', Utils::fetchSnowStatsFromDb('snowmelt', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('et_above_g', Utils::fetchSnowStatsFromDb('et_above_g', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('etfsas', Utils::fetchSnowStatsFromDb('etfsas', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('et_above_re', Utils::fetchSnowStatsFromDb('et_above_re', $startDate, $endDate)[0]['maximum']),
-            // Utils::formatDataDecimals('watisri', Utils::fetchSnowStatsFromDb('watisri', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('water_or_sr', Utils::fetchSnowStatsFromDb('water_or_sr', $startDate, $endDate)[0]['maximum']),
-            Utils::formatDataDecimals('snow_calc', Utils::fetchSnowStatsFromDb('snow_calc', $startDate, $endDate)[0]['maximum'])                               
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['maximum']),            
+            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['maximum']),            
+            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['maximum'])
         );
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
@@ -483,25 +419,9 @@ class ExportEngine
             'Std Dev',      
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['std_dev']),
             Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('snow_mm', Utils::fetchSnowStatsFromDb('snow_mm', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('rains', Utils::fetchSnowStatsFromDb('rains', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('rainns', Utils::fetchSnowStatsFromDb('rainns', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('snoa', Utils::fetchSnowStatsFromDb('snoa', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('snom', Utils::fetchSnowStatsFromDb('snom', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('rssl', Utils::fetchSnowStatsFromDb('rssl', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('rsi', Utils::fetchSnowStatsFromDb('rsi', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('tdsm', Utils::fetchSnowStatsFromDb('tdsm', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('rdsm', Utils::fetchSnowStatsFromDb('rdsm', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('snow_acc', Utils::fetchSnowStatsFromDb('snow_acc', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('snowmelt', Utils::fetchSnowStatsFromDb('snowmelt', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('et_above_g', Utils::fetchSnowStatsFromDb('et_above_g', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('etfsas', Utils::fetchSnowStatsFromDb('etfsas', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('et_above_re', Utils::fetchSnowStatsFromDb('et_above_re', $startDate, $endDate)[0]['std_dev']),
-            // Utils::formatDataDecimals('watisri', Utils::fetchSnowStatsFromDb('watisri', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('water_or_sr', Utils::fetchSnowStatsFromDb('water_or_sr', $startDate, $endDate)[0]['std_dev']),
-            Utils::formatDataDecimals('snow_calc', Utils::fetchSnowStatsFromDb('snow_calc', $startDate, $endDate)[0]['std_dev'])                                
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['std_dev']),            
+            Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['std_dev']),            
+            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['std_dev'])
         );    
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {

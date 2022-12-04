@@ -193,7 +193,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Statistic</th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">ELEVATION</span> (masl)</th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">ELEVATION</span> (masl)</th>
                         <?php for ($i = 0; $i < $nValidationColumns; $i++) {
                             switch ($i) {
                                 case 0:

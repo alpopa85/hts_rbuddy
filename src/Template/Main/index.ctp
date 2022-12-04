@@ -197,9 +197,9 @@
                             <tr class="table-primary">
                                 <th scope="row">Columns</th>
                                 <td>DATE</td>
-                                <td><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></td>
+                                <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">elevation</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></td>
-                                <td><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></td>
+                                <td><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['ETA'] ?>">ETA</span></td>                
                                 <td class="validation-col"><span data-toggle="tooltip" title="<?= $tooltips['UCD'] ?>">UCD</span> (max. 5 columns)</td>
                             </tr>
@@ -652,7 +652,7 @@
                             <td>Date for analyzed data</td>                                                                      
                         </tr>                                
                         <tr class="table-info">
-                            <td><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></td>
+                            <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">elevation</span></td>
                             <td>elevationerature (&deg; C)</td>
                             <td>Mean air elevationerature (input data)</td>                                                                         
                         </tr>            
@@ -662,7 +662,7 @@
                             <td>Total elev_changeitation amount (input data)</td>                                                                         
                         </tr>     
                         <tr class="table-info">
-                            <td><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></td>
+                            <td><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span></td>
                             <td>Rain (mm)</td>
                             <td>Rain amount (input data)</td>                                                                         
                         </tr>  
@@ -798,7 +798,7 @@
                             <td>Date for analyzed data</td>                                                                      
                         </tr>                                
                         <tr class="table-info">
-                            <td><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></td>
+                            <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">elevation</span></td>
                             <td>elevationerature (&deg; C)</td>
                             <td>Mean air elevationerature (input data)</td>                                                                         
                         </tr>            
@@ -808,7 +808,7 @@
                             <td>Total elev_changeitation amount (input data)</td>                                                                         
                         </tr>     
                         <tr class="table-info">
-                            <td><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></td>
+                            <td><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span></td>
                             <td>Rain (mm)</td>
                             <td>Rain amount (input data)</td>                                                                         
                         </tr>  
@@ -1105,9 +1105,9 @@
                             <tr class="table-primary">
                                 <th scope="row">Columns</th>
                                 <td>DATE</td>
-                                <td><span data-toggle="tooltip" title="<?= $tooltips['elevation'] ?>">elevation</span></td>
+                                <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">elevation</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['TOTPP'] ?>">TOTPP</span></td>
-                                <td><span data-toggle="tooltip" title="<?= $tooltips['aquif_storage_change'] ?>">RAIN</span></td>
+                                <td><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">RAIN</span></td>
                                 <td><span data-toggle="tooltip" title="<?= $tooltips['ETA'] ?>">ETA</span></td>                
                                 <td class="validation-col"><span data-toggle="tooltip" title="<?= $tooltips['UCD'] ?>">UCD</span> (max. 5 columns)</td>
                             </tr>
