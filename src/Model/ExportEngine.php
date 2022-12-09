@@ -361,7 +361,7 @@ class ExportEngine
             'Change in Elevation (mm)',
             'Change in Aquifer Storage (mm)',
             'Groundwater Recharge (mm)',
-            'Groundwater Discharge (mm)'
+            'Groundwater Discharge (mm)'            
         );        
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
@@ -899,7 +899,7 @@ class ExportEngine
             if(isset($row['dataset'])){
                 unset($row['dataset']);
             }
-            Log::debug($rowIndex . ' ' . json_encode($row));    
+            // Log::debug($rowIndex . ' ' . json_encode($row));    
             
             if ($rowIndex == 0){
                 $csvRow = [];

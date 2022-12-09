@@ -96,7 +96,7 @@
                 'action' => 'export-statistics'], [
                     'class' => 'dropdown-item']); ?>             
                 <hr/>
-                <?= $this->Html->link('Export Global Configuration', [
+                <?= $this->Html->link('Export Configuration', [
                 'controller' => 'input',
                 'action' => 'export-metadata'], [
                     'class' => 'dropdown-item']); ?>          
@@ -205,11 +205,11 @@
                 'action' => 'export-statistics'], [
                     'class' => 'dropdown-item']); ?>               
                 <hr/>
-                <?= $this->Html->link('Export Snow Configuration', [
+                <!-- <?= $this->Html->link('Export Snow Configuration', [
                 'controller' => 'snow',
                 'action' => 'export-config'], [
-                    'class' => 'dropdown-item']); ?>
-                <?= $this->Html->link('Export Global Configuration', [
+                    'class' => 'dropdown-item']); ?> -->
+                <?= $this->Html->link('Export Configuration', [
                 'controller' => 'input',
                 'action' => 'export-metadata'], [
                     'class' => 'dropdown-item']); ?>                 
@@ -321,11 +321,11 @@
                 'action' => 'export-statistics'], [
                     'class' => 'dropdown-item']); ?>      
                 <hr/>                
-                <?= $this->Html->link('Export Water Balance Configuration', [
+                <!-- <?= $this->Html->link('Export Water Balance Configuration', [
                 'controller' => 'soil',
                 'action' => 'export-config'], [
-                    'class' => 'dropdown-item']); ?>
-                <?= $this->Html->link('Export Global Configuration', [
+                    'class' => 'dropdown-item']); ?> -->
+                <?= $this->Html->link('Export Configuration', [
                 'controller' => 'input',
                 'action' => 'export-metadata'], [
                     'class' => 'dropdown-item']); ?>
