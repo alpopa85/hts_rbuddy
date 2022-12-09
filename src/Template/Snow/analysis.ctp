@@ -229,6 +229,13 @@
         var valid = false;
         valid = true;
 
+        $('#analysisForm').find(':input[name="layer_l[]"]').each((index,data) => {
+            console.log($(this).name);
+        });        
+        $('#analysisForm').find(':input[name="layer_h[]"]').each((index,data) => {
+            console.log($(this).name);
+        });  
+
         if (valid) {
             $("#overlapError").hide();
             $('#analysisForm').find(':input[type=submit]').prop('disabled', false);
