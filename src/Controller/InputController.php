@@ -322,7 +322,7 @@ class InputController extends AppController
             Utils::writeParamsToDb($paramData, 'input');
 
             // also write default params to db
-            Utils::writeDefaultParamsToDb(Utils::getDefaultParams(), 'snow');
+            Utils::writeDefaultParamsToDb(Utils::getDefaultParams(), 'rbuddy');
             Utils::writeSnowCalMapToDb(Utils::getDefaultCalibMap());   
 
             // die(json_encode($formData['inputDataFile']));

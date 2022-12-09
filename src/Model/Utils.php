@@ -738,7 +738,7 @@ class Utils
             $avgMethod = 1;
         }
 
-        Log::debug('avgData for ' . $fieldName . ' :' . $avgMethod);
+        // Log::debug('avgData for ' . $fieldName . ' :' . $avgMethod);
         return $avgMethod;
     }
 

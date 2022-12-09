@@ -698,7 +698,7 @@ class ExportEngine
         $snowCalibCollection = $query->toArray();
         $snowCalibCollection = array_map(function($row) {
             // Log::debug(get_class($row));
-            $row->param_type = 'snow_calib_map';            
+            $row->param_type = 'rbuddy_calib_map';            
             $row->raw_name = $row->output_field;
             $row->param_fullname = '';
             $row->param_range = '';
@@ -737,7 +737,7 @@ class ExportEngine
         $query = $this->paramsTable->find('all');        
         $query->where([
             'dataset' => Utils::getCurrentDataset(),
-            'param_type' => 'snow'
+            'param_type' => 'rbuddy'
         ]);
         $paramsCollection = $query->toArray();
         $paramsCollection = array_map(function($row) {
@@ -755,7 +755,7 @@ class ExportEngine
         $snowCalibCollection = $query->toArray();
         $snowCalibCollection = array_map(function($row) {
             // Log::debug(get_class($row));
-            $row->param_type = 'snow_calib_map';            
+            $row->param_type = 'rbuddy_calib_map';            
             $row->raw_name = $row->output_field;
             $row->param_fullname = '';
             $row->param_range = '';
@@ -936,12 +936,14 @@ class ExportEngine
                             break;
                         case 'param_fullname':
                             $fullnameKey = explode(' ', $this->transformKey($colName))[0];
-                            $value = explode(' -', Utils::getToolTips()[$fullnameKey])[0];
+                            // $value = explode(' -', Utils::getToolTips()[$fullnameKey])[0];
+                            $value = $fullnameKey;
                             $csvRow[] = '"' . $value . '"';
                             break;
                         case 'param_range':
                             $fullnameKey = explode(' ', $this->transformKey($colName))[0] . '_val';
-                            $value = !empty(Utils::getToolTips()[$fullnameKey]) ? Utils::getToolTips()[$fullnameKey] : 'any';
+                            // $value = !empty(Utils::getToolTips()[$fullnameKey]) ? Utils::getToolTips()[$fullnameKey] : 'any';
+                            $value = 'any';
                             $csvRow[] = '"' . $value . '"';
                             break;
                         case 'param_value':

@@ -425,7 +425,7 @@ class SnowController extends AppController
             // save new analysis params
             // Log::debug('params: ' . json_encode($formData));   
             Utils::removeParamsDataset();
-            Utils::writeParamsToDb($formData, 'snow');           
+            Utils::writeParamsToDb($formData, 'rbuddy');           
             
             //perform snow analysis
             $analysis = new SnowAnalysisEngine();   
