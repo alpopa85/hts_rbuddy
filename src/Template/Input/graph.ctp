@@ -14,18 +14,18 @@
             <div class="mb-1 pl-1">Select time step below:</div>
             <select class="custom-select" id="graph_source">
                 <option selected value="1">Input Data - Daily</option>
-                <!-- <option value="2">Input Data - Monthly</option>
+                <option value="2">Input Data - Monthly</option>
                 <option value="10">Input Data - Seasons</option>
-                <?php if ($this->isSetGrowthSeason->getFlag()) { ?>
+                <!-- <?php if ($this->isSetGrowthSeason->getFlag()) { ?>
                     <option value="11">Input Data - Growing Season</option>
-                <?php } ?>
+                <?php } ?> -->
                 <option value="3">Input Data - Yearly</option>
                 <option value="21">Input Data - Typical Year Daily</option>
                 <option value="22">Input Data - Typical Year Monthly</option>
                 <option value="24">Input Data - Typical Year Seasons</option>
-                <?php if ($this->isSetGrowthSeason->getFlag()) { ?>
+                <!-- <?php if ($this->isSetGrowthSeason->getFlag()) { ?>
                     <option value="25">Input Data - Typical Year Growing Season</option>
-                <?php } ?>
+                <?php } ?> -->
                 <option value="23">Input Data - Typical Year Average</option> -->
             </select>
         </div>
@@ -42,7 +42,7 @@
                     <option value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option selected value="elevation">ELEVATION</option>
+                        <option selected value="elevation">WT ELEVATION</option>
                     </optgroup>
                     
                     <?php if ($nValidationColumns > 0) { ?>
@@ -71,7 +71,7 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="elevation">ELEVATION</option>
+                        <option value="elevation">WT ELEVATION</option>
                     </optgroup>
                     
                     <?php if ($nValidationColumns > 0) { ?>
@@ -100,7 +100,7 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="elevation">ELEVATION</option>
+                        <option value="elevation">WT ELEVATION</option>
                     </optgroup>
                     
                     <?php if ($nValidationColumns > 0) { ?>
@@ -129,7 +129,7 @@
                     <option selected value="none"><span>None</span></option>
                     
                     <optgroup label="Input Data">
-                        <option value="elevation">ELEVATION</option>
+                        <option value="elevation">WT ELEVATION</option>
                     </optgroup>
                     
                     <?php if ($nValidationColumns > 0) { ?>
@@ -193,7 +193,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Statistic</th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">ELEVATION</span> (masl)</th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">WT ELEVATION</span> (masl)</th>
                         <?php for ($i = 0; $i < $nValidationColumns; $i++) {
                             switch ($i) {
                                 case 0:
@@ -346,7 +346,7 @@
         getTraceName: function(elem) {
             switch (elem) {        
                 case 'elevation':
-                    return 'ELEVATION (masl)';                                
+                    return 'WT ELEVATION (masl)';                                
                 case 'ucd1': 
                     return 'UCD1';
                 case 'ucd2': 

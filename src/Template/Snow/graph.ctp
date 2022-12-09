@@ -223,7 +223,7 @@
     
             <div class="row py-1 pt-3">
                 <div class="col-12 d-flex justify-content-left">            
-                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">Elevation (masl)</span></a>                    
+                    <a class="btn btn-outline-dark btn-sm col-hide-button toggle-vis" data-column="2"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">WT Elevation (masl)</span></a>                    
                 </div>
             </div>
 
@@ -264,7 +264,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Statistic<br /><span id="stat_type"></th>
-                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">Elevation (masl)</span></th>
+                        <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">WT Elevation (masl)</span></th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['ELEV_CHANGE'] ?>">Change in Elevation (mm)</span></th>
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">Change in Aquifer Storage (mm)</span></th>                
                         <th scope="col"><span data-toggle="tooltip" title="<?= $tooltips['GW_RECHARGE'] ?>">Groundwater Recharge (mm)</span></th>

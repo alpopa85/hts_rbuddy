@@ -37,7 +37,6 @@
                 'controller' => 'input',
                 'action' => 'export-daily'], [
                     'class' => 'dropdown-item']); ?>     
-<?php /*                    
                 <?= $this->Html->link('Monthly', [
                 'controller' => 'input',
                 'action' => 'export-monthly'], [
@@ -47,7 +46,7 @@
                 'controller' => 'input',
                 'action' => 'export-seasons'], [
                     'class' => 'dropdown-item']); ?>                
-            <?php
+            <?php /*
                 if ($this->isSetGrowthSeason->getFlag()){        
             ?>
                 <?= $this->Html->link('Growing Season', [
@@ -55,7 +54,7 @@
                 'action' => 'export-growing-seasons'], [
                     'class' => 'dropdown-item']); ?>                
             <?php
-            }   
+            } */   
             ?> 
 
                  <?= $this->Html->link('Yearly', [
@@ -76,7 +75,7 @@
                 'controller' => 'input',
                 'action' => 'export-typical-seasons'], [
                     'class' => 'dropdown-item']); ?>                 
-            <?php
+            <?php /*
                 if ($this->isSetGrowthSeason->getFlag()){        
             ?>
                 <?= $this->Html->link('Typical Year Growing Season', [
@@ -84,26 +83,23 @@
                 'action' => 'export-typical-growing-seasons'], [
                     'class' => 'dropdown-item']); ?>                 
             <?php
-            }   
+            } */   
             ?>               
                 <?= $this->Html->link('Typical Year Average', [
                 'controller' => 'input',
                 'action' => 'export-typical-year'], [
                     'class' => 'dropdown-item']); ?>       
-                    
-        */?>
+                            
                 <hr/>
                 <?= $this->Html->link('Export Statistics', [
                 'controller' => 'input',
                 'action' => 'export-statistics'], [
-                    'class' => 'dropdown-item']); ?>     
-        <?/*
+                    'class' => 'dropdown-item']); ?>             
                 <hr/>
                 <?= $this->Html->link('Export Global Configuration', [
                 'controller' => 'input',
                 'action' => 'export-metadata'], [
-                    'class' => 'dropdown-item']); ?>  
-        */?>
+                    'class' => 'dropdown-item']); ?>          
             </div>
         </li>  
         <?php } ?>
@@ -152,9 +148,7 @@
                 <?= $this->Html->link('Daily', [
                 'controller' => 'snow',
                 'action' => 'export-daily'], [
-                    'class' => 'dropdown-item']); ?>     
-                
-        <?php /*
+                    'class' => 'dropdown-item']); ?>                             
                 <?= $this->Html->link('Monthly', [
                 'controller' => 'snow',
                 'action' => 'export-monthly'], [
@@ -164,7 +158,7 @@
                 'controller' => 'snow',
                 'action' => 'export-seasons'], [
                     'class' => 'dropdown-item']); ?>                
-            <?php
+            <?php /*
                 if ($this->isSetGrowthSeason->getFlag()){        
             ?>
                 <?= $this->Html->link('Growing Season', [
@@ -172,14 +166,12 @@
                 'action' => 'export-growing-seasons'], [
                     'class' => 'dropdown-item']); ?>                
             <?php
-            }   
+            } */  
             ?> 
-
                  <?= $this->Html->link('Yearly', [
                 'controller' => 'snow',
                 'action' => 'export-yearly'], [
-                    'class' => 'dropdown-item']); ?>
-                
+                    'class' => 'dropdown-item']); ?>                
                 <hr/>        
                 <?= $this->Html->link('Typical Year Daily', [
                 'controller' => 'snow',
@@ -193,7 +185,7 @@
                 'controller' => 'snow',
                 'action' => 'export-typical-seasons'], [
                     'class' => 'dropdown-item']); ?>                 
-            <?php
+            <?php /*
                 if ($this->isSetGrowthSeason->getFlag()){        
             ?>
                 <?= $this->Html->link('Typical Year Growing Season', [
@@ -201,21 +193,17 @@
                 'action' => 'export-typical-growing-seasons'], [
                     'class' => 'dropdown-item']); ?>                 
             <?php
-            }   
+            } */  
             ?>               
                 <?= $this->Html->link('Typical Year Average', [
                 'controller' => 'snow',
                 'action' => 'export-typical-year'], [
-                    'class' => 'dropdown-item']); ?>   
-                    
-            */?>
+                    'class' => 'dropdown-item']); ?>                               
                 <hr/>
                 <?= $this->Html->link('Export Statistics', [
                 'controller' => 'snow',
                 'action' => 'export-statistics'], [
-                    'class' => 'dropdown-item']); ?>   
-
-            <?php /*
+                    'class' => 'dropdown-item']); ?>               
                 <hr/>
                 <?= $this->Html->link('Export Snow Configuration', [
                 'controller' => 'snow',
@@ -224,8 +212,7 @@
                 <?= $this->Html->link('Export Global Configuration', [
                 'controller' => 'input',
                 'action' => 'export-metadata'], [
-                    'class' => 'dropdown-item']); ?>     
-            */?>
+                    'class' => 'dropdown-item']); ?>                 
             </div>
         </li> 
         <?php } ?>  

@@ -25,7 +25,7 @@
                         <tr class="table-primary">
                             <th scope="row">Columns</th>
                             <td>DATE</td>
-                            <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">ELEVATION</span></td>
+                            <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">WT ELEVATION</span></td>
                             <td class="validation-col"><span data-toggle="tooltip" title="<?= $tooltips['UCD'] ?>">UCD</span> (max. 3 columns)</td>
                         </tr>
                         <tr class="table-info no-wrap-table-row">
@@ -53,7 +53,7 @@
                 <li>
                     <h5><span class="underlined">Required data</span>:
                         <br/>DATE - use yyyy-mm-dd format; 
-                        <br/>ELEVATION                         
+                        <br/>WT ELEVATION                         
                 </li>
 
                 <li>

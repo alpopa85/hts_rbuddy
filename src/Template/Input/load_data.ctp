@@ -31,7 +31,7 @@
             <tr class="table-primary">
                 <th scope="row">Columns</th>
                 <td>DATE</td>
-                <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">ELEVATION</span></td>
+                <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">WT ELEVATION</span></td>
                 <td class="validation-col"><span data-toggle="tooltip" title="<?= $tooltips['UCD'] ?>">UCD</span> (max. 3 columns)</td>
             </tr>
             <tr class="table-info no-wrap-table-row">
@@ -278,12 +278,12 @@
         
         // DATEPICKER STUFF //
         /********************/           
-        var from = $("#growth_season_start").datepicker({
-            format: "mm-dd",            
-        });          
-        var to = $("#growth_season_end").datepicker({
-            format: "mm-dd"
-        });
+        // var from = $("#growth_season_start").datepicker({
+        //     format: "mm-dd",            
+        // });          
+        // var to = $("#growth_season_end").datepicker({
+        //     format: "mm-dd"
+        // });
 
         // FORM STUFF //
         /**************/        
@@ -377,46 +377,46 @@
             // console.log('post recaptcha');
             
             let result = await uploadFile(recaptchaToken).then(function(data){
-                // $("#mySpinnerContainer").hide();
+                $("#mySpinnerContainer").hide();
 
                 if (data.success) {
-                    window.location.href = redirectUrlSuccess;
+                    // window.location.href = redirectUrlSuccess;
                     // console.log('there are these many UCD fields: ' + data.ucdFields);
 
                     // show modal for the given number of fields
-                    // switch (data.ucdFields) {
-                    //     case 5:
-                    //         $("#ucd-present").show();
-                    //         $("#ucd5").show();
-                    //         $("#ucd-present-footer").show();
-                    //         $("#ucd-not-present-footer").hide();
-                    //     case 4:
-                    //         $("#ucd-present").show();
-                    //         $("#ucd4").show();
-                    //         $("#ucd-present-footer").show();
-                    //         $("#ucd-not-present-footer").hide();
-                    //     case 3:
-                    //         $("#ucd-present").show();
-                    //         $("#ucd3").show();
-                    //         $("#ucd-present-footer").show();
-                    //         $("#ucd-not-present-footer").hide();
-                    //     case 2:
-                    //         $("#ucd-present").show();
-                    //         $("#ucd2").show();
-                    //         $("#ucd-present-footer").show();
-                    //         $("#ucd-not-present-footer").hide();
-                    //     case 1:
-                    //         $("#ucd-present").show();
-                    //         $("#ucd1").show();
-                    //         $("#ucd-present-footer").show();
-                    //         $("#ucd-not-present-footer").hide();
-                    //         break;
-                    //     default:
-                    //         $("#ucdModalTitle").text("Attention! Input data set does not contain calibration data (UCD)!");
-                    // }
-                    // $("#ucdModal").modal({
-                    //     backdrop: 'static'
-                    // });
+                    switch (data.ucdFields) {
+                        case 5:
+                            $("#ucd-present").show();
+                            $("#ucd5").show();
+                            $("#ucd-present-footer").show();
+                            $("#ucd-not-present-footer").hide();
+                        case 4:
+                            $("#ucd-present").show();
+                            $("#ucd4").show();
+                            $("#ucd-present-footer").show();
+                            $("#ucd-not-present-footer").hide();
+                        case 3:
+                            $("#ucd-present").show();
+                            $("#ucd3").show();
+                            $("#ucd-present-footer").show();
+                            $("#ucd-not-present-footer").hide();
+                        case 2:
+                            $("#ucd-present").show();
+                            $("#ucd2").show();
+                            $("#ucd-present-footer").show();
+                            $("#ucd-not-present-footer").hide();
+                        case 1:
+                            $("#ucd-present").show();
+                            $("#ucd1").show();
+                            $("#ucd-present-footer").show();
+                            $("#ucd-not-present-footer").hide();
+                            break;
+                        default:
+                            $("#ucdModalTitle").text("Attention! Input data set does not contain calibration data (UCD)!");
+                    }
+                    $("#ucdModal").modal({
+                        backdrop: 'static'
+                    });
                 } else {
                     // alert('Error ' + JSON.stringify(data));
                     window.location.href = redirectUrlError;

@@ -296,7 +296,7 @@ class ExportEngine
         $statsData = [];
         $statsData[] = array(
             'Statistic',
-            'Elevation (masl)',            
+            'WT Elevation (masl)',            
             'UCD1',
             'UCD2',
             'UCD3'
@@ -357,7 +357,7 @@ class ExportEngine
         // header
         $newDataLine = array(
             'Statistic',
-            'Elevation (masl)',                                     
+            'WT Elevation (masl)',                                     
             'Change in Elevation (mm)',
             'Change in Aquifer Storage (mm)',
             'Groundwater Recharge (mm)',
@@ -706,6 +706,7 @@ class ExportEngine
             return $row;
         }, $snowCalibCollection);
 
+        /*
         $query = $this->soilCalibMap->find('all', ['fields' => ['output_field', 'ucd_field']]);        
         $query->where(['dataset' => Utils::getCurrentDataset()]);
         $soilCalibCollection = $query->toArray();
@@ -717,9 +718,10 @@ class ExportEngine
             $row->param_range = '';
             // Log::debug(json_encode($row)); 
             return $row;
-        }, $soilCalibCollection);
+        }, $soilCalibCollection);*/
 
-        $dataCollection = array_merge($dataCollection, $paramsCollection, $snowCalibCollection, $soilCalibCollection);
+        // $dataCollection = array_merge($dataCollection, $paramsCollection, $snowCalibCollection, $soilCalibCollection);
+        $dataCollection = array_merge($dataCollection, $paramsCollection, $snowCalibCollection);
         
         return $this->formatCsvMetadata($dataCollection);
     }
@@ -838,12 +840,7 @@ class ExportEngine
             }
             if(isset($row['time_year'])){
                 unset($row['time_year']);
-            }
-
-            // also take out watisri from snow
-            if(isset($row['watisri'])){
-                unset($row['watisri']);
-            }
+            }            
 
             if ($firstRow){
                 // keys

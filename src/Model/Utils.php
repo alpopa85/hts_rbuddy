@@ -721,11 +721,7 @@ class Utils
    
     public static function getUcdAvgMethod($fieldName)
     {   
-        // Log::debug(json_encode($fieldName));
-
-        // skip for now
-        return 1;
-
+        // Log::debug(json_encode($fieldName));        
         $table = TableRegistry::getTableLocator()->get('UcdAverages');
 
         $ucdAvg = $table->find('all', [
@@ -742,7 +738,7 @@ class Utils
             $avgMethod = 1;
         }
 
-        // Log::debug('avgData for ' . $fieldName . ' :' . $avgMethod);
+        Log::debug('avgData for ' . $fieldName . ' :' . $avgMethod);
         return $avgMethod;
     }
 
@@ -3175,7 +3171,7 @@ class Utils
     public static function removeInputDataset($id = null)
     {
         self::removeDatasetFromTable('InputData', $id);
-        // self::removeInputAveragingDataset($id);
+        self::removeInputAveragingDataset($id);
     }
 
     public static function removeInputAveragingDataset($id = null)
@@ -3187,9 +3183,9 @@ class Utils
         self::removeDatasetFromTable('InputDataFall', $id);
         self::removeDatasetFromTable('InputDataWinter', $id);
         self::removeDatasetFromTable('InputDataSeasons', $id);
-        self::removeDatasetFromTable('InputDataGrowthSeasonIn', $id);
-        self::removeDatasetFromTable('InputDataGrowthSeasonOut', $id);
-        self::removeDatasetFromTable('InputDataGrowingSeasons', $id);
+        // self::removeDatasetFromTable('InputDataGrowthSeasonIn', $id);
+        // self::removeDatasetFromTable('InputDataGrowthSeasonOut', $id);
+        // self::removeDatasetFromTable('InputDataGrowingSeasons', $id);
 
         self::removeDatasetFromTable('InputDataTypical', $id);
         self::removeDatasetFromTable('InputDataTypicalMonthly', $id);
@@ -3199,9 +3195,9 @@ class Utils
         self::removeDatasetFromTable('InputDataTypicalFall', $id);
         self::removeDatasetFromTable('InputDataTypicalWinter', $id);
         self::removeDatasetFromTable('InputDataTypicalSeasons', $id);
-        self::removeDatasetFromTable('InputDataTypicalGrowthSeasonIn', $id);
-        self::removeDatasetFromTable('InputDataTypicalGrowthSeasonOut', $id);
-        self::removeDatasetFromTable('InputDataTypicalGrowingSeasons', $id);
+        // self::removeDatasetFromTable('InputDataTypicalGrowthSeasonIn', $id);
+        // self::removeDatasetFromTable('InputDataTypicalGrowthSeasonOut', $id);
+        // self::removeDatasetFromTable('InputDataTypicalGrowingSeasons', $id);
     }
 
     public static function removeParamsDataset($id = null)
@@ -3228,9 +3224,9 @@ class Utils
         self::removeDatasetFromTable('SnowDataFall', $id);
         self::removeDatasetFromTable('SnowDataWinter', $id);
         self::removeDatasetFromTable('SnowDataSeasons', $id);
-        self::removeDatasetFromTable('SnowDataGrowthSeasonIn', $id);
-        self::removeDatasetFromTable('SnowDataGrowthSeasonOut', $id);
-        self::removeDatasetFromTable('SnowDataGrowingSeasons', $id);
+        // self::removeDatasetFromTable('SnowDataGrowthSeasonIn', $id);
+        // self::removeDatasetFromTable('SnowDataGrowthSeasonOut', $id);
+        // self::removeDatasetFromTable('SnowDataGrowingSeasons', $id);
 
         self::removeDatasetFromTable('SnowDataTypical', $id);
         self::removeDatasetFromTable('SnowDataTypicalMonthly', $id);
@@ -3240,9 +3236,9 @@ class Utils
         self::removeDatasetFromTable('SnowDataTypicalFall', $id);
         self::removeDatasetFromTable('SnowDataTypicalWinter', $id);
         self::removeDatasetFromTable('SnowDataTypicalSeasons', $id);
-        self::removeDatasetFromTable('SnowDataTypicalGrowthSeasonIn', $id);
-        self::removeDatasetFromTable('SnowDataTypicalGrowthSeasonOut', $id);
-        self::removeDatasetFromTable('SnowDataTypicalGrowingSeasons', $id);
+        // self::removeDatasetFromTable('SnowDataTypicalGrowthSeasonIn', $id);
+        // self::removeDatasetFromTable('SnowDataTypicalGrowthSeasonOut', $id);
+        // self::removeDatasetFromTable('SnowDataTypicalGrowingSeasons', $id);
     }
 
     public static function removeSoilWaterDataset($id = null)
@@ -4022,7 +4018,7 @@ class Utils
     public static function getToolTips()
     {
         return array(
-            'ELEVATION' => 'Ground Water table elevation (meters above sea level)',   
+            'ELEVATION' => 'Ground Water Table Elevation (meters above sea level)',   
             'ELEV_CHANGE' => 'Change in Elevation (mm)',
             'AQUIF_STORAGE_CHANGE' => 'Change in Aquifer Storage (mm)',
             'GW_RECHARGE' => 'Groundwater Recharge (mm)',
@@ -4054,7 +4050,7 @@ class Utils
             }
 
             if(strcmp($key, 'elevation') == 0){
-                return 'Elevation (masl)';
+                return 'WT Elevation (masl)';
             }            
 
             if(strcmp($key, 'ucd1') == 0){
@@ -4067,7 +4063,15 @@ class Utils
 
             if(strcmp($key, 'ucd3') == 0){
                 return 'UCD3';
-            }          
+            }        
+            
+            if(strcmp($key, 'ucd4') == 0){
+                return '';
+            }
+
+            if(strcmp($key, 'ucd5') == 0){
+                return '';
+            }
             
         // output
             if(strcmp($key, 'elev_change') == 0){
