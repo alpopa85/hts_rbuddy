@@ -81,8 +81,14 @@
                             </div>            
                             
                             <div class="row mt-4">
-                                <div class="col col-11 offset-1 alert-warning">
-                                    <span>* Data points not covered by any interval will have a conversion factor of 0.</span>
+                                <div class="col col-11 offset-1 alert-warning text-center">
+                                    <span>* Data points not covered by any interval will have a conversion factor of 0. *</span>
+                                </div>                                    
+                            </div>   
+                            
+                            <div class="row mt-4" id="overlapError" style="display:none">
+                                <div class="col col-11 offset-1 alert-danger text-center">
+                                    <h4>The defined intervals overlap.<br/>Fix the intervals before running the analysis!</h4>
                                 </div>                                    
                             </div>    
                         </div>
@@ -113,9 +119,9 @@
                                         <td>
                                             <select class="custom-select" id="output1_select" name="output1_select" placeholder="Model Output...">
                                                 <option value="elev_change" <?= (isset($calibration['output1_field']) && strcmp($calibration['output1_field'],'elev_change') == 0) ? 'selected' : ''?>>Elevation Change</option>
-                                                <option value="aquif_storage_change" <?= (isset($calibration['output1_field']) && strcmp($calibration['output1_field'],'aquif_storage_change') == 0) ? 'selected' : ''?>>Aquif Storage Change</option>
-                                                <option value="gw_recharge" <?= (isset($calibration['output1_field']) && strcmp($calibration['output1_field'],'gw_recharge') == 0) ? 'selected' : ''?>>GW RECHARGE</option>
-                                                <option value="gw_discharge" <?= (isset($calibration['output1_field']) && strcmp($calibration['output1_field'],'gw_discharge') == 0) ? 'selected' : ''?>>GW DISCHARGE</option>
+                                                <option value="aquif_storage_change" <?= (isset($calibration['output1_field']) && strcmp($calibration['output1_field'],'aquif_storage_change') == 0) ? 'selected' : ''?>>Aquifier Storage Change</option>
+                                                <option value="gw_recharge" <?= (isset($calibration['output1_field']) && strcmp($calibration['output1_field'],'gw_recharge') == 0) ? 'selected' : ''?>>Ground Water Recharge</option>
+                                                <option value="gw_discharge" <?= (isset($calibration['output1_field']) && strcmp($calibration['output1_field'],'gw_discharge') == 0) ? 'selected' : ''?>>Ground Water Discharge</option>
                                             </select>
                                         </td>
                                         <td>
@@ -133,9 +139,9 @@
                                         <td>
                                             <select class="custom-select" id="output2_select" name="output2_select" placeholder="Model Output...">
                                                 <option value="elev_change" <?= (isset($calibration['output2_field']) && strcmp($calibration['output2_field'],'elev_change') == 0) ? 'selected' : ''?>>Elevation Change</option>
-                                                <option value="aquif_storage_change" <?= (isset($calibration['output2_field']) && strcmp($calibration['output2_field'],'aquif_storage_change') == 0) ? 'selected' : ''?>>Aquif Storage Change</option>
-                                                <option value="gw_recharge" <?= (isset($calibration['output2_field']) && strcmp($calibration['output2_field'],'gw_recharge') == 0) ? 'selected' : ''?>>GW RECHARGE</option>
-                                                <option value="gw_discharge" <?= (isset($calibration['output2_field']) && strcmp($calibration['output2_field'],'gw_discharge') == 0) ? 'selected' : ''?>>GW DISCHARGE</option>
+                                                <option value="aquif_storage_change" <?= (isset($calibration['output2_field']) && strcmp($calibration['output2_field'],'aquif_storage_change') == 0) ? 'selected' : ''?>>Aquifier Storage Change</option>
+                                                <option value="gw_recharge" <?= (isset($calibration['output2_field']) && strcmp($calibration['output2_field'],'gw_recharge') == 0) ? 'selected' : ''?>>Ground Water Recharge</option>
+                                                <option value="gw_discharge" <?= (isset($calibration['output2_field']) && strcmp($calibration['output2_field'],'gw_discharge') == 0) ? 'selected' : ''?>>Ground Water Discharge</option>
                                             </select>
                                         </td>
                                         <td>
@@ -162,7 +168,7 @@
             <!-- END OF CAKE FORM FIELDS !-->
             <div class="text-center mt-5">
                 <button type="submit" class="btn btn-success">Run Analysis</button>
-            </div>
+            </div>            
         </form>
     </div>
 </div>
@@ -191,6 +197,7 @@
                                     </div>
                                 </div>`;     
 
+    /*
     function validateParamsForm() {
         if (!$('#uploadParamsForm').find(':input[name=inputDataFile]').val()){
             $('#uploadParamsForm').find(':input[type=submit]').prop('disabled', true);
@@ -208,8 +215,7 @@
         var field1Value = $('#analysisForm').find(':input[name=layer_yield]').val();
         // console.log(field1Value);       
 
-        if (field1Value) {
-         
+        if (field1Value) {         
             if (field1Value < 0) {
                 $('#analysisForm').find(':input[name=layer_yield]').val(0);
             }          
@@ -217,12 +223,28 @@
             $('#analysisForm').find(':input[type=submit]').prop('disabled', false);
             $('#analysisForm').find(':input[type=submit]').removeClass('disabled');
         }
+    }*/
+
+    function validateIntervals() {
+        var valid = false;
+        valid = true;
+
+        if (valid) {
+            $("#overlapError").hide();
+            $('#analysisForm').find(':input[type=submit]').prop('disabled', false);
+            $('#analysisForm').find(':input[type=submit]').removeClass('disabled');
+        } else {
+            $("#overlapError").show();
+            $('#analysisForm').find(':input[type=submit]').prop('disabled', true);
+            $('#analysisForm').find(':input[type=submit]').addClass('disabled');
+        }
     }
 
     $(document).ready(function() {
         var csrfToken = <?= json_encode($this->request->getParam('_csrfToken')) ?>;
         // validateParamsForm();
-        // validateForm();       
+        // validateForm();   
+        validateIntervals();    
 
         $('.add-param-row').click(function(e) {
             // console.log(e.currentTarget.parentElement.parentElement);  
@@ -254,8 +276,10 @@
             // console.log(e.currentTarget.name);
             switch(e.currentTarget.name) {
                 case 'layer_l[]':
+                    validateIntervals();
                     break;
                 case 'layer_h[]':
+                    validateIntervals();
                     break;
                 case 'layer_yield[]':
                     if ($(this).val() < 0) {
