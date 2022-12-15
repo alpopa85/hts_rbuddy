@@ -498,18 +498,20 @@ class Utils
                         $layer_yield_counter++;
                         break;
                     default: 
-                        continue;
+                        $newData = null;
                         break;
                 }                
                 
-                $paramsCollection[] = $newData;               
+                if ($newData) {
+                    $paramsCollection[] = $newData;   
+                }                            
             }
             fclose($readHandle);
 
             // verify and add layer counter
-            Log::debug('layer_l_counter: ' . $layer_l_counter);
-            Log::debug('layer_h_counter: ' . $layer_h_counter);
-            Log::debug('layer_yield_counter: ' . $layer_yield_counter);
+            // Log::debug('layer_l_counter: ' . $layer_l_counter);
+            // Log::debug('layer_h_counter: ' . $layer_h_counter);
+            // Log::debug('layer_yield_counter: ' . $layer_yield_counter);
             if (($layer_l_counter != $layer_h_counter) || ($layer_l_counter != $layer_yield_counter) || ($layer_h_counter != $layer_yield_counter))  {
                 throw new Exception('Erroneous configuration file! Make sure to specify lower bound, upper bound and yield values for each layer.', 13);
             }
