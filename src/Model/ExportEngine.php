@@ -677,13 +677,13 @@ class ExportEngine
         $dataCollection = [];
 
         $header = new stdClass();
-        $header->header = 'GLOBAL_CONFIGURATION';
+        $header->header = 'RBUDDY_CONFIGURATION';
         $dataCollection[] = $header;
 
         $query = $this->paramsTable->find('all');        
         $query->where(['dataset' => Utils::getCurrentDataset()]);
-        $paramsCollection = $query->toArray();
-        $paramsCollection = array_map(function($row) {
+        $paramsCollection = $query->toArray();        
+        $paramsCollection = array_map(function($row) {            
             // Log::debug(get_class($row));
             $row->param_type.= '_param';            
             $row->raw_name = $row->param_name;
@@ -901,6 +901,7 @@ class ExportEngine
             }
             // Log::debug($rowIndex . ' ' . json_encode($row));    
             
+            $skipRow = false;
             if ($rowIndex == 0){
                 $csvRow = [];
                 
@@ -924,26 +925,28 @@ class ExportEngine
                 }                
 
                 $csvRow = [];
-                $colName = null;    
+                $colName = null;                    
 
-                foreach($row as $key => $value){                        
-                    switch ($key) {
+                foreach($row as $key => $value){                                     
+                    switch ($key) {                        
                         case 'param_name':                        
-                        case 'output_field':                        
+                        case 'output_field':     
+                            if (strcmp($value, 'layer_count') == 0) {
+                                $skipRow = true;
+                            }
+
                             $colName = $value;
                             $value = $this->transformKey($value);
                             $csvRow[] = '"' . $value . '"';                                                                    
                             break;
                         case 'param_fullname':
                             $fullnameKey = explode(' ', $this->transformKey($colName))[0];
-                            // $value = explode(' -', Utils::getToolTips()[$fullnameKey])[0];
-                            $value = $fullnameKey;
+                            $value = explode(' -', Utils::getToolTips()[$fullnameKey])[0];                            
                             $csvRow[] = '"' . $value . '"';
                             break;
                         case 'param_range':
                             $fullnameKey = explode(' ', $this->transformKey($colName))[0] . '_val';
-                            // $value = !empty(Utils::getToolTips()[$fullnameKey]) ? Utils::getToolTips()[$fullnameKey] : 'any';
-                            $value = 'any';
+                            $value = !empty(Utils::getToolTips()[$fullnameKey]) ? Utils::getToolTips()[$fullnameKey] : 'any';
                             $csvRow[] = '"' . $value . '"';
                             break;
                         case 'param_value':
@@ -959,8 +962,10 @@ class ExportEngine
                             break;
                     }                    
                 }                         
-            }                                 
-            $csvRowCollection[] = implode(',', $csvRow);                        
+            }
+            if (!$skipRow) {                             
+                $csvRowCollection[] = implode(',', $csvRow);                        
+            }
         }        
 
         return implode(PHP_EOL, $csvRowCollection);

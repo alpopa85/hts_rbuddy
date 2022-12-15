@@ -14,10 +14,10 @@
           <h6>In order to perform averaging for the various intervals, the tool calculates the monthly average using two methods:</h6>
           <ul>
             <li>
-              <h6>Daily Average - the monthly average is the average of daily values (e.g. method used for Temperature)</h6>
+              <h6>Daily Average - the monthly average is the average of daily values</h6>
             </li>
             <li>
-              <h6>Daily Sum - the monthly average is the sum of daily values (e.g. method used for elev_changeitation)</h6>
+              <h6>Daily Sum - the monthly average is the sum of daily values</h6>
             </li>
           </ul>
         </div>        
@@ -172,10 +172,10 @@
           <h6>In order to perform averaging for the various intervals, the tool calculates the monthly average using two methods:</h6>
           <ul>
             <li>
-              <h6>Daily Average - the monthly average is the average of daily values (e.g. method used for Temperature)</h6>
+              <h6>Daily Average - the monthly average is the average of daily values</h6>
             </li>
             <li>
-              <h6>Daily Sum - the monthly average is the sum of daily values (e.g. method used for elev_changeitation)</h6>
+              <h6>Daily Sum - the monthly average is the sum of daily values</h6>
             </li>
           </ul>
         </div>        

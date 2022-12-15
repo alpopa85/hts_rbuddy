@@ -1,11 +1,10 @@
-<?php /*
 <div class="my-5 row">
     <div class="col-12 col-lg-6 offset-lg-3">   
         <form method="post" id="uploadParamsForm" action="upload-param-file" enctype="multipart/form-data">                            
             <div id="upload_param_input_group" class="input-group mb-3 form-red-border">           
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="filename" name="inputDataFile" aria-describedby="fileHelp">
-                    <label class="custom-file-label" for="fileHelp">Upload configuration file</label>
+                    <label class="custom-file-label" for="fileHelp">Choose configuration file</label>
                 </div>
             </div>                                      
 
@@ -14,12 +13,22 @@
             <input type="hidden" name="_csrfToken" autocomplete="off" value="<?= $this->request->getParam('_csrfToken') ?>" />                
             <!-- END OF CAKE FORM FIELDS !-->
             
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Upload Parameter Data</button>                    
+            <div class="row text-center">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-primary" style="min-width:66%">Import Configuration File</button>                    
+                </div>
+
+                <div class="col-6">
+                    <?= $this->Html->link('Export Configuration File', [
+                    'controller' => 'snow',
+                    'action' => 'export-config'], [
+                        'class' => 'btn btn-secondary',
+                        'style' => 'min-width:66%']); ?>
+                </div>                
             </div>        
         </form>  
     </div>
-</div> */?>
+</div>
 
 <div class="my-5 row">
     <div class="col-12 col-lg-8 offset-lg-2">
@@ -88,7 +97,11 @@
                             
                             <div class="row mt-4" id="overlapError" style="display:none">
                                 <div class="col col-11 offset-1 alert-danger text-center">
-                                    <h4>The defined intervals overlap.<br/>Fix the intervals before running the analysis!</h4>
+                                    <h4>Fix the intervals before running the analysis:</h4><br/>
+                                    <h5>- the intervals must be numeric<br/>
+                                    - the intervals must not overlap<br/>
+                                    - the lower bound must be smaller than the higher bound<br/>                                    
+                                    - the yield value must be a positive number</h5>
                                 </div>                                    
                             </div>    
                         </div>
@@ -166,8 +179,18 @@
             <input type="hidden" name="_method" value="POST" />
             <input type="hidden" name="_csrfToken" autocomplete="off" value="<?= $this->request->getParam('_csrfToken') ?>" />
             <!-- END OF CAKE FORM FIELDS !-->
-            <div class="text-center mt-5">
-                <button type="submit" class="btn btn-success">Run Analysis</button>
+            <div class="mt-5">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col text-right">
+                            <button type="button" id="validateButton" class="btn btn-primary">Validate</button>
+                        </div>
+
+                        <div class="col text-left">
+                            <button type="submit" class="btn btn-success">Run Analysis</button>            
+                        </div>
+                    </div>
+                </div>                                
             </div>            
         </form>
     </div>
@@ -196,9 +219,8 @@
                                         </div>
                                     </div>
                                 </div>`;     
-
-    /*
-    function validateParamsForm() {
+    
+    function validateConfigFileForm() {
         if (!$('#uploadParamsForm').find(':input[name=inputDataFile]').val()){
             $('#uploadParamsForm').find(':input[type=submit]').prop('disabled', true);
             $('#uploadParamsForm').find(':input[type=submit]').addClass('disabled');
@@ -206,42 +228,74 @@
             $('#uploadParamsForm').find(':input[type=submit]').prop('disabled', false);
             $('#uploadParamsForm').find(':input[type=submit]').removeClass('disabled');
         }
-    }
+    }    
 
-    function validateForm() {
-        $('#analysisForm').find(':input[type=submit]').prop('disabled', true);
-        $('#analysisForm').find(':input[type=submit]').addClass('disabled');
+    function validateParams() {
+        var valid = true;
 
-        var field1Value = $('#analysisForm').find(':input[name=layer_yield]').val();
-        // console.log(field1Value);       
+        var lowBoundary = [];        
+        $('#analysisForm').find(':input[name="layer_l[]"]').each((index,elem) => {
+            if (isNaN(parseFloat(elem.value))) {
+                // console.log('non numeric element', elem);
+                valid = false;
+            }
+            lowBoundary.push(parseFloat(elem.value));
+        }); 
+        lowBoundary.sort(function(a,b) {
+            return(a - b);
+        });
+        // console.log('lowBoundary', lowBoundary);  
 
-        if (field1Value) {         
-            if (field1Value < 0) {
-                $('#analysisForm').find(':input[name=layer_yield]').val(0);
-            }          
+        var highBoundary = [];
+        $('#analysisForm').find(':input[name="layer_h[]"]').each((index,elem) => {
+            if (isNaN(parseFloat(elem.value))) {
+                // console.log('non numeric element', elem);
+                valid = false;
+            }
+            highBoundary.push(parseFloat(elem.value));
+        });
+        highBoundary.sort(function(a,b) {
+            return(a - b);
+        });         
+        // console.log('highBoundary', highBoundary); 
+
+        $('#analysisForm').find(':input[name="layer_yield[]"]').each((index,elem) => {
+            if (isNaN(parseFloat(elem.value))) {
+                // console.log('non numeric element', elem);
+                valid = false;
+            } else {
+                if (elem.value < 0) {
+                    elem.value = 0;
+                }
+            }            
+        });
+
+        for (var i=0; i<lowBoundary.length; i++) {
+            if (lowBoundary[i] >= highBoundary[i]) {
+                // console.log('incorrect boundary condition', lowBoundary[i] + ' vs ' + highBoundary[i]);
+                valid = false;
+            }
             
-            $('#analysisForm').find(':input[type=submit]').prop('disabled', false);
-            $('#analysisForm').find(':input[type=submit]').removeClass('disabled');
+            if (i>0 && lowBoundary[i] < highBoundary[i-1]) {
+                // console.log('overlapped interval');
+                valid = false;
+            }
         }
-    }*/
-
-    function validateIntervals() {
-        var valid = false;
-        valid = true;
-
-        $('#analysisForm').find(':input[name="layer_l[]"]').each((index,data) => {
-            console.log($(this).name);
-        });        
-        $('#analysisForm').find(':input[name="layer_h[]"]').each((index,data) => {
-            console.log($(this).name);
-        });  
 
         if (valid) {
             $("#overlapError").hide();
+
+            $('#validateButton').prop('disabled', true);
+            $('#validateButton').addClass('disabled');
+
             $('#analysisForm').find(':input[type=submit]').prop('disabled', false);
             $('#analysisForm').find(':input[type=submit]').removeClass('disabled');
         } else {
             $("#overlapError").show();
+
+            $('#validateButton').prop('disabled', false);
+            $('#validateButton').removeClass('disabled');
+
             $('#analysisForm').find(':input[type=submit]').prop('disabled', true);
             $('#analysisForm').find(':input[type=submit]').addClass('disabled');
         }
@@ -249,13 +303,13 @@
 
     $(document).ready(function() {
         var csrfToken = <?= json_encode($this->request->getParam('_csrfToken')) ?>;
-        // validateParamsForm();
-        // validateForm();   
-        validateIntervals();    
+        validateConfigFileForm();
+        validateParams();    
 
         $('.add-param-row').click(function(e) {
             // console.log(e.currentTarget.parentElement.parentElement);  
             $('#param-group').append(paramRowTemplate);
+            validateParams();
         });
 
         $('#param-group').on('click', '.rm-param-row', function(e) {
@@ -277,23 +331,22 @@
                         tooltip.remove();
                     }
                 });
-        });        
+
+            validateParams();
+        });       
+        
+        $('#validateButton').click(() => {
+            validateParams();
+        })
        
         $('#analysisForm').on('change', ':input', function(e) {
-            // console.log(e.currentTarget.name);
-            switch(e.currentTarget.name) {
-                case 'layer_l[]':
-                    validateIntervals();
-                    break;
-                case 'layer_h[]':
-                    validateIntervals();
-                    break;
-                case 'layer_yield[]':
-                    if ($(this).val() < 0) {
-                        $(this).val(0);
-                    }
-                    break;
-            }
+            $('#validateButton').prop('disabled', false);
+            $('#validateButton').removeClass('disabled');
+
+            $('#analysisForm').find(':input[type=submit]').prop('disabled', true);
+            $('#analysisForm').find(':input[type=submit]').addClass('disabled');
+
+            validateParams();
         });    
              
         $('#uploadParamsForm').find(':input[name=inputDataFile]').change(function(){     
@@ -306,7 +359,7 @@
                 $("#upload_param_input_group").addClass("form-red-border");  
             }
             
-            validateParamsForm();
+            validateConfigFileForm();
         });
 
         $(window).keydown(function(event) {
@@ -314,29 +367,7 @@
                 event.preventDefault();
                 return false;
             }
-        });
-
-        /*
-        $('#analysisForm').find(':input[name=elev_changeToSnow_factor]').change(function() {
-            if ($(this).val() < 0) {
-                $(this).val(0);
-            }
-
-            if ($(this).val() > 100) {
-                $(this).val(100);
-            }
-
-            validateForm();
-        });     
-
-        $('#analysisForm').find(':input[name=snowMmToCm_factor]').change(function() {
-            if ($(this).val() < 0) {
-                $(this).val(0);
-            }
-
-            validateForm();
-        });
-        */      
+        });        
 
         $("#uploadParamsForm").submit(async function(e){
             $("#mySpinnerContainer").show();

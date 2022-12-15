@@ -433,24 +433,23 @@ class Utils
             $paramsCollection = array();
             
             $fieldTypeIndex = 2;
-            $fieldRawNameIndex = 3;
+            $fieldNameIndex = 0;
             $fieldValueIndex = 1;                        
 
             $typeHeaderRow = true;
             $tableHeaderRow = true;
+
+            $layer_l_counter = 0;
+            $layer_h_counter = 0;
+            $layer_yield_counter = 0;
             while (($data = fgetcsv($readHandle, 1000, ",")) !== FALSE) {                
 
                 // skip type header row
                 if ($typeHeaderRow) {
-                    switch ($type){
-                        case 'wb':
-                            if (strcmp($data[0], 'WATER_BALANCE_CONFIGURATION') !== 0) {
-                                throw new Exception('Wrong configuration file! Please upload a WATER BALANCE configuration file.', 13);
-                            }
-                            break;
+                    switch ($type){                       
                         case 'snow':
-                            if (strcmp($data[0], 'SNOW_CONFIGURATION') !== 0) {
-                                throw new Exception('Wrong configuration file! Please upload a SNOW configuration file.', 13);
+                            if (strcmp($data[0], 'RBUDDY_CONFIGURATION') !== 0) {
+                                throw new Exception('Wrong configuration file! Please upload a RBUDDY configuration file.', 13);
                             }
                             break;
                     }                    
@@ -469,17 +468,59 @@ class Utils
                 if (strcmp(explode('_', $data[$fieldTypeIndex])[1], 'param') != 0) {
                     continue;
                 }
-
-                $newData = array(
-                    'dataset' => Utils::getCurrentDataset(),
-                    'param_name' => $data[$fieldRawNameIndex],
-                    'param_value' => $data[$fieldValueIndex]
-                );       
+                
+                switch($data[$fieldNameIndex]) {
+                    case 'layer_l':                        
+                        $newData = array(
+                            'dataset' => Utils::getCurrentDataset(),
+                            'param_name' => $data[$fieldNameIndex] . '_' . $layer_l_counter,
+                            'param_value' => $data[$fieldValueIndex],
+                            'param_type' => 'rbuddy'
+                        );       
+                        $layer_l_counter++;
+                        break;
+                    case 'layer_h':
+                        $newData = array(
+                            'dataset' => Utils::getCurrentDataset(),
+                            'param_name' => $data[$fieldNameIndex] . '_' . $layer_h_counter,
+                            'param_value' => $data[$fieldValueIndex],
+                            'param_type' => 'rbuddy'
+                        );       
+                        $layer_h_counter++;
+                        break;
+                    case 'layer_yield':
+                        $newData = array(
+                            'dataset' => Utils::getCurrentDataset(),
+                            'param_name' => $data[$fieldNameIndex] . '_' . $layer_yield_counter,
+                            'param_value' => $data[$fieldValueIndex],
+                            'param_type' => 'rbuddy'
+                        );       
+                        $layer_yield_counter++;
+                        break;
+                    default: 
+                        continue;
+                        break;
+                }                
                 
                 $paramsCollection[] = $newData;               
             }
             fclose($readHandle);
 
+            // verify and add layer counter
+            Log::debug('layer_l_counter: ' . $layer_l_counter);
+            Log::debug('layer_h_counter: ' . $layer_h_counter);
+            Log::debug('layer_yield_counter: ' . $layer_yield_counter);
+            if (($layer_l_counter != $layer_h_counter) || ($layer_l_counter != $layer_yield_counter) || ($layer_h_counter != $layer_yield_counter))  {
+                throw new Exception('Erroneous configuration file! Make sure to specify lower bound, upper bound and yield values for each layer.', 13);
+            }
+            $paramsCollection[] = array(
+                'dataset' => Utils::getCurrentDataset(),
+                'param_name' => 'layer_count',
+                'param_value' => $layer_l_counter,
+                'param_type' => 'rbuddy'
+            );     
+
+            self::removeParamsDataset();
             foreach ($paramsCollection as $item) {
                 $item['found'] = true;
                 $paramEntity = $paramsDataTable->findOrCreate(
@@ -489,12 +530,14 @@ class Utils
                     ],
                     function ($entity) use ($item) { // creation callback
                         $entity->param_value = $item['param_value'];
+                        $entity->param_type = $item['param_type'];
                         $item['found'] = false;
                     }
                 );
     
                 if ($item['found']) {
                     $paramEntity->param_value = $item['param_value'];
+                    $paramEntity->param_type = $item['param_type'];
                     $paramsDataTable->save($paramEntity);
                 }
             }
@@ -529,7 +572,7 @@ class Utils
                 }           
                 
                 // skip non calibration field
-                if (strcmp($data[$fieldTypeIndex], 'snow_calib_map') != 0) {
+                if (strcmp($data[$fieldTypeIndex], 'rbuddy_calib_map') != 0) {
                     continue;
                 }
 
@@ -4033,8 +4076,15 @@ class Utils
             'GS_end_month' => 'Growth Season End Month',
             // params   
             'yield' => 'Specific yield m3/m3 adjusted for layer',        
-            'yield_val' => 'Values greater or equal than 0'         
-            // output            
+            'yield_val' => 'Values greater or equal than 0',   
+            // export params
+            'layer_l' => 'Layer lower bound',
+            'layer_l_val' => 'Numerical value',
+            'layer_h' => 'Layer upper bound',
+            'layer_h_val' => 'Numerical value',
+            'layer_yield' => 'Specific yield m3/m3 adjusted for layer',
+            'layer_yield_val' => 'Positive value',
+            'layer_count' => 'Number of defined layers'
         );
     }
 
@@ -4105,7 +4155,20 @@ class Utils
 
             if(strcmp($key, 'gs_end_month') == 0){
                 return 'GS_end_month';
-            }           
+            }   
+            
+        // export config params
+            if (strpos($key, 'layer_l') !== false) {
+                return 'layer_l';
+            }
+
+            if (strpos($key, 'layer_h') !== false) {
+                return 'layer_h';
+            }
+
+            if (strpos($key, 'layer_yield') !== false) {
+                return 'layer_yield';
+            }
 
         return $key;
     }    

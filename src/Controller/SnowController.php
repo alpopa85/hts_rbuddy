@@ -43,7 +43,7 @@ class SnowController extends AppController
             'ucd3' => Utils::getUcdAvgMethod('ucd3')            
         ));
 
-        $this->exportPrefix = 'RECHARGE BUDDY_';        
+        $this->exportPrefix = 'RBUDDY_';        
         $now = Time::now();
         $this->exportSuffix = '_' . $now->toTimeString() . '.csv';
     }
@@ -302,12 +302,12 @@ class SnowController extends AppController
         $response = $this->response;
 
         $exportEngine = new ExportEngine(ExportEngine::INPUT_EXPORT);        
-        $data = $exportEngine->exportSnowConfiguration();
+        $data = $exportEngine->exportGlobalConfiguration();
 
         $response = $response->withStringBody($data);
 
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'outputConfig' . $this->exportSuffix);        
+        $response = $response->withDownload($this->exportPrefix . 'config' . $this->exportSuffix);        
         return $response;
     } 
     

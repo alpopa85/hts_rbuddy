@@ -44,7 +44,7 @@ class InputController extends AppController
             // 'ucd5' => Utils::getUcdAvgMethod('ucd5'),
         ));
         
-        $this->exportPrefix = 'RECHARGE BUDDY_';        
+        $this->exportPrefix = 'RBUDDY_';        
         $now = Time::now();
         $this->exportSuffix = '_' . $now->toTimeString() . '.csv';
     }
@@ -279,7 +279,7 @@ class InputController extends AppController
         $response = $response->withStringBody($data);
 
         $response = $response->withType('csv');
-        $response = $response->withDownload($this->exportPrefix . 'globalConfig' . $this->exportSuffix);        
+        $response = $response->withDownload($this->exportPrefix . 'config' . $this->exportSuffix);        
         return $response;
     } 
 
