@@ -371,7 +371,7 @@
                     extend: 'csv',
                     filename: () => {
                         var now = Date.now();
-                        return 'RECHARGE BUDDY_swData_' + now;
+                        return 'RBUDDY_swData_' + now;
                     }
                 },
                 // {
@@ -420,7 +420,7 @@
                     extend: 'csv',
                     filename: () => {
                         var now = Date.now();
-                        return 'RECHARGE BUDDY_swStats_' + now;
+                        return 'RBUDDY_swStats_' + now;
                     }
                 },
                 // {
@@ -474,7 +474,7 @@
                     extend: 'csv',
                     filename: () => {         
                         var now = Date.now();               
-                        return 'RECHARGE BUDDY_soilCalib_' + now;
+                        return 'RBUDDY_soilCalib_' + now;
                     }
                 }             
             ],
