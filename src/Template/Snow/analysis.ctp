@@ -39,7 +39,7 @@
                     <div class="card-header myAccordionHeader" id="headingOne">
                         <h5 class="mb-0">
                             <button data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-flex justify-content-between" type="button">
-                                <span>Specific yield (m<sup>3</sup>/m<sup>3</sup>) for layers</span>
+                                <span>Vertical distribution of specific yield (m<sup>3</sup>/m<sup>3</sup>)</span>
                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </button>
                         </h5>
@@ -50,15 +50,15 @@
                             <div class="form-group" id="param-group">
                                 <div class="row">                                    
                                     <div class="col col-3 offset-2">
-                                        <span data-toggle="tooltip" title="<?= $tooltips['yield'] ?>">Layer lower bound</span>
+                                        <span data-toggle="tooltip" title="<?= $tooltips['yield'] ?>">Layer lower bound (masl)</span>
                                     </div>
 
                                     <div class="col col-3">
-                                        <span data-toggle="tooltip" title="<?= $tooltips['yield'] ?>">Layer upper bound</span>
+                                        <span data-toggle="tooltip" title="<?= $tooltips['yield'] ?>">Layer upper bound (masl)</span>
                                     </div>
 
                                     <div class="col col-4">
-                                        <span data-toggle="tooltip" title="<?= $tooltips['yield'] ?>">Yield</span>                                        
+                                        <span data-toggle="tooltip" title="<?= $tooltips['yield'] ?>">Specific yield</span>                                        
                                     </div>
                                 </div>
 
@@ -96,12 +96,15 @@
                             </div>   
                             
                             <div class="row mt-4" id="overlapError" style="display:none">
-                                <div class="col col-11 offset-1 alert-danger text-center">
-                                    <h4>Fix the intervals before running the analysis:</h4><br/>
-                                    <h5>- the intervals must be numeric<br/>
-                                    - the intervals must not overlap<br/>
-                                    - the lower bound must be smaller than the higher bound<br/>                                    
-                                    - the yield value must be a positive number</h5>
+                                <div class="col col-11 offset-1 alert-danger text-left">
+                                    <div class="text-center">
+                                        <h4>Error!</h4>
+                                    </div>                                    
+                                    <h5>- all values must be numeric<br/>
+                                    - depths of the layers are entered as elevations (masl - meters above sea level)<br/>
+                                    - the elevation intervals should not overlap<br/>                                    
+                                    - the lower bound elevation should be smaller than the upper bound elevation for each layer<br/>
+                                    - the specific yield values should be between 0 and 1</h5>
                                 </div>                                    
                             </div>    
                         </div>

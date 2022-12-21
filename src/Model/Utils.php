@@ -1473,10 +1473,10 @@ class Utils
                 $item->time_index,
                 $item->time_name,
                 Utils::formatDataDecimals('elevation', $item->elevation),
-                Utils::formatDataDecimals('elev_change', $item->elev_change),
-                Utils::formatDataDecimals('aquif_storage_change', $item->aquif_storage_change),               
+                Utils::formatDataDecimals('elev_change', $item->elev_change),                          
                 Utils::formatDataDecimals('gw_recharge', $item->gw_recharge),
-                Utils::formatDataDecimals('gw_discharge', $item->gw_discharge)
+                Utils::formatDataDecimals('gw_discharge', $item->gw_discharge),
+                Utils::formatDataDecimals('aquif_storage_change', $item->aquif_storage_change),     
             );
 
             // add validation data fields
@@ -3526,10 +3526,10 @@ class Utils
                 return Utils::validateInputDate($data);
                 break;
             case 'elevation':
-                return Utils::validateInputelevation($data);
+                return Utils::validateInputElevation($data);
                 break;
             case 'elev_change':
-                return Utils::validateInputelev_change($data);
+                return Utils::validateInputElevChange($data);
                 break;
             case 'aquif_storage_change':
                 return Utils::validateInputRain($data);
@@ -3564,7 +3564,7 @@ class Utils
         return false;
     }
 
-    private static function validateInputelevation($data)
+    private static function validateInputElevation($data)
     {
         if ($data != null) {
             if (($data >= -90) && ($data <= 60)) {
@@ -3575,7 +3575,7 @@ class Utils
         return false;
     }
 
-    private static function validateInputelev_change($data)
+    private static function validateInputElevChange($data)
     {
         if ($data != null) {
             if ($data >= 0) {
@@ -4064,12 +4064,14 @@ class Utils
     {
         return array(
             'ELEVATION' => 'Ground Water Table Elevation (meters above sea level)',   
-            'ELEV_CHANGE' => 'Change in Elevation (mm)',
+            'WT_ELEVATION' => 'Ground Water Table Elevation (meters above sea level)',   
+            'ELEV_CHANGE' => 'Change in Water Table Elevation (mm)',
+            'WT_ELEV_CHANGE' => 'Change in Water Table Elevation (mm)',
             'AQUIF_STORAGE_CHANGE' => 'Change in Aquifer Storage (mm)',
             'GW_RECHARGE' => 'Groundwater Recharge (mm)',
             'GW_DISCHARGE' => 'Groundwater Discharge (mm)',
             'UCD' => 'User calibration data',
-            'UCD1' => 'User calibration data',
+            'UCD1' => 'User calibration data',            
             'UCD2' => 'User calibration data',
             'UCD3' => 'User calibration data',            
             'GS_start_day' => 'Growth Season Start Day',
@@ -4078,7 +4080,7 @@ class Utils
             'GS_end_month' => 'Growth Season End Month',
             // params   
             'yield' => 'Specific yield m3/m3 adjusted for layer',        
-            'yield_val' => 'Values greater or equal than 0',   
+            'yield_val' => 'Values between 0 and 1',   
             // export params
             'layer_l' => 'Layer lower bound',
             'layer_l_val' => 'Numerical value',
@@ -4127,20 +4129,20 @@ class Utils
             
         // output
             if(strcmp($key, 'elev_change') == 0){
-                return 'ELEV_CHANGE (mm)';
+                return 'Change in WT Elev. (mm)';
             }
 
             if(strcmp($key, 'aquif_storage_change') == 0){
-                return 'AQUIF_STORAGE_CHANGE (cm)';
+                return 'Change in Aquif. Storage (cm)';
             }
 
             if(strcmp($key, 'gw_recharge') == 0){
-                return 'GW_RECHARGE (mm)';
+                return 'Groundwater Recharge (mm)';
             }    
             
             if(strcmp($key, 'gw_discharge') == 0){
-                return 'GW_DISCHARGE (mm)';
-            } 
+                return 'Groundwater Discharge (mm)';
+            }         
 
         // metadata
             if(strcmp($key, 'gs_start_day') == 0){
@@ -4174,6 +4176,39 @@ class Utils
 
         return $key;
     }    
+
+    public static function getCalibrationKey($key)
+    {        
+        if(strcmp($key, 'elev_change') == 0){
+            return 'WT_ELEV_CHANGE';
+        }
+
+        if(strcmp($key, 'aquif_storage_change') == 0){
+            return 'AQUIF_STORAGE_CHANGE';
+        }
+
+        if(strcmp($key, 'gw_recharge') == 0){
+            return 'GW_RECHARGE';
+        }    
+        
+        if(strcmp($key, 'gw_discharge') == 0){
+            return 'GW_DISCHARGE';
+        } 
+
+        if(strcmp($key, 'ucd1') == 0){
+            return 'UCD1';
+        }
+
+        if(strcmp($key, 'ucd2') == 0){
+            return 'UCD2';
+        }
+
+        if(strcmp($key, 'ucd3') == 0){
+            return 'UCD3';
+        }   
+
+        return $key;
+    }
 
     public static function setStopAnalysisFlag($status)
     {
@@ -4907,31 +4942,31 @@ class Utils
 
             'layer_l_0' => 0,
             'layer_h_0' => 25,
-            'layer_yield_0' => 0.1,
+            'layer_yield_0' => 0.05,
             
             'layer_l_1' => 25,
             'layer_h_1' => 28,
-            'layer_yield_1' => 0.105,
+            'layer_yield_1' => 0.0525,
 
             'layer_l_2' => 28,
             'layer_h_2' => 30,
-            'layer_yield_2' => 0.11,
+            'layer_yield_2' => 0.055,
 
             'layer_l_3' => 30,
             'layer_h_3' => 31.5,
-            'layer_yield_3' => 0.115,
+            'layer_yield_3' => 0.0575,
 
             'layer_l_4' => 31.5,
             'layer_h_4' => 33,
-            'layer_yield_4' => 0.12,
+            'layer_yield_4' => 0.06,
 
             'layer_l_5' => 33,
             'layer_h_5' => 35,
-            'layer_yield_5' => 0.125,
+            'layer_yield_5' => 0.0625,
 
             'layer_l_6' => 35,
-            'layer_h_6' => 8848,
-            'layer_yield_6' => 0.13
+            'layer_h_6' => 75,
+            'layer_yield_6' => 0.065
         ];
         
         return $snowDefaultParams;

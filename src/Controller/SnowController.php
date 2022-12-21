@@ -97,7 +97,7 @@ class SnowController extends AppController
 
         $calibFieldNames = [];
         foreach(Utils::getSnowCalibrationFields() as $key => $value) {            
-            $calibFieldNames[$key] = explode(' ', Utils::transformKey($value))[0];
+            $calibFieldNames[$key] = Utils::getCalibrationKey($value);
         }
         $this->set('calibration', $calibFieldNames);
 
@@ -114,7 +114,7 @@ class SnowController extends AppController
         
         $calibFieldNames = [];
         foreach(Utils::getSnowCalibrationFields() as $key => $value) {            
-            $calibFieldNames[$key] = explode(' ', Utils::transformKey($value))[0];
+            $calibFieldNames[$key] = Utils::getCalibrationKey($value);
         }
         $this->set('calibration', $calibFieldNames);
         // Log::debug($calibFieldNames);
@@ -550,10 +550,10 @@ class SnowController extends AppController
         $newDataLine = array(
             'Avg',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['average']),            
-            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['average']),   
-            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['average']),   
+            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['average']),               
             Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['average']),   
-            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['average'])   
+            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['average']),
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['average']),    
         );
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
@@ -564,10 +564,10 @@ class SnowController extends AppController
         $newDataLine = array(
             'Min',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['minimum']),  
-            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['minimum']),   
-            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['minimum']),   
+            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['minimum']),               
             Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['minimum']),   
-            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['minimum'])             
+            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['minimum']),
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['minimum'])             
         );
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
@@ -578,10 +578,10 @@ class SnowController extends AppController
         $newDataLine = array(
             'Max',
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['maximum']),   
-            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['maximum']),   
-            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['maximum']),   
+            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['maximum']),               
             Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['maximum']),   
-            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['maximum'])              
+            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['maximum']),
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['maximum'])            
         );
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
@@ -592,10 +592,10 @@ class SnowController extends AppController
         $newDataLine = array(
             'Std Dev',      
             Utils::formatDataDecimals('elevation', Utils::fetchSnowStatsFromDb('elevation', $startDate, $endDate)[0]['std_dev']),  
-            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['std_dev']),   
-            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['std_dev']),   
+            Utils::formatDataDecimals('elev_change', Utils::fetchSnowStatsFromDb('elev_change', $startDate, $endDate)[0]['std_dev']),               
             Utils::formatDataDecimals('gw_recharge', Utils::fetchSnowStatsFromDb('gw_recharge', $startDate, $endDate)[0]['std_dev']),   
-            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['std_dev'])              
+            Utils::formatDataDecimals('gw_discharge', Utils::fetchSnowStatsFromDb('gw_discharge', $startDate, $endDate)[0]['std_dev']),
+            Utils::formatDataDecimals('aquif_storage_change', Utils::fetchSnowStatsFromDb('aquif_storage_change', $startDate, $endDate)[0]['std_dev'])          
         );    
         // add validation data fields
         for ($i = 0; $i < Utils::getValidationColumnsCount(); $i++) {
