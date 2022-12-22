@@ -195,15 +195,24 @@ class AveragingEngine
         //     $this->aggregateGrowingSeasons();
         // }
 
+        // typical day averaging
         $this->runTypicalDaily();
+
+        // interval averaging based on typical day
         $this->adjustWorkingTablesForTypicalYear();
         $this->runTypicalMonthly();
+        $this->runSpecialElevationChange(self::AVERAGE_MONTH);                
         $this->runTypicalYearly();
+        $this->runSpecialElevationChange(self::AVERAGE_YEAR);
         $this->runTypicalSpring();
+        $this->runSpecialElevationChange(self::AVERAGE_SPRING);
         $this->runTypicalSummer();
+        $this->runSpecialElevationChange(self::AVERAGE_SUMMER);
         $this->runTypicalFall();
+        $this->runSpecialElevationChange(self::AVERAGE_FALL);
         $this->runTypicalWinter();
-        // $this->aggregateSeasons();
+        $this->runSpecialElevationChange(self::AVERAGE_WINTER);
+        $this->aggregateSeasons();
         // if (Utils::isSetGrowthSeason()){
         //     $this->runTypicalGrowthSeasonIn();
         //     $this->runTypicalGrowthSeasonOut();
