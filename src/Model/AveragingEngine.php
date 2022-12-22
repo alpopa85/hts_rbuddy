@@ -181,13 +181,13 @@ class AveragingEngine
         $this->runYearly();
         $this->runSpecialElevationChange(self::AVERAGE_YEAR);
         $this->runSpring();
-        // $this->runSpecialElevationChange(self::AVERAGE_SPRING);
+        $this->runSpecialElevationChange(self::AVERAGE_SPRING);
         $this->runSummer();
-        // $this->runSpecialElevationChange(self::AVERAGE_SUMMER);
+        $this->runSpecialElevationChange(self::AVERAGE_SUMMER);
         $this->runFall();
-        // $this->runSpecialElevationChange(self::AVERAGE_FALL);
+        $this->runSpecialElevationChange(self::AVERAGE_FALL);
         $this->runWinter();
-        // $this->runSpecialElevationChange(self::AVERAGE_WINTER);
+        $this->runSpecialElevationChange(self::AVERAGE_WINTER);
         $this->aggregateSeasons();        
         // if (Utils::isSetGrowthSeason()){
         //     $this->runGrowthSeasonIn();
@@ -281,6 +281,9 @@ class AveragingEngine
         $conditions = null;
 
         $query = $this->sourceDataTable->find();        
+        $queryWhereDataset = [
+            'dataset' => $this->dataset
+        ];
 
         switch ($type){
             case self::AVERAGE_MONTH:
@@ -291,12 +294,40 @@ class AveragingEngine
                 $select = ['time_year'];
                 $group = ['time_year'];
                 break;
+            case self::AVERAGE_SPRING:
+                $select = ['time_year'];
+                $group = ['time_year'];
+                $queryWhere = array_merge($queryWhereDataset,[
+                    'time_month >=' => 3,
+                    'time_month <' => 6
+                ]);
+                break;
+            case self::AVERAGE_SUMMER:
+                $select = ['time_year'];
+                $group = ['time_year'];
+                $queryWhere = array_merge($queryWhereDataset,[
+                    'time_month >=' => 6,
+                    'time_month <' => 9
+                ]);
+                break;
+            case self::AVERAGE_FALL:
+                $select = ['time_year'];
+                $group = ['time_year'];
+                $queryWhere = array_merge($queryWhereDataset,[
+                    'time_month >=' => 9,
+                    'time_month <' => 12    
+                ]);
+                break;
+            case self::AVERAGE_WINTER:
+                $select = ['time_year'];
+                $group = ['time_year'];
+                $queryWhere = array_merge($queryWhereDataset,[
+                    'time_month >=' => 1,
+                    'time_month <' => 3    
+                ]);
+                break;
         }
-        
-        $queryWhere = [
-            'dataset' => $this->dataset
-        ];
-
+                
         $query->select($select);       
         if (!empty($group)){
             $query->group($group);
@@ -306,30 +337,66 @@ class AveragingEngine
         }               
         $data = $query->toArray();    
 
-        foreach($data as $rows) {
+        foreach($data as $row) {
             $newQuery = $this->sourceDataTable->find();
             $newQuery->select('elevation');        
 
             switch($type){
                 case self::AVERAGE_MONTH:
-                    $conditions = [
-                        'time_month' => $rows['time_month'],
-                        'time_year' => $rows['time_year']
+                    $elevQueryConditions = [
+                        'time_month' => $row['time_month'],
+                        'time_year' => $row['time_year']
                     ];  
                     break;              
                 case self::AVERAGE_YEAR:
-                    $conditions = [
-                        'time_year' => $rows['time_year']
+                    $elevQueryConditions = [
+                        'time_year' => $row['time_year']
                     ];         
+                    break;
+                case self::AVERAGE_SPRING:
+                    $elevQueryConditions = [
+                        'time_year' => $row['time_year'],
+                        'time_month >=' => 3,
+                        'time_month <' => 6
+                    ];                             
+                    break;
+                case self::AVERAGE_SUMMER:
+                    $elevQueryConditions = [
+                        'time_year' => $row['time_year'],
+                        'time_month >=' => 6,
+                        'time_month <' => 9
+                    ];                             
+                    break;
+                case self::AVERAGE_FALL:
+                    $elevQueryConditions = [
+                        'time_year' => $row['time_year'],
+                        'time_month >=' => 9,
+                        'time_month <' => 12    
+                    ];                             
+                    break;
+                case self::AVERAGE_WINTER:
+                    $elevQueryConditions = [
+                        'time_year' => $row['time_year'],
+                        'time_month >=' => 1,
+                        'time_month <' => 3    
+                    ];                             
                     break;
             }                   
             
-            $newQuery->where(array_merge($queryWhere, $conditions));
+            $newQuery->where(array_merge($queryWhereDataset, $elevQueryConditions));
             $newQuery->orderAsc('time_day');  
             $elevationData = $newQuery->toArray();    
 
-            Log::debug('interval: ' . $rows);
+            Log::debug('interval: ' . $row);
             $firstValue = $elevationData[0]['elevation'];
+            // workaround for winter (take month 12 of previous year)
+            if ($type == self::AVERAGE_WINTER) {
+                $firstValueLastDecember = $this->getFirstElevationLastDecember($row['time_year']);
+                if ($firstValueLastDecember) {
+                    Log::debug('firstValueLastDecember: ' . $firstValueLastDecember);
+                    $firstValue = $firstValueLastDecember;                    
+                }
+            }
             Log::debug('firstValue: ' . $firstValue);
             $lastValue = $elevationData[count($elevationData)-1]['elevation'];
             Log::debug('lastValue: ' . $lastValue);
@@ -343,12 +410,43 @@ class AveragingEngine
             switch($type){
                 case self::AVERAGE_MONTH:
                     $targetDataTable = $this->monthlyDataTable;
+                    $updateConditions = [
+                        'time_month' => $row['time_month'],
+                        'time_year' => $row['time_year']
+                    ];  
                     break;              
                 case self::AVERAGE_YEAR:
                     $targetDataTable = $this->yearlyDataTable;      
+                    $updateConditions = [
+                        'time_year' => $row['time_year']
+                    ];  
+                    break;
+                case self::AVERAGE_SPRING:
+                    $targetDataTable = $this->springDataTable;      
+                    $updateConditions = [
+                        'time_year' => $row['time_year']
+                    ];  
+                    break;
+                case self::AVERAGE_SUMMER:
+                    $targetDataTable = $this->summerDataTable;      
+                    $updateConditions = [
+                        'time_year' => $row['time_year']
+                    ];  
+                    break;
+                case self::AVERAGE_FALL:
+                    $targetDataTable = $this->fallDataTable;      
+                    $updateConditions = [
+                        'time_year' => $row['time_year']
+                    ];  
+                    break;
+                case self::AVERAGE_WINTER:
+                    $targetDataTable = $this->winterDataTable;      
+                    $updateConditions = [
+                        'time_year' => $row['time_year']
+                    ];  
                     break;
             }
-            $this->updateOutputRow($targetKey, $conditions, $targetDataTable);
+            $this->updateOutputRow($targetKey, $updateConditions, $targetDataTable);
         }                        
 
         /*
@@ -440,6 +538,23 @@ class AveragingEngine
                 ];
                 break;                      
         }*/                
+    }
+
+    private function getFirstElevationLastDecember($currentYear)
+    {
+        $query = $this->sourceDataTable->find();
+
+        $querySelect = ['elevation'];
+        $query->select($querySelect);                           
+        $query->where([
+            'dataset =' => $this->dataset,
+            'time_month =' => 12,
+            'time_year =' => $currentYear-1    
+        ]);   
+        $query->orderAsc('time_day');          
+        $data = $query->first(); 
+
+        return $data ? $data['elevation'] : null;
     }
 
     public function runYearly()
