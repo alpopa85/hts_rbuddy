@@ -396,20 +396,20 @@ class AveragingEngine
             $newQuery->orderAsc('time_day');  
             $elevationData = $newQuery->toArray();    
 
-            Log::debug('interval: ' . $row);
+            // Log::debug('interval: ' . $row);
             $firstValue = $elevationData[0]['elevation'];
             // workaround for winter (take month 12 of previous year)
             if ($type == self::AVERAGE_WINTER) {
                 $firstValueLastDecember = $this->getFirstElevationLastDecember($row['time_year']);
                 if ($firstValueLastDecember) {
-                    Log::debug('firstValueLastDecember: ' . $firstValueLastDecember);
+                    // Log::debug('firstValueLastDecember: ' . $firstValueLastDecember);
                     $firstValue = $firstValueLastDecember;                    
                 }
             }
-            Log::debug('firstValue: ' . $firstValue);
+            // Log::debug('firstValue: ' . $firstValue);
             $lastValue = $elevationData[count($elevationData)-1]['elevation'];
-            Log::debug('lastValue: ' . $lastValue);
-            Log::debug('elevationChange: ' . ($lastValue - $firstValue) * 1000);            
+            // Log::debug('lastValue: ' . $lastValue);
+            // Log::debug('elevationChange: ' . ($lastValue - $firstValue) * 1000);            
 
             // update output
             $targetKey = [
@@ -456,97 +456,7 @@ class AveragingEngine
                     break;
             }
             $this->updateOutputRow($targetKey, $updateConditions, $targetDataTable);
-        }                        
-
-        /*
-        switch($sortBy){
-            case self::AVERAGE_YEAR:
-            default:
-                $querySelect = array_merge($select, ['time_year']);
-                $queryGroup = 'time_year';
-                $queryWhere = [
-                    'dataset =' => $this->dataset
-                ];
-                break;
-            case self::AVERAGE_MONTH:
-                $querySelect = array_merge($select, ['time_year', 'time_month']);
-                $queryGroup = 'time_year, time_month';
-                $queryWhere = [
-                    'dataset =' => $this->dataset
-                ];
-                break;
-            case self::AVERAGE_SPRING:
-                $querySelect = array_merge($select, ['time_year']);
-                $queryGroup = 'time_year';
-                $queryWhere = [
-                    'dataset =' => $this->dataset,
-                    'time_month >=' => 3,
-                    'time_month <' => 6
-                ];
-                break;
-            case self::AVERAGE_SUMMER:
-                $querySelect = array_merge($select, ['time_year']);
-                $queryGroup = 'time_year';
-                $queryWhere = [
-                    'dataset =' => $this->dataset,
-                    'time_month >=' => 6,
-                    'time_month <' => 9
-                ];
-                break;
-            case self::AVERAGE_FALL:
-                    $querySelect = array_merge($select, ['time_year']);
-                    $queryGroup = 'time_year';
-                    $queryWhere = [
-                        'dataset =' => $this->dataset,
-                        'time_month >=' => 9,
-                        'time_month <' => 12    
-                    ];
-                    break;
-            case self::AVERAGE_WINTER:
-                $querySelect = array_merge($select, ['time_year']);
-                $queryGroup = 'time_year';
-                $queryWhere = [
-                    'dataset =' => $this->dataset,
-                    'time_month >=' => 1,
-                    'time_month <' => 3    
-                ];
-                break;
-            case self::AVERAGE_TYPICAL_WINTER:
-                $querySelect = array_merge($select, ['time_year']);
-                $queryGroup = 'time_year';
-                $queryWhere = [
-                    'dataset =' => $this->dataset,                    
-                    'time_month IN' => [1,2,12]    
-                ];                
-                break;
-            case self::AVERAGE_GROWTH_SEASON_IN:
-                $querySelect = array_merge($select, ['time_year']);                      
-                $queryGroup = 'time_year';
-                $queryWhere = [
-                    'dataset =' => $this->dataset,
-                    'time_date >=' => $theYear . '-' . $this->params['gs_start_month'] . '-' . $this->params['gs_start_day'],
-                    'time_date <=' => $theYear . '-' . $this->params['gs_end_month'] . '-' . $this->params['gs_end_day']                   
-                ];
-                break;
-            case self::AVERAGE_GROWTH_SEASON_OUT_BEFORE:
-                $querySelect = array_merge($select, ['time_year']);   
-                $queryGroup = 'time_year';
-                $queryWhere = [
-                    'dataset =' => $this->dataset,                    
-                    'time_date >' => ($theYear-1) . '-12-31',
-                    'time_date <' => $theYear . '-' . $this->params['gs_start_month'] . '-' . $this->params['gs_start_day']                    
-                ];
-                break;
-            case self::AVERAGE_GROWTH_SEASON_OUT_AFTER:
-                $querySelect = array_merge($select, ['time_year']);   
-                $queryGroup = 'time_year';
-                $queryWhere = [
-                    'dataset =' => $this->dataset,                    
-                    'time_date >' => $theYear . '-' . $this->params['gs_end_month'] . '-' . $this->params['gs_end_day'],
-                    'time_date <' => ($theYear+1) . '-01-01'
-                ];
-                break;                      
-        }*/                
+        }                                
     }
 
     private function getFirstElevationLastDecember($currentYear)
