@@ -98,7 +98,7 @@
                             <div class="row mt-4" id="overlapError" style="display:none">
                                 <div class="col col-11 offset-1 alert-danger text-left">
                                     <div class="text-center">
-                                        <h4>Error!</h4>
+                                        <h4>Invalid parameters! Requirements:</h4>
                                     </div>                                    
                                     <h5>- all values must be numeric<br/>
                                     - depths of the layers are entered as elevations (masl - meters above sea level)<br/>
@@ -186,11 +186,17 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col text-right">
-                            <button type="button" id="validateButton" class="btn btn-primary">Validate</button>
+                            <button type="button" id="validateButton" style="min-width:50%" class="btn btn-primary">Validate</button>
                         </div>
 
                         <div class="col text-left">
-                            <button type="submit" class="btn btn-success">Run Analysis</button>            
+                            <button type="button" class="btn btn-danger" id="reset-to-default" style="min-width:50%">Reset to Default</button>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-6 offset-3 text-center">
+                            <button type="submit" class="btn btn-success" style="min-width:50%">Run Analysis</button>            
                         </div>
                     </div>
                 </div>                                
@@ -371,6 +377,30 @@
                 return false;
             }
         });        
+
+        $('#reset-to-default').click(() => {
+            async function resetToDefault() {
+                return $.ajax({
+                    url: 'reset-params-to-default',
+                    type: 'post',                    
+                    headers: {
+                        'X-CSRF-Token': csrfToken 
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false               
+                });
+            };
+
+            var redirectUrl = "<?= $this->Url->build([
+                    'controller' => 'snow',
+                    'action' => 'analysis'
+                ], true); ?>"; 
+
+            resetToDefault().finally(function(){                
+                window.location.href = redirectUrl;
+            });       
+        });
 
         $("#uploadParamsForm").submit(async function(e){
             $("#mySpinnerContainer").show();
