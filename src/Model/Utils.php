@@ -4938,35 +4938,27 @@ class Utils
     public static function getDefaultParams()
     {
         $snowDefaultParams = [
-            'layer_count' => 7,
+            'layer_count' => 5,
 
             'layer_l_0' => 0,
-            'layer_h_0' => 25,
-            'layer_yield_0' => 0.05,
-            
-            'layer_l_1' => 25,
-            'layer_h_1' => 28,
-            'layer_yield_1' => 0.0525,
+            'layer_h_0' => 30,
+            'layer_yield_0' => 0.055,
+                        
+            'layer_l_1' => 30,
+            'layer_h_1' => 31.5,
+            'layer_yield_1' => 0.0575,
 
-            'layer_l_2' => 28,
-            'layer_h_2' => 30,
-            'layer_yield_2' => 0.055,
+            'layer_l_2' => 31.5,
+            'layer_h_2' => 33,
+            'layer_yield_2' => 0.06,
 
-            'layer_l_3' => 30,
-            'layer_h_3' => 31.5,
-            'layer_yield_3' => 0.0575,
+            'layer_l_3' => 33,
+            'layer_h_3' => 75,
+            'layer_yield_3' => 0.0625,
 
-            'layer_l_4' => 31.5,
-            'layer_h_4' => 33,
-            'layer_yield_4' => 0.06,
-
-            'layer_l_5' => 33,
-            'layer_h_5' => 35,
-            'layer_yield_5' => 0.0625,
-
-            'layer_l_6' => 35,
-            'layer_h_6' => 75,
-            'layer_yield_6' => 0.065
+            'layer_l_4' => 75,
+            'layer_h_4' => 500,
+            'layer_yield_4' => 0.065
         ];
         
         return $snowDefaultParams;
