@@ -31,19 +31,19 @@
             <tr class="table-primary">
                 <th scope="row">Columns</th>
                 <td>DATE</td>
-                <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">WT ELEVATION</span></td>
+                <td><span data-toggle="tooltip" title="<?= $tooltips['ELEVATION'] ?>">WTELEV</span></td>   
                 <td class="validation-col"><span data-toggle="tooltip" title="<?= $tooltips['UCD'] ?>">UCD</span> (max. 3 columns)</td>
             </tr>
             <tr class="table-info no-wrap-table-row">
                 <th scope="row">Units</th>
-                <td>yyyy-mm-dd</td>
-                <td>masl</td>                                       
+                <td>yyyy-mm-dd</td>                                
+                <td>m</td>               
                 <td>user choice</td>    
             </tr> 
             <tr class="table-info no-wrap-table-row">
                 <th scope="row">Values</th>
-                <td>eg. 2021-12-24</td>
-                <td>larger or equal than 0</td>
+                <td>eg. 2021-12-24</td>                                
+                <td>-1000 to 8000</td>                                           
                 <td>user choice</td>    
             </tr>   
         </thead>
