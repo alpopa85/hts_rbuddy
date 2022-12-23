@@ -248,6 +248,12 @@
                 // console.log('non numeric element', elem);
                 valid = false;
             }
+            if (elem.value < -1000 ) {
+                elem.value = -1000;
+            }
+            if (elem.value > 8000 ) {
+                elem.value = 8000;
+            }
             lowBoundary.push(parseFloat(elem.value));
         }); 
         lowBoundary.sort(function(a,b) {
@@ -260,6 +266,12 @@
             if (isNaN(parseFloat(elem.value))) {
                 // console.log('non numeric element', elem);
                 valid = false;
+            }
+            if (elem.value < -1000 ) {
+                elem.value = -1000;
+            }
+            if (elem.value > 8000 ) {
+                elem.value = 8000;
             }
             highBoundary.push(parseFloat(elem.value));
         });

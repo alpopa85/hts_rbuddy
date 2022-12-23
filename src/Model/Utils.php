@@ -4953,11 +4953,11 @@ class Utils
             'layer_yield_2' => 0.06,
 
             'layer_l_3' => 33,
-            'layer_h_3' => 75,
+            'layer_h_3' => 35,
             'layer_yield_3' => 0.0625,
 
-            'layer_l_4' => 75,
-            'layer_h_4' => 500,
+            'layer_l_4' => 35,
+            'layer_h_4' => 75,
             'layer_yield_4' => 0.065
         ];
         
