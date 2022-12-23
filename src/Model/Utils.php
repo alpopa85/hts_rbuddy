@@ -3771,7 +3771,7 @@ class Utils
         self::removeInputDataset($id);
         self::removeParamsDataset($id);
         self::removeSnowDataset($id);
-        self::removeSoilWaterDataset($id);
+        // self::removeSoilWaterDataset($id);
 
         self::resetUserDataById($id);
     }
