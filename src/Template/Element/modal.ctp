@@ -26,8 +26,8 @@
           <div class="col-4 my-auto text-center"><strong>UCD1</strong></div>
           <div class="col">
             <select class="custom-select" id="ucd1_select" placeholder="Averaging Method">
-              <option value="1" selected>Daily Average</option>
-              <option value="2">Daily Sum</option>
+              <option value="1">Daily Average</option>
+              <option value="2" selected>Daily Sum</option>
             </select>
           </div>
         </div>
@@ -36,8 +36,8 @@
           <div class="col-4 my-auto text-center"><strong>UCD2</strong></div>
           <div class="col">
             <select class="custom-select" id="ucd2_select" placeholder="Averaging Method">
-              <option value="1" selected>Daily Average</option>
-              <option value="2">Daily Sum</option>
+              <option value="1">Daily Average</option>
+              <option value="2" selected>Daily Sum</option>
             </select>
           </div>
         </div>
