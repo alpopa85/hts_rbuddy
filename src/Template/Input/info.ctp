@@ -44,7 +44,7 @@
             </div>
 
             <br/>
-            <h5>Notes:</h5>
+            <h5>Notations:</h5>
 
             <ul>
                 <li>
@@ -57,13 +57,18 @@
                     <h5><span class="underlined">Optional data</span>:
                         <br/>UCD - user calibration data (up to three columns; leave blank if no data is available)</h5>
                 </li>
+            </ul>
 
+            <br/>
+            <h5>Notes:</h5>
+
+            <ul>
                 <li>
                     <h5>The tool requires daily data</h5>
                 </li>
 
                 <li>
-                    <h5>The user input data file must be uploaded using a file with one column dedicated to calendar date, one columns dedicated to input data (WTELEV) and up to three columns reserved for optional user calibration data (UCD1 to UCD3)</h5>
+                    <h5>The user input data file has to be uploaded using a file with 1 column dedicated to calendar date, 1 column dedicated to required input data (WTELEV) and 3 columns reserved for optional user calibration data (UCD1 to UCD3)</h5>
                 </li>
 
                 <li>
@@ -73,7 +78,7 @@
                 <li>
                     <h5>RECHARGE BUDDY includes several input data integrity and quality check routines; however, the user is advised to thoroughly check the input dataset before uploading it to the tool to minimize the risk for erroneous output</h5>
                 </li>                    
-            </ul>          
+            </ul>    
 
             <br/>
             <h5>Consult section <a href="<?= $this->Url->build('/main/index#chapter_3.1');?>">3.1.</a> and section <a href="<?= $this->Url->build('/main/index#chapter_3.3');?>">3.3.</a> for more details.</h5>    

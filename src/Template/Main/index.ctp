@@ -184,7 +184,7 @@
 
                 <h5>For using RECHARGE BUDDY, the users need to upload daily timeseries. The tool accepts source data sets in Comma Separated File (csv) format. The users can use the "Download Sample File" button located on the Upload User Data Page (Load Data) or the "Export Input Data - Daily" menu to obtain a correctly formatted input file that can be used as a model for populating the input data file with user data. The "Export Input Data - Daily" menu becomes available after the test or a user dataset is loaded. The user input file can be uploaded to RECHARGE BUDDY by using the "Upload user data" button. RECHARGE BUDDY allows uploading of files with maximum 7500 rows (~20 years of daily data). It is recommended to split the input data set in blocks of 20 years daily timeseries when the intent is to analyze longer time periods. It should be noted that the tool cannot accommodate missing data (i.e., blank rows in required data columns) or erroneous data entries, and hence it is recommended that the integrity of the source data is verified before uploading. An error message will be displayed, and the user will be redirected to the Load Data page if inconsistencies are detected in the user file.</h5>
 
-                <h5>The input data file consists of a tabular file, with the first row dedicated to the parameter names, 1 column dedicated to calendar date, 1 column dedicated to required input data (WTELEV - Water Table Elevation; m.a.s.l. – meters above sea level) and 3 columns reserved for optional user calibration data (UCD1 to UCD3). The required input data columns have to contain values in all rows, while the optional data columns can be left blank if data is not available. UCD data sets are not restricted to certain parameters and can include time series for any parameter that the user intends to use for comparing with the output from RECHARGE BUDDY. Although UCD data is optional, it provides critical information for adjusting the various coefficients of the tool during the calibration procedure. Examples of calibration time series datasets include groundwater recharge and discharge obtained with other methods, soil water content, stream discharge, infiltration, evapotranspiration, etc.</h5>
+                <h5>The input data file consists of a tabular file, with the first row dedicated to the parameter names, 1 column dedicated to calendar date, 1 column dedicated to required input data (WTELEV - Water Table Elevation; m.a.s.l. – meters above sea level) and 3 columns reserved for optional user calibration data (UCD1 to UCD3). The required input data columns have to contain values in all rows, while the optional data columns (i.e., UCD) can be left blank if data is not available. If UCD data is provided, then all the rows in the respective column(s), except for the column headings, must contain numeric values. UCD data sets are not restricted to certain parameters and can include time series for any parameter that the user intends to use for comparing with the output from RECHARGE BUDDY. Although UCD data is optional, it provides critical information for adjusting the various coefficients of the tool during the calibration procedure. Examples of calibration time series datasets include groundwater recharge and discharge obtained with other methods, soil water content, stream discharge, infiltration, evapotranspiration, etc.</h5>
 
                 <div class="table-responsive text-left pt-2">
 
@@ -221,10 +221,10 @@
                         <tbody>        
                         </tbody>
                     </table>
-                </div>
+                </div>                
 
                 <br/>
-                <h5>Notes:</h5>
+                <h5>Notations:</h5>
 
                 <ul>
                     <li>
@@ -237,13 +237,18 @@
                         <h5><span class="underlined">Optional data</span>:
                             <br/>UCD - user calibration data (up to three columns; leave blank if no data is available)</h5>
                     </li>
+                </ul>
 
+                <br/>
+                <h5>Notes:</h5>
+
+                <ul>
                     <li>
                         <h5>The tool requires daily data</h5>
                     </li>
 
                     <li>
-                        <h5>The user input data file must be uploaded using a file with one column dedicated to calendar date, one columns dedicated to input data (WTELEV) and up to three columns reserved for optional user calibration data (UCD1 to UCD3)</h5>
+                        <h5>The user input data file has to be uploaded using a file with 1 column dedicated to calendar date, 1 column dedicated to required input data (WTELEV) and 3 columns reserved for optional user calibration data (UCD1 to UCD3)</h5>
                     </li>
 
                     <li>
@@ -267,7 +272,7 @@
                 <br/>
                 <br/><h4 class="l2-section" id="chapter_3.4">3.4. Analysis Module</h4><br/>
 
-                <h5>On the Analysis Tab the user must first provide the coefficients required by the tool in the "Vertical distribution of specific yield" and "Calibration mapping" sections of this page. The values of the coefficients can be entered manually using the collapsible menus available under the Analysis Tab or can be uploaded as a set using the "Import configuration file" button available in the same tab. The configuration file can be downloaded using the "Export Configuration File" button under the Analysis Tab (including either default values of the coefficients if the first tool run has not been completed or values of the coefficient as set for the last available run of the tool if the analysis has been completed at least once) or by using "Export Configuration" in the "Export Results" menu (available after one successful run of the module). If needed, the users can also reset all the values of the coefficients to default values by using the "Reset to Default" button available at the bottom at the bottom of the page in the Analysis tab.</h5>          
+                <h5>On the Analysis Tab the user must first provide the coefficients required by the tool in the "Vertical distribution of specific yield" and "Calibration mapping" sections of the page. The values of the coefficients can be entered manually using the collapsible menus available under the Analysis Tab or can be uploaded as a set using the "Import configuration file" button available in the same tab. The "Validate" button at the bottom of the page allows for validation of the values of the coefficients. The configuration file can be downloaded using the "Export Configuration File" button under the Analysis Tab (including either default values of the coefficients if the first tool run has not been completed or values of the coefficient as set for the last available run of the tool if the analysis has been completed at least once) or by using "Export Configuration" in the "Export Results" menu (available after one successful run of the module). If needed, the users can also reset all the values of the coefficients to default values by using the "Reset to Default" button available at the bottom of the page in the Analysis tab.</h5>          
                 
                 <h5>In the "Vertical distribution of specific yield" section of the page the user have to enter the lower and upper bound elevations as well as the specific yield for each layer of the domain. The number of layers can be expanded or reduced using the "+" or "-" buttons at the left of coefficient fields. Lower and upper bound elevations values between -1000 and 8000 m.a.s.l. (meters above sea level) are allowed. Of note, use of depths instead of elevations will result in erroneous results. When entering values in the elevation fields, the user have to check that the depth intervals do not overlap and the lower bound elevation is smaller than the upper bound elevation for each layer. For specific yield, the values have to be between 0 and 1 and the units currently used are m3/m3. For reference, the specific yield values can be converted to percentages if they are multiplied by 100 (e.g., 0.1 m3/m3 is equal to 10%). </h5>
 
@@ -307,7 +312,7 @@
                         </tr>   
                         <tr class="table-info">
                             <td><span data-toggle="tooltip" title="<?= $tooltips['AQUIF_STORAGE_CHANGE'] ?>">Change in aquifer storage (mm)</span></td>
-                            <td>This is calculated on a daily basis as the product of &Delta;WT Elev. and specific yield. When positive, this indicates occurrence (i.e., dominance) of groundwater recharge, and when negative occurrence (i.e., dominance) of groundwater discharge. When the data is displayed using averaging intervals other than daily, this is calculated as the sum of daily changes, and thus, it shows the "net" change in storage over the respective averaging interval. The values calculated in this column are assigned to the Groundwater Recharge if positive and to Groundwater Discharge columns if negative. Consult sections <a href="#chapter_2">2</a> and <a href="#chapter_4">4</a> for additional details.</td>                                                                      
+                            <td>The change in aquifer storage is calculated on a daily basis as the product of &Delta;WT Elev. and specific yield. When positive, this indicates occurrence (i.e., dominance) of groundwater recharge, and when negative occurrence (i.e., dominance) of groundwater discharge. When the data is displayed using averaging intervals other than daily, this is calculated as the sum of daily changes, and thus, it shows the "net" change in storage over the respective averaging interval. The values calculated in this column are assigned to the Groundwater Recharge if positive and to Groundwater Discharge columns if negative. Consult sections <a href="#chapter_2">2</a> and <a href="#chapter_4">4</a> for additional details.</td>                                                                      
                         </tr>                             
                     </thead>
                     <tbody>        
@@ -416,7 +421,7 @@
                 <h5><strong>Table View</strong> allows the user to display data in tabular format using various time steps and intervals. The user can also change the number of lines, filter data based on date or adjust the starting date of the data that is displayed. In the initial Table View, the columns displayed by default are limited to "key" parameters, however the user can change the selection of the parameters to be displayed by selecting the parameters listed above the table. In the respective list, the parameters that are displayed in the table are shown in filled boxes, while the ones that are omitted are included in clear boxes. The "key" parameters are shown in red font when not selected to be displayed. Similar to the Graphical View, univariate statistics (average, minimum, maximum, standard deviation) for selected timeseries and bivariate statistics (R<sup>2</sup>, RMSE, NRMSE<sub>ave</sub>, NRMSE<sub>IQR</sub>, NRMSE<sub>min/max</sub>) for inspecting the fitness of the output are available under the Stats and Calibration Stats tabs, respectively. These statistics are available either for the entire dataset ("Show Complete Dataset Stats" button) or for a selected subset ("Show stats by Interval" button). The tables shown on the statistics pages can be exported individually by using the corresponding CSV button located to the right of the page.</h5>
 
                 <br/>
-                <h5>The <strong>Export Data</strong> tab offers additional options for exporting the entire dataset using various time steps and intervals. The Export Data tab also provides options for exporting statistics and the tool configuration (i.e., values of parameters and coefficients used by the user in the each of the tool modules) The data is currently exported in csv format. The CSV button located at the top right of each table in Table View or in Graphical View can be used if the intent is to export only the data shown in the current window.</h5>
+                <h5>The <strong>Export Data</strong> tab offers additional options for exporting the entire dataset using various time steps and intervals. The Export Data tab also provides options for exporting statistics and the tool configuration (i.e., values of parameters and coefficients used by the user in each of the tool modules). The data is currently exported in csv format. The CSV button located at the top right of each table in Table View or in Graphical View can be used if the intent is to export only the data shown in the current window.</h5>
                                 
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>
             </li>
@@ -499,8 +504,8 @@
                     95 Innovation Rd., Fredericton, NB, E3B 4Z7<br/>
                     Telephone/Téléphone: 506-460-4468<br/>
                     Facsimile/Télécopieur: 506-460-4377<br/>
-                    <a href="mailto:serban.danielescu@ec.gc.ca">serban.danielescu@ec.gc.ca</a><br/>
-                    <a href="mailto:serban.danielescu2@agr.gc.ca">serban.danielescu2@agr.gc.ca</a><br/>               
+                    <!-- <a href="mailto:serban.danielescu@ec.gc.ca">serban.danielescu@ec.gc.ca</a><br/>
+                    <a href="mailto:serban.danielescu2@agr.gc.ca">serban.danielescu2@agr.gc.ca</a><br/>                -->
                     <?= $this->Html->image('email_addresses.png', ['class' => ['img','max-h-300']]); ?>
                 </h5>
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>

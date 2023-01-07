@@ -359,7 +359,7 @@ class ExportEngine
             'Statistic',
             'WT Elevation (masl)',                                     
             'Change in Elevation (mm)',
-            'Change in Aquifer Storage (mm)',
+            'Change in Aquif. Storage (mm)',
             'Groundwater Recharge (mm)',
             'Groundwater Discharge (mm)'            
         );        

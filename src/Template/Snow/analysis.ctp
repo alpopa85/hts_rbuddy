@@ -91,7 +91,7 @@
                             
                             <div class="row mt-4">
                                 <div class="col col-11 offset-1 alert-warning text-center">
-                                    <span>* Data points not covered by any interval will have a conversion factor of 0. *</span>
+                                    <span><i class="fas fa-exclamation-circle"></i> Elevations not included in any interval will have a conversion factor of 0.</span>
                                 </div>                                    
                             </div>   
                             
@@ -102,6 +102,7 @@
                                     </div>                                    
                                     <h5>- all values must be numeric<br/>
                                     - depths of the layers are entered as elevations (masl - meters above sea level)<br/>
+                                    - depths of the layers take values between -1000 and 8000 masl<br/>
                                     - the elevation intervals should not overlap<br/>                                    
                                     - the lower bound elevation should be smaller than the upper bound elevation for each layer<br/>
                                     - the specific yield values should be between 0 and 1</h5>
@@ -187,16 +188,11 @@
                     <div class="row">
                         <div class="col text-right">
                             <button type="button" id="validateButton" style="min-width:50%" class="btn btn-primary">Validate</button>
+                            <button type="submit" id="submitButton" class="btn btn-success" style="min-width:50%; display:none">Run Analysis</button>            
                         </div>
 
                         <div class="col text-left">
                             <button type="button" class="btn btn-danger" id="reset-to-default" style="min-width:50%">Reset to Default</button>
-                        </div>
-                    </div>
-
-                    <div class="row mt-2">
-                        <div class="col-6 offset-3 text-center">
-                            <button type="submit" class="btn btn-success" style="min-width:50%">Run Analysis</button>            
                         </div>
                     </div>
                 </div>                                
@@ -243,18 +239,18 @@
         var valid = true;
 
         var lowBoundary = [];        
-        $('#analysisForm').find(':input[name="layer_l[]"]').each((index,elem) => {
-            if (isNaN(parseFloat(elem.value))) {
+        $('#analysisForm').find(':input[name="layer_l[]"]').each((index,elem) => {            
+            if (isNaN(elem.value)) {
                 // console.log('non numeric element', elem);
                 valid = false;
+            } else {
+                var floatVal = parseFloat(elem.value);
+                if (floatVal < -1000 || floatVal > 8000) {
+                    valid = false;
+                } else {
+                    lowBoundary.push(parseFloat(elem.value));
+                }                
             }
-            if (elem.value < -1000 ) {
-                elem.value = -1000;
-            }
-            if (elem.value > 8000 ) {
-                elem.value = 8000;
-            }
-            lowBoundary.push(parseFloat(elem.value));
         }); 
         lowBoundary.sort(function(a,b) {
             return(a - b);
@@ -263,17 +259,17 @@
 
         var highBoundary = [];
         $('#analysisForm').find(':input[name="layer_h[]"]').each((index,elem) => {
-            if (isNaN(parseFloat(elem.value))) {
+            if (isNaN(elem.value)) {
                 // console.log('non numeric element', elem);
                 valid = false;
-            }
-            if (elem.value < -1000 ) {
-                elem.value = -1000;
-            }
-            if (elem.value > 8000 ) {
-                elem.value = 8000;
-            }
-            highBoundary.push(parseFloat(elem.value));
+            } else {
+                var floatVal = parseFloat(elem.value);
+                if (floatVal < -1000 || floatVal > 8000) {
+                    valid = false;
+                } else {
+                    highBoundary.push(parseFloat(elem.value));
+                }                       
+            }   
         });
         highBoundary.sort(function(a,b) {
             return(a - b);
@@ -281,14 +277,15 @@
         // console.log('highBoundary', highBoundary); 
 
         $('#analysisForm').find(':input[name="layer_yield[]"]').each((index,elem) => {
-            if (isNaN(parseFloat(elem.value))) {
+            if (isNaN(elem.value)) {
                 // console.log('non numeric element', elem);
                 valid = false;
             } else {
-                if (elem.value < 0) {
-                    elem.value = 0;
-                }
-            }            
+                var floatVal = parseFloat(elem.value);
+                if (floatVal < 0 || floatVal > 1) {
+                    valid = false;
+                }                
+            }                 
         });
 
         for (var i=0; i<lowBoundary.length; i++) {
@@ -306,26 +303,20 @@
         if (valid) {
             $("#overlapError").hide();
 
-            $('#validateButton').prop('disabled', true);
-            $('#validateButton').addClass('disabled');
-
-            $('#analysisForm').find(':input[type=submit]').prop('disabled', false);
-            $('#analysisForm').find(':input[type=submit]').removeClass('disabled');
+            $('#validateButton').hide();
+            $('#submitButton').show(); 
         } else {
             $("#overlapError").show();
 
-            $('#validateButton').prop('disabled', false);
-            $('#validateButton').removeClass('disabled');
-
-            $('#analysisForm').find(':input[type=submit]').prop('disabled', true);
-            $('#analysisForm').find(':input[type=submit]').addClass('disabled');
+            $('#validateButton').show();
+            $('#submitButton').hide();
         }
     }
 
     $(document).ready(function() {
         var csrfToken = <?= json_encode($this->request->getParam('_csrfToken')) ?>;
         validateConfigFileForm();
-        validateParams();    
+        // validateParams();    
 
         $('.add-param-row').click(function(e) {
             // console.log(e.currentTarget.parentElement.parentElement);  
@@ -354,21 +345,16 @@
                 });
 
             validateParams();
-        });       
+        });  
+        
+        $('#analysisForm').on('input', ':input', function(e) {            
+            $('#validateButton').show();
+            $('#submitButton').hide();            
+        });
         
         $('#validateButton').click(() => {
             validateParams();
-        })
-       
-        $('#analysisForm').on('change', ':input', function(e) {
-            $('#validateButton').prop('disabled', false);
-            $('#validateButton').removeClass('disabled');
-
-            $('#analysisForm').find(':input[type=submit]').prop('disabled', true);
-            $('#analysisForm').find(':input[type=submit]').addClass('disabled');
-
-            validateParams();
-        });    
+        })              
              
         $('#uploadParamsForm').find(':input[name=inputDataFile]').change(function(){     
             // alert($('#uploadParamsForm').find(':input[name=inputDataFile]').val());

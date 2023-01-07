@@ -268,16 +268,7 @@ class Utils
         if (($readHandle = fopen($sourceFile, "r")) !== FALSE) {
 
             $timeSeriesColIndex = 0;
-            $elevationSeriesColIndex = 1;
-            // $elev_changeSeriesColIndex = 2;
-            // $rainSeriesColIndex = 3;
-            // $etSeriesColIndex = 4;
-
-            // $ucd1SeriesColIndex = 5;
-            // $ucd2SeriesColIndex = 6;
-            // $ucd3SeriesColIndex = 7;
-            // $ucd4SeriesColIndex = 8;
-            // $ucd5SeriesColIndex = 9;
+            $elevationSeriesColIndex = 1;            
 
             $vdSeriesStartColIndex = 2;
             $vdSeriesColNames = ['ucd1', 'ucd2', 'ucd3'];
@@ -315,59 +306,34 @@ class Utils
 
                 if (Utils::validateInput('elevation', $data[$elevationSeriesColIndex]) == false) {
                     Utils::removeCompleteDataset();
-                    Log::error('Elevation must be larger or equal than 0.');
-                    throw new Exception('Elevation must be larger or equal than 0 [Line ' . ($rowCounter + 1) . ']');
+                    Log::error('Elevation must be between -1000 and 8000 masl.');
+                    throw new Exception('Elevation must be between -1000 and 8000 masl [Line ' . ($rowCounter + 1) . ']');
                 }
-
-                /*
-                if (Utils::validateInput('elev_change', $data[$elev_changeSeriesColIndex]) == false) {
-                    Utils::removeCompleteDataset();
-                    Log::error('elev_changeitation must be between 0 and 1800.');
-                    throw new Exception('elev_changeitation must be between 0 and 1800 [Line ' . ($rowCounter + 1) . ']');
-                }
-
-                if (Utils::validateInput('aquif_storage_change', $data[$rainSeriesColIndex]) == false) {
-                    Utils::removeCompleteDataset();
-                    Log::error('Rain amount must be between 0 and 1800.');
-                    throw new Exception('Rain amount must be between 0 and 1800 [Line ' . ($rowCounter + 1) . ']');
-                }
-
-                if (Utils::validateInput('gw_recharge', $data[$etSeriesColIndex]) == false) {
-                    Utils::removeCompleteDataset();
-                    Log::error('Evapotranspiration must be between 0 and 100.');
-                    throw new Exception('Evapotranspiration must be between 0 and 100 [Line ' . ($rowCounter + 1) . ']');
-                }*/
 
                 /* validation fields */
-                // if (Utils::validateInput('ucd1', $data[$ucd1SeriesColIndex]) == false) {
-                //     Utils::removeCompleteDataset();
-                //     Log::error('Soil Moisture must be between 0 and 100.');
-                //     throw new Exception('Soil Moisture must be between 0 and 100 [Line ' . ($rowCounter + 1) . ']');
-                // }
+                if ($completedVdColumns > 0) {
+                    if (Utils::validateInput('ucd', $data[$vdSeriesStartColIndex]) == false) {
+                        Utils::removeCompleteDataset();
+                        Log::error('UCD1 must be numeric.');
+                        throw new Exception('UCD1 must be numeric [Line ' . ($rowCounter + 1) . ']');
+                    }
+                }
 
-                // if (Utils::validateInput('ucd2', $data[$ucd2SeriesColIndex]) == false) {
-                //     Utils::removeCompleteDataset();
-                //     Log::error('Groundwater Recharge must be between 0 and 500.');
-                //     throw new Exception('Groundwater Recharge must be between 0 and 500 [Line ' . ($rowCounter + 1) . ']');
-                // }
+                if ($completedVdColumns > 1) {
+                    if (Utils::validateInput('ucd', $data[$vdSeriesStartColIndex+1]) == false) {
+                        Utils::removeCompleteDataset();
+                        Log::error('UCD2 must be numeric.');
+                        throw new Exception('UCD2 must be numeric [Line ' . ($rowCounter + 1) . ']');
+                    }
+                }
 
-                // if (Utils::validateInput('ucd3', $data[$ucd3SeriesColIndex]) == false) {
-                //     Utils::removeCompleteDataset();
-                //     Log::error('Groundwater Recharge must be between 0 and 500.');
-                //     throw new Exception('Groundwater Recharge must be between 0 and 500 [Line ' . ($rowCounter + 1) . ']');
-                // }
-
-                // if (Utils::validateInput('ucd4', $data[$ucd4SeriesColIndex]) == false) {
-                //     Utils::removeCompleteDataset();
-                //     Log::error('Groundwater Recharge must be between 0 and 500.');
-                //     throw new Exception('Groundwater Recharge must be between 0 and 500 [Line ' . ($rowCounter + 1) . ']');
-                // }
-
-                // if (Utils::validateInput('ucd5', $data[$ucd5SeriesColIndex]) == false) {
-                //     Utils::removeCompleteDataset();
-                //     Log::error('Groundwater Recharge must be between 0 and 500.');
-                //     throw new Exception('Groundwater Recharge must be between 0 and 500 [Line ' . ($rowCounter + 1) . ']');
-                // }
+                if ($completedVdColumns > 2) {
+                    if (Utils::validateInput('ucd', $data[$vdSeriesStartColIndex+2]) == false) {
+                        Utils::removeCompleteDataset();
+                        Log::error('UCD3 must be numeric.');
+                        throw new Exception('UCD3 must be numeric [Line ' . ($rowCounter + 1) . ']');
+                    }
+                }  
 
                 $dateDetails = Utils::getDateForInputDataFormat($data[$timeSeriesColIndex], self::DATE_FORMAT);
 
@@ -578,11 +544,21 @@ class Utils
                     continue;
                 }
 
+                $fieldNameValue = $data[$fieldRawNameIndex];
+                if (!in_array($data[$fieldRawNameIndex], ['elev_change', 'aquif_storage_change', 'gw_recharge', 'gw_discharge'])) {
+                    $fieldNameValue = 'gw_recharge';
+                }
+
+                $ucdFieldValue = $data[$fieldValueIndex];
+                if (!in_array($data[$fieldValueIndex], ['ucd1', 'ucd2', 'ucd3'])) {
+                    $ucdFieldValue = 'ucd1';
+                }
+
                 $newData = array(
                     'dataset' => Utils::getCurrentDataset(),
-                    'output_field' => $data[$fieldRawNameIndex],
-                    'ucd_field' => $data[$fieldValueIndex]
-                );       
+                    'output_field' => $fieldNameValue,
+                    'ucd_field' => $ucdFieldValue
+                );      
                 
                 $calibCollection[] = $newData;               
             }
@@ -3528,27 +3504,9 @@ class Utils
             case 'elevation':
                 return Utils::validateInputElevation($data);
                 break;
-            case 'elev_change':
-                return Utils::validateInputElevChange($data);
-                break;
-            case 'aquif_storage_change':
-                return Utils::validateInputRain($data);
-                break;
-            case 'gw_recharge':
-                return Utils::validateInputEt($data);
-                break;
-            // case 'snow':
-            //     return Utils::validateInputSnowpack($data);
-            //     break;
-            // case 'sm':
-            //     return Utils::validateInputSoilMoisture($data);
-            //     break;
-            // case 'sr':
-            //     return Utils::validateInputSurfaceRunoff($data);
-            //     break;
-            // case 'rch':
-            //     return Utils::validateInputGroundwaterRecharge($data);
-            //     break;
+            case 'ucd':
+                return Utils::validateInputUcd($data);
+                break;  
         }
     }
 
@@ -3557,6 +3515,10 @@ class Utils
         if ($data != null) {
             if (preg_match('/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', $data)) // YYYY-MM-DD
             {
+                $year = explode('-', $data)[0];                       
+                if ($year > 9999) {
+                    return false;
+                }
                 return true;
             }
         }
@@ -3566,8 +3528,9 @@ class Utils
 
     private static function validateInputElevation($data)
     {
-        if ($data != null) {
-            if (($data >= -90) && ($data <= 60)) {
+        $value = filter_var($data, FILTER_VALIDATE_FLOAT);
+        if ($value !== false) {
+            if (($data >= -1000) && ($data <= 8000)) {
                 return true;
             }
         }
@@ -3575,80 +3538,15 @@ class Utils
         return false;
     }
 
-    private static function validateInputElevChange($data)
+    private static function validateInputUcd($data)
     {
-        if ($data != null) {
-            if ($data >= 0) {
-                if ($data <= 1800) {
-                    return true;
-                }
-            }
+        $value = filter_var($data, FILTER_VALIDATE_FLOAT);
+        if ($value !== false) {
+            return true;
         }
 
         return false;
-    }
-
-    private static function validateInputRain($data)
-    {
-        if ($data != null) {
-            if ($data >= 0) {
-                if ($data <= 1800) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    private static function validateInputEt($data)
-    {
-        if ($data != null) {
-            if ($data >= 0) {
-                if ($data <= 100) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    // private static function validateInputSnowpack($data)
-    // {
-    //     if ($data >= 0) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
-
-    // private static function validateInputSoilMoisture($data)
-    // {
-    //     if (($data >= 0) && ($data <= 100)) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
-
-    // private static function validateInputSurfaceRunoff($data)
-    // {
-    //     if ($data >= 0) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
-
-    // private static function validateInputGroundwaterRecharge($data)
-    // {
-    //     if ($data >= 0) {
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
+    }  
 
     // ADMIN STUFF //
     public static function hasAdminAccess()
@@ -4067,7 +3965,7 @@ class Utils
             'WT_ELEVATION' => 'Ground Water Table Elevation (meters above sea level)',   
             'ELEV_CHANGE' => 'Change in Water Table Elevation (mm)',
             'WT_ELEV_CHANGE' => 'Change in Water Table Elevation (mm)',
-            'AQUIF_STORAGE_CHANGE' => 'Change in Aquifer Storage (mm)',
+            'AQUIF_STORAGE_CHANGE' => 'Change in Aquif. Storage (mm)',
             'GW_RECHARGE' => 'Groundwater Recharge (mm)',
             'GW_DISCHARGE' => 'Groundwater Discharge (mm)',
             'UCD' => 'User calibration data',
@@ -4133,7 +4031,7 @@ class Utils
             }
 
             if(strcmp($key, 'aquif_storage_change') == 0){
-                return 'Change in Aquif. Storage (cm)';
+                return 'Change in Aquif. Storage (mm)';
             }
 
             if(strcmp($key, 'gw_recharge') == 0){
@@ -4887,6 +4785,7 @@ class Utils
 
     public static function calculatePearsonCoefficient($targetTable, $y, $y_estimate, $startIndex, $endIndex)
     {
+        // Log::debug('start: ' . $startIndex . ' end: ' . $endIndex);
         $table = TableRegistry::getTableLocator()->get($targetTable);    
 
         $whereCondition = function (QueryExpression $exp, Query $query) use ($startIndex, $endIndex) {
