@@ -103,9 +103,9 @@
                                     <h5>- all values must be numeric<br/>
                                     - depths of the layers are entered as elevations (masl - meters above sea level)<br/>
                                     - depths of the layers take values between -1000 and 8000 masl<br/>
-                                    - the elevation intervals should not overlap<br/>                                    
-                                    - the lower bound elevation should be smaller than the upper bound elevation for each layer<br/>
-                                    - the specific yield values should be between 0 and 1</h5>
+                                    - the elevation intervals cannot overlap<br/>                                    
+                                    - the lower bound elevation has to be smaller than the upper bound elevation for each layer<br/>
+                                    - the specific yield has to be between 0 and 1</h5>
                                 </div>                                    
                             </div>    
                         </div>
@@ -304,12 +304,13 @@
             $("#overlapError").hide();
 
             $('#validateButton').hide();
-            $('#submitButton').show(); 
+            $('#submitButton').show();             
         } else {
             $("#overlapError").show();
 
             $('#validateButton').show();
             $('#submitButton').hide();
+            $("#collapseOne").collapse('show');
         }
     }
 

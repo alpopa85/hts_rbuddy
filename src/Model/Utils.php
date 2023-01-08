@@ -434,6 +434,11 @@ class Utils
                 if (strcmp(explode('_', $data[$fieldTypeIndex])[1], 'param') != 0) {
                     continue;
                 }
+
+                $value = filter_var($data[$fieldValueIndex], FILTER_VALIDATE_FLOAT);
+                if ($value === false) {
+                    throw new Exception('Erroneous configuration file! Value submitted for ' . $data[$fieldNameIndex] . ' is not numeric.', 13);
+                }
                 
                 switch($data[$fieldNameIndex]) {
                     case 'layer_l':                        
