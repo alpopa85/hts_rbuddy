@@ -400,7 +400,7 @@ class AveragingEngine
             $newQuery->orderAsc('time_day');  
             $elevationData = $newQuery->toArray();    
 
-            Log::debug('interval: ' . $row);
+            // Log::debug('interval: ' . $row);
             $firstValue = $elevationData[0]['elevation'];
             // workaround for winter (take month 12 of previous year)
             if ($type == self::AVERAGE_WINTER) {
@@ -1878,8 +1878,8 @@ class AveragingEngine
 
     private function updateOutputRow($keyValue, $conditions, $table)
     {
-        Log::debug('keyValue ' . json_encode($keyValue));
-        Log::debug('conditions ' . json_encode($conditions));
+        // Log::debug('keyValue ' . json_encode($keyValue));
+        // Log::debug('conditions ' . json_encode($conditions));
         // Log::debug('table ' . json_encode($table));
 
         $outputEntity = $table->find()
