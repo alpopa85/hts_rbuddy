@@ -1878,12 +1878,12 @@ class AveragingEngine
             ->where(array_merge(['dataset' => $this->dataset], $conditions))
             ->first();   
 
-        // Log::debug('Updating ' . json_encode($outputEntity));
+        Log::debug('Updating ' . json_encode($outputEntity));
         $keys = array_keys($keyValue);
         foreach ($keys as $key){            
             $outputEntity->$key = $keyValue[$key];
         }
-        // Log::debug('Updated ' . json_encode($outputEntity));
+        Log::debug('Updated ' . json_encode($outputEntity));
         $table->save($outputEntity);
     }
 
