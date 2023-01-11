@@ -239,8 +239,8 @@
         var valid = true;
 
         var lowBoundary = [];        
-        $('#analysisForm').find(':input[name="layer_l[]"]').each((index,elem) => {            
-            if (isNaN(elem.value)) {
+        $('#analysisForm').find(':input[name="layer_l[]"]').each((index,elem) => {                          
+            if (isNaN(elem.value) || elem.value.trim() === '') {
                 // console.log('non numeric element', elem);
                 valid = false;
             } else {
@@ -259,7 +259,7 @@
 
         var highBoundary = [];
         $('#analysisForm').find(':input[name="layer_h[]"]').each((index,elem) => {
-            if (isNaN(elem.value)) {
+            if (isNaN(elem.value) || elem.value.trim() === '') {
                 // console.log('non numeric element', elem);
                 valid = false;
             } else {
@@ -277,7 +277,7 @@
         // console.log('highBoundary', highBoundary); 
 
         $('#analysisForm').find(':input[name="layer_yield[]"]').each((index,elem) => {
-            if (isNaN(elem.value)) {
+            if (isNaN(elem.value) || elem.value.trim() === '') {
                 // console.log('non numeric element', elem);
                 valid = false;
             } else {
