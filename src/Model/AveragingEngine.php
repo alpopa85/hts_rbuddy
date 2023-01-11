@@ -289,6 +289,8 @@ class AveragingEngine
         $query = null;
         $conditions = null;
 
+        Log::debug('getCurrentDataset: ' . Utils::getCurrentDataset());
+        Log::debug('dataset: ' . $this->dataset);
         $query = $this->sourceDataTable->find();        
         $queryWhereDataset = [
             'dataset' => $this->dataset
@@ -396,7 +398,7 @@ class AveragingEngine
             $newQuery->orderAsc('time_day');  
             $elevationData = $newQuery->toArray();    
 
-            // Log::debug('interval: ' . $row);
+            Log::debug('interval: ' . $row);
             $firstValue = $elevationData[0]['elevation'];
             // workaround for winter (take month 12 of previous year)
             if ($type == self::AVERAGE_WINTER) {
@@ -1876,18 +1878,18 @@ class AveragingEngine
     {
         Log::debug('keyValue ' . json_encode($keyValue));
         Log::debug('conditions ' . json_encode($conditions));
-        Log::debug('table ' . json_encode($table));
+        // Log::debug('table ' . json_encode($table));
 
         $outputEntity = $table->find()
             ->where(array_merge(['dataset' => $this->dataset], $conditions))
             ->first();   
 
-        Log::debug('Updating ' . json_encode($outputEntity));
+        // Log::debug('Updating ' . json_encode($outputEntity));
         $keys = array_keys($keyValue);
         foreach ($keys as $key){            
             $outputEntity->$key = $keyValue[$key];
         }
-        Log::debug('Updated ' . json_encode($outputEntity));
+        // Log::debug('Updated ' . json_encode($outputEntity));
         $table->save($outputEntity);
     }
 

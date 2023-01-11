@@ -1,6 +1,6 @@
 <?php
 
 return [
-    "current_version" => "2023.01.08c"
+    "current_version" => "2023.01.08d"
 ];
 ?>
