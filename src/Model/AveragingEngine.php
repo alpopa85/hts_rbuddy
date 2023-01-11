@@ -1874,6 +1874,10 @@ class AveragingEngine
 
     private function updateOutputRow($keyValue, $conditions, $table)
     {
+        Log::debug('keyValue ' . json_encode($keyValue));
+        Log::debug('conditions ' . json_encode($conditions));
+        Log::debug('table ' . json_encode($table));
+
         $outputEntity = $table->find()
             ->where(array_merge(['dataset' => $this->dataset], $conditions))
             ->first();   
