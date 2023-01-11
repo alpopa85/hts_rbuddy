@@ -289,8 +289,8 @@ class AveragingEngine
         $query = null;
         $conditions = null;
 
-        Log::debug('getCurrentDataset: ' . Utils::getCurrentDataset());
-        Log::debug('dataset: ' . $this->dataset);
+        // Log::debug('getCurrentDataset: ' . Utils::getCurrentDataset());
+        // Log::debug('dataset: ' . $this->dataset);
         $query = $this->sourceDataTable->find();        
         $queryWhereDataset = [
             'dataset' => $this->dataset
@@ -300,10 +300,12 @@ class AveragingEngine
             case self::AVERAGE_MONTH:
                 $select = ['time_month', 'time_year'];
                 $group = ['time_year', 'time_month'];
+                $queryWhere = $queryWhereDataset;
                 break;
             case self::AVERAGE_YEAR:
                 $select = ['time_year'];
                 $group = ['time_year'];
+                $queryWhere = $queryWhereDataset;
                 break;
             case self::AVERAGE_SPRING:
                 $select = ['time_year'];
