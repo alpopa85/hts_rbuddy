@@ -94,7 +94,7 @@
                 <h5>Citation:<br/>
 
                 <h5><span style="font-style:italic">Danielescu S (2022) Groundwater Recharge Estimation Tool (RECHARGE BUDDY) - A web-based tool. Reference Manual.</span>
-                <br/>Available at <a href="https://rbuddy.hydrotools.tech">https://sbuddy.hydrotools.tech</a>.</h5>
+                <br/>Available at <a href="https://rbuddy.hydrotools.tech">https://rbuddy.hydrotools.tech</a>.</h5>
                 <div class="text-right"><a href="#contents">&rarr; Table of Contents</a></div>
             </li>            
 
