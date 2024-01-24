@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://swib.hydrotools.tech/sitemap.xml
+Sitemap: https://rbuddy.hydrotools.tech/sitemap.xml

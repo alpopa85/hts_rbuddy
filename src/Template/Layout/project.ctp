@@ -3,7 +3,10 @@
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RECHARGE BUDDY">
+    <meta name="description" content='RECHARGE BUDDY is an online tool that allows for estimation of daily groundwater recharge using an adaptation of the Water Table Fluctuation (WTF) method for multi-layered systems. The tool requires user provided aquifer (or material) specific yield and daily water table elevations. The tool is free to use and does not require user registration.'>
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://rbuddy.hydrotools.tech" />
+
     <title>        
         <?= $title ? $title : $this->fetch('title') ?>
     </title>
@@ -110,6 +113,15 @@
     //]]></script>
     <!-- END OF POSITIVE SSL STUFF -->  
 </head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXBRKJR7ZE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  console.log('GoogleAnalytics init');
+  gtag('js', new Date());
+  gtag('config', 'G-HXBRKJR7ZE');
+</script>
+
 <body>    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <?= $this->Html->link(
