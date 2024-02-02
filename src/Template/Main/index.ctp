@@ -91,7 +91,7 @@
                 <h5>RECHARGE BUDDY has been developed through a collaborative research effort between Canadian Rivers Institute (CRI), University of New Brunswick (UNB), Agriculture and Agri-Food Canada (AAFC) and Environment and Climate Change Canada (ECCC). RECHARGE BUDDY is the result of a larger research effort aimed at evaluating the effects of agricultural production systems on groundwater and surface water quantity and quality. RECHARGE BUDDY is part of Hydrology Tool Set (HTS; <a href="https://portal.hydrotools.tech">https://portal.hydrotools.tech</a>). HTS includes additional applications, such as SepHydro (daily baseflow / hydrograph separation; 11 methods), ETCalc (daily potential, reference and actual evapotranspiration estimation; 8 methods), SWIB (daily estimation of soil water stress, crop water deficit, irrigation requirement and its impact on aquifer storage, water balance components), SNOSWAB (daily estimation of snow related processes and water balance budget) and SNOW BUDDY (daily estimation of snowfall and rainfall amounts).</h5>
 
                 <br/>
-                <h5>Citation:<br/>
+                <h5>If you have employed RECHARGE BUDDY, we are kindly asking for the following citation to be included in your publication:<br/>
 
                 <h5><span style="font-style:italic">Danielescu S (2022) Groundwater Recharge Estimation Tool (RECHARGE BUDDY) - A web-based tool. Reference Manual.</span>
                 <br/>Available at <a href="https://rbuddy.hydrotools.tech">https://rbuddy.hydrotools.tech</a>.</h5>
